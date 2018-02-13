@@ -3,7 +3,7 @@
     <g :transform="baseTranslate">
       <circle :cx="0" :cy="0" :r="radiusSize"></circle>
       <template v-for="(obj,county,index) of countyData">
-        <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :personAttributes="getPeopleData(county)">
+        <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift">
         </Petal> 
       </template>
     </g>
