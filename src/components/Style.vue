@@ -1,8 +1,8 @@
 <template>
-  <g>
+  <g><!--
     <template v-for="(personEmitted,person,personIndex) of filaments">
       <path :d="calculateFilament(personEmitted.x, personEmitted.y)" />
-    </template>
+    </template>-->
     <circle :cx="xPosition" :cy="yPosition" :r="radiusSize"></circle>
   </g>
 </template>
