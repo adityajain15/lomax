@@ -1,24 +1,43 @@
 <template>
-  <svg :height="elementHeight" class="bloom" :id="state">
-    <g :transform="baseTranslate">
-      <circle :cx="0" :cy="0" :r="radiusSize"></circle>
-      <template v-for="(obj,county,index) of countyData">
-        <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift">
-        </Petal> 
-      </template>
-    </g>
-  </svg>
+  <div>
+    <PetalTooltip :tooltipData="petalData" :elementWidth="elementWidth"></PetalTooltip>
+    <svg :height="elementHeight" class="bloom" :id="state">
+      <defs>
+        <radialGradient id="RadialGradient1">
+          <stop offset="0%" stop-color="#fccae6"/>
+          <stop offset="100%" stop-color="#ffffff"/>
+        </radialGradient>
+        <radialGradient id="RadialGradient2">
+          <stop offset="0%" stop-color="#9cc4fc"/>
+          <stop offset="100%" stop-color="#ffffff"/>
+        </radialGradient>
+        <radialGradient id="RadialGradient3">
+          <stop offset="0%" stop-color="#ffa04c"/>
+          <stop offset="100%" stop-color="#ffffff"/>
+        </radialGradient>
+      </defs>
+      <g :transform="baseTranslate">
+        <template v-for="(obj,county,index) of countyData">
+          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" v-on:petaldataUpdate="petaldataUpdate">
+          </Petal> 
+        </template>
+        <circle :cx="0" :cy="0" :r="radiusSize"></circle>
+      </g>
+    </svg>
+  </div>
 </template>
 
 <script>
 import Petal from './Petal'
+import PetalTooltip from './PetalTooltip'
 import {TweenMax} from 'gsap'
 require('waypoints/lib/noframework.waypoints.js')
 
 export default {
   name: 'Bloom',
   components: {
-    Petal
+    Petal,
+    PetalTooltip
   },
   props: ['data', 'people', 'state'],
   data: function () {
@@ -26,7 +45,8 @@ export default {
       unfurled: false,
       angleShift: Math.PI,
       elementWidth: 500,
-      elementHeight: 500
+      elementHeight: 500,
+      petalData: {}
     }
   },
   mounted: function () {
@@ -72,6 +92,9 @@ export default {
     }
   },
   methods: {
+    petaldataUpdate: function (petalData) {
+      this.petalData = petalData
+    },
     handleResize: function () {
       this.elementWidth = this.$el.clientWidth
       this.elementHeight = this.halfWidth
@@ -102,5 +125,9 @@ export default {
 <style scoped>
   svg{
     width: 100%;
+    background: linear-gradient(to right, #141e30, #243b55);
+  }
+  circle{
+    fill: url(#RadialGradient1);
   }
 </style>
