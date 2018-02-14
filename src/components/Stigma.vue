@@ -9,11 +9,11 @@
 import { EventBus } from './event-bus.js'
 export default {
   name: 'Stigma',
-  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county', 'personRecord'],
-  watch: {
+  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county'],
+  watch: {/*
     xPosition: function () {
       EventBus.$emit('cordsChange', {x: this.xPosition, y: this.yPosition, person: this.person, county: this.county})
-    }
+    }*/
   },
   computed: {
     pathData: function () {
