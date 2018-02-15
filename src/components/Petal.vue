@@ -2,20 +2,20 @@
   <g>
     <path :d="petalPathData" stroke="black" class="petalFillament fillament"/>
     <template v-for="(personObject, person, personIndex) of peopleData">
-      <path v-if="isFirstLayer(personIndex)" :d="stamenPathData(personIndex)" class="stamenFillament fillament"/>
+      <path v-if="inPerformerFilter(person,true)" :d="stamenPathData(personIndex)" class="stamenFillament fillament"/>
     </template>
     <template v-for="(songObject, songIndex) of this.obj">
       <template v-for="(personName, personIndex) of songObject['Contributor Names']">
-        <path v-if="notCollector(personName)" :d="stylePathData(personName,songIndex)" class="styleFillament fillament"/>
+        <path v-if="notCollector(personName)&&inPerformerFilter(personName,true)" :d="stylePathData(personName,songIndex)" class="styleFillament fillament"/>
       </template>
     </template>
     <template v-for="(songObject, songIndex) of this.obj">
-      <circle :cx="styleX(songIndex)" :cy="styleY(songIndex)" :r="styleRadius" class="song"></circle>
+      <circle v-if="inPerformerFilter(songObject,false)" :cx="styleX(songIndex)" :cy="styleY(songIndex)" :r="styleRadius" class="song"></circle>
     </template>
     <template v-for="(personObject, person, personIndex) of peopleData">
-      <circle :cx="stamenX(personIndex,person)" :cy="stamenY(personIndex, person)" :r="stamenRadius" :performer="person" :class="getPersonClass(person)"></circle>
+      <circle v-if="inPerformerFilter(person,true)" :cx="stamenX(personIndex,person)" :cy="stamenY(personIndex, person)" :r="stamenRadius" :performer="person" :county="county" :class="getPersonClass(person)" v-on:mouseenter="stamenEnter" v-on:mouseleave="stamenLeave"></circle>
     </template>
-    <circle :cx="petalX" :cy="petalY" :r="petalRadius" class="petals" :id="county" v-on:mouseover="petalEnter" v-on:mouseleave="petalLeave"></circle>
+    <circle :cx="petalX" :cy="petalY" :r="petalRadius" class="petals" :id="county" v-on:mouseenter="petalEnter" v-on:mouseleave="petalLeave"></circle>
   </g>
 </template>
 
@@ -23,16 +23,28 @@
 
 export default {
   name: 'Petal',
-  props: ['obj', 'county', 'index', 'angleSize', 'halfWidth', 'angleShift'],
+  props: ['obj', 'county', 'index', 'angleSize', 'halfWidth', 'angleShift', 'peopleAttributes'],
   data () {
     return {
       stamenXData: {},
-      stamenYData: {}
+      stamenYData: {},
+      performerFilter: ''
     }
   },
   methods: {
+    inPerformerFilter: function (comparisonObject, isPathFlag) {
+      if (this.performerFilter === '') return true
+      if (isPathFlag) {
+        return comparisonObject === this.performerFilter
+      } else {
+        for (let i = 0; i < comparisonObject['Contributor Names'].length; i++) {
+          if (comparisonObject['Contributor Names'][i] === this.performerFilter) return true
+        }
+        return false
+      }
+    },
     getPersonClass: function (person) {
-      
+      return `${this.getPersonAttributes(person).Data.includes('Black') ? 'black' : ''}${this.getPersonAttributes(person).Data.includes('Mexican') ? 'mexican' : ''}${this.getPersonAttributes(person).Data.includes('Lomax') ? 'lomax' : ''}`
     },
     petalEnter: function (mouseEvent) {
       const emitData = {'peopleData': this.peopleData, songs: this.obj, county: this.county, mouseCords: [mouseEvent.layerX, mouseEvent.layerY], display: true}
@@ -42,8 +54,14 @@ export default {
       const emitData = {mouseCords: [mouseEvent.layerX, mouseEvent.layerY], display: false, county: this.county, 'peopleData': this.peopleData, songs: this.obj}
       this.$emit('petaldataUpdate', emitData)
     },
+    stamenEnter: function (mouseEvent) {
+      this.performerFilter = mouseEvent.srcElement.attributes.performer.value
+    },
+    stamenLeave: function (mouseEvent) {
+      this.performerFilter = ''
+    },
     getPersonAttributes: function (personName) {
-      return this.personAttributes.filter((d) => { return d.name === personName })[0]
+      return this.peopleAttributes.filter((d) => { return d.name === personName })[0]
     },
     stamenLayerPosition: function (personIndex) {
       return (this.stamenArcRadius) + this.stamenLayerIndex(personIndex) * (2 * this.stamenRadius)
@@ -220,8 +238,7 @@ circle:hover{
 }
 circle{
   fill: url(#RadialGradient1);
-  stroke: blue;
-  stroke-opacity: 0;
+
 }
 .petals{
   stroke-width: 4px;
@@ -234,5 +251,11 @@ circle{
 }
 .black{
   fill: url(#RadialGradient2);
+}
+.mexican{
+  fill: url(#RadialGradient3);
+}
+.lomax{
+  fill: url(#RadialGradient4);
 }
 </style>

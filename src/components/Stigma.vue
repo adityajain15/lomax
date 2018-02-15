@@ -9,12 +9,7 @@
 import { EventBus } from './event-bus.js'
 export default {
   name: 'Stigma',
-  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county'],
-  watch: {/*
-    xPosition: function () {
-      EventBus.$emit('cordsChange', {x: this.xPosition, y: this.yPosition, person: this.person, county: this.county})
-    }*/
-  },
+  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county', 'personRecord'],
   computed: {
     pathData: function () {
       return `M${this.petalCords.x} ${this.petalCords.y} C ${this.firstControlPointX} ${this.firstControlPointY}, ${this.secondControlPointX} ${this.secondControlPointY}, ${this.xPosition} ${this.yPosition}`
@@ -70,7 +65,8 @@ export default {
     },
     isFirstLayer: function () {
       return this.layerIndex === 0
-    }
+    },
+    
   }
 }
 </script>

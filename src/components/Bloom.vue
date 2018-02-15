@@ -8,17 +8,21 @@
           <stop offset="100%" stop-color="#ffffff"/>
         </radialGradient>
         <radialGradient id="RadialGradient2">
-          <stop offset="0%" stop-color="#9cc4fc"/>
+          <stop offset="0%" stop-color="#7fb4ff"/>
           <stop offset="100%" stop-color="#ffffff"/>
         </radialGradient>
         <radialGradient id="RadialGradient3">
-          <stop offset="0%" stop-color="#ffa04c"/>
+          <stop offset="0%" stop-color="#ffaf69"/>
+          <stop offset="100%" stop-color="#ffffff"/>
+        </radialGradient>
+        <radialGradient id="RadialGradient4">
+          <stop offset="0%" stop-color="#fc6a6a"/>
           <stop offset="100%" stop-color="#ffffff"/>
         </radialGradient>
       </defs>
       <g :transform="baseTranslate">
         <template v-for="(obj,county,index) of countyData">
-          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" v-on:petaldataUpdate="petaldataUpdate">
+          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :peopleAttributes="people" v-on:petaldataUpdate="petaldataUpdate">
           </Petal> 
         </template>
         <circle :cx="0" :cy="0" :r="radiusSize"></circle>

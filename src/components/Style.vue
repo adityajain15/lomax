@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { EventBus } from './event-bus.js'
+
 
 export default {
   name: 'Style',
@@ -17,13 +17,6 @@ export default {
     return {
       filaments: {}
     }
-  },
-  created: function () {
-    EventBus.$on('cordsChange', resp => {
-      if (this.county === resp.county && this.songObject['Contributor Names'].includes(resp.person)) {
-        this.filaments[resp.person] = {x: resp.x, y: resp.y}
-      }
-    })
   },
   methods: {
     calculateFilament: function (personX, personY) {
