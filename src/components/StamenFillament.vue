@@ -1,15 +1,13 @@
 <template>
-  <g>
-    <path v-if="isFirstLayer" :d="pathData"/>
-    <circle :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" class="person"></circle>
-  </g>
+  <path :d="pathData"/>
 </template>
 
 <script>
-import { EventBus } from './event-bus.js'
+import { store } from '../store'
 export default {
-  name: 'Stigma',
-  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county', 'personRecord'],
+  name: 'StamenFillament',
+  store: store,
+  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county'],
   computed: {
     pathData: function () {
       return `M${this.petalCords.x} ${this.petalCords.y} C ${this.firstControlPointX} ${this.firstControlPointY}, ${this.secondControlPointX} ${this.secondControlPointY}, ${this.xPosition} ${this.yPosition}`
@@ -57,16 +55,23 @@ export default {
     yPosition: function () {
       return -this.layerPosition * Math.sin(this.angle)
     },
+    cordinates: function () {
+      return {x: this.xPosition, y: this.yPosition}
+    },
     layerPosition: function () {
       return (this.arcRadius) + this.layerIndex * (2 * this.radiusSize)
     },
     layerIndex: function () {
       return Math.floor(this.personIndex / this.perLayer)
-    },
-    isFirstLayer: function () {
-      return this.layerIndex === 0
-    },
-    
+    }
+  },
+  created: function () {
+    this.$store.commit('setStamenCords', {county: this.county, name: this.person, ...this.cordinates})
+  },
+  watch: {
+    cordinates: function (newVal, oldVal) {
+      this.$store.commit('setStamenCords', {county: this.county, name: this.person, ...newVal})
+    }
   }
 }
 </script>
@@ -75,11 +80,5 @@ path{
   stroke: black;
   stroke-width: 0.3px;
   fill: transparent;
-}
-circle{
-  fill: #f7cae8;
-}
-circle.beautiful{
-  fill: #75a8f9;
 }
 </style>

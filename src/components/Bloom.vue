@@ -22,7 +22,7 @@
       </defs>
       <g :transform="baseTranslate">
         <template v-for="(obj,county,index) of countyData">
-          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :peopleAttributes="people" v-on:petaldataUpdate="petaldataUpdate">
+          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" v-on:petaldataUpdate="petaldataUpdate">
           </Petal> 
         </template>
         <circle :cx="0" :cy="0" :r="radiusSize"></circle>
@@ -119,7 +119,7 @@ export default {
         let tweenSourceData = {onUpdate: update, ease: Back.easeOut, onUpdateScope: this}
         tweenedData[0] = Math.PI
         tweenSourceData[0] = 0
-        TweenMax.to(tweenedData, 5, tweenSourceData)
+        TweenMax.to(tweenedData, 4, tweenSourceData)
       }
     }
   }
