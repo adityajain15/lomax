@@ -22,7 +22,7 @@
       </defs>
       <g :transform="baseTranslate">
         <template v-for="(obj,county,index) of countyData">
-          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" v-on:petaldataUpdate="petaldataUpdate">
+          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :state="state" v-on:petaldataUpdate="petaldataUpdate">
           </Petal> 
         </template>
         <circle :cx="0" :cy="0" :r="radiusSize"></circle>

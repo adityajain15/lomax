@@ -1,5 +1,5 @@
 <template>
-  <g>
+  <g v-if="isFiltered">
     <path :d="pathData" stroke="black" fill="transparent"/>
     
     <template v-for="(personObject, person, personIndex) of peopleData">
@@ -21,31 +21,43 @@
       </Stamen>
     </template>
 
-    <circle :cx="xPosition" :cy="yPosition" :r="8" :id="county"></circle>
+    <circle :cx="xPosition" :cy="yPosition" :r="8" :class="county" v-on:mouseenter="setPetalFilter(true)" v-on:mouseleave="setPetalFilter(false)"></circle>
   </g>
 </template>
 
 <script>
+import { store } from '../store'
 import StamenFillament from './StamenFillament'
 import Stamen from './Stamen'
 import StyleFillament from './StyleFillament'
 import Style from './Style'
-
 export default {
   name: 'Petal',
+  store: store,
   components: {
     StamenFillament,
     StyleFillament,
     Stamen,
     Style
   },
-  props: ['obj', 'county', 'index', 'angleSize', 'halfWidth', 'angleShift', 'personAttributes'],
+  props: ['obj', 'county', 'index', 'angleSize', 'halfWidth', 'angleShift', 'state'],
   methods: {
     getPersonAttributes: function (personName) {
       return this.personAttributes.filter((d) => { return d.name === personName })[0]
+    },
+    setPetalFilter: function (didEnter) {
+      if (didEnter) {
+        this.$store.commit('setPetalFilter', {state: this.state, county: this.county})
+      } else { this.$store.commit('setPetalFilter', {}) }
     }
   },
   computed: {
+    isFiltered: function () {
+      let theFilter = this.$store.getters.getPetalFilter
+      if (theFilter === {}) { return true }
+      if (!(theFilter.state === this.state)) { return true }
+      return theFilter.county === this.county
+    },
     pathData: function () {
       return `M0 0 C ${this.firstControlPointX} ${this.firstControlPointY}, ${this.secondControlPointX} ${this.secondControlPointY}, ${this.xPosition} ${this.yPosition}`
     },
@@ -101,4 +113,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+circle:hover{
+  cursor: pointer;
+}
 </style>

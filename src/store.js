@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export const store = new Vuex.Store({
   state: {
     stamenCords: {},
-    styleCords: {}
+    styleCords: {},
+    petalFilter: {}
   },
   getters: {
     getStamenCordX: state => {
@@ -38,6 +39,9 @@ export const store = new Vuex.Store({
       return (id) => {
         return state.styleCords[id]
       }
+    },
+    getPetalFilter: state => {
+      return state.petalFilter
     }
   },
   mutations: {
@@ -49,6 +53,9 @@ export const store = new Vuex.Store({
     },
     setStyleCords: (state, styleRecord) => {
       Vue.set(state.styleCords, styleRecord.id, {x: styleRecord.x, y: styleRecord.y})
+    },
+    setPetalFilter: (state, obj) => {
+      state.petalFilter = obj
     }
   }
 })
