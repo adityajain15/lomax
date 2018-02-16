@@ -1,7 +1,7 @@
 <template >
   <g>
     <template v-for="(person,personIndex) of songContributors">
-      <path :d="allPaths[person]" />
+      <path v-if="shouldRender[person]" :d="allPaths[person]" />
     </template>
   </g>
 </template>
@@ -12,7 +12,7 @@ import { store } from '../store'
 export default {
   name: 'StyleFillament',
   store: store,
-  props: ['songObject', 'index', 'songIndex', 'angleSize', 'halfWidth', 'totalSongs', 'angleShift', 'county'],
+  props: ['songObject', 'index', 'songIndex', 'angleSize', 'halfWidth', 'totalSongs', 'angleShift', 'county', 'state'],
   methods: {
     calculateFilament: function (personX, personY) {
       let lineLength = Math.hypot((this.arcRadius * Math.cos(this.angle)) - personX, (-this.arcRadius * Math.sin(this.angle)) - personY)
@@ -32,6 +32,20 @@ export default {
     }
   },
   computed: {
+    shouldRender: function () {
+      let theFilter = this.$store.getters.getStyleFilter
+      let shouldRenderObject = {}
+      if (theFilter === {} || !(theFilter.state === this.state)) {
+        for (let i = 0; i < this.songContributors.length; i++) {
+          shouldRenderObject[this.songContributors[i]] = true
+        }
+        return shouldRenderObject
+      }
+      for (let i = 0; i < this.songContributors.length; i++) {
+        shouldRenderObject[this.songContributors[i]] = theFilter.person.includes(this.songContributors[i]) && theFilter.id.includes(this.songObject['Digital Id'])
+      }
+      return shouldRenderObject
+    },
     radiusSize: function () {
       return 3
     },
@@ -84,7 +98,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 path{
-  stroke: black;
+  stroke: white;
   stroke-width: 0.1px;
   fill: transparent;
 }

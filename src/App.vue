@@ -1,29 +1,30 @@
 <template>
   <div id="app">
-    <Bloom :data="theData" :people="people" state="Mississippi"></Bloom>
-    <Bloom :data="theData" :people="people" state="Texas"></Bloom>
-    <Bloom :data="theData" :people="people" state="Alabama"></Bloom>
-    <Bloom :data="theData" :people="people" state="Arkansas"></Bloom>
-    <Bloom :data="theData" :people="people" state="South Carolina"></Bloom>
-    <Bloom :data="theData" :people="people" state="Louisiana"></Bloom>
-    <Bloom :data="theData" :people="people" state="Florida"></Bloom>
-    <Bloom :data="theData" :people="people" state="Georgia"></Bloom>
+    <Bloom :data="theData" state="Mississippi"></Bloom>
+    <Bloom :data="theData" state="Texas"></Bloom>
+    <Bloom :data="theData" state="Alabama"></Bloom>
+    <Bloom :data="theData" state="Arkansas"></Bloom>
+    <Bloom :data="theData" state="South Carolina"></Bloom>
+    <Bloom :data="theData" state="Louisiana"></Bloom>
+    <Bloom :data="theData" state="Florida"></Bloom>
+    <Bloom :data="theData" state="Georgia"></Bloom>
   </div>
 </template>
 
 <script>
+import { store } from './store'
 import Bloom from './components/Bloom'
 import {json as getJSON} from 'd3-request'
 
 export default {
   name: 'app',
+  store: store,
   components: {
     Bloom
   },
   data () {
     return {
-      theData: [],
-      people: []
+      theData: []
     }
   },
   created: function () {
@@ -31,7 +32,7 @@ export default {
       this.theData = resp
     })
     getJSON('/static/people.json', (resp) => {
-      this.people = resp
+      this.$store.commit('setPeopleData', resp)
     })
   }
 }

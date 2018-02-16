@@ -1,5 +1,5 @@
 <template>
-  <circle :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" class="person"></circle>
+  <circle v-if="shouldRender" :style="styleObject" :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" class="person" v-on:mouseenter="setStamenFilter(true)" v-on:mouseleave="setStamenFilter(false)"></circle>
 </template>
 
 <script>
@@ -7,7 +7,35 @@ import { store } from '../store'
 export default {
   name: 'Stamen',
   store: store,
-  props: ['person', 'county'],
+  data () {
+    return {
+      styleObject: {}
+    }
+  },
+  props: ['person', 'personObject', 'county', 'state'],
+  methods: {
+    setStamenFilter: function (didEnter) {
+      if (didEnter) {
+        this.$store.commit('setPetalFilter', {state: this.state, county: this.county})
+        this.$store.commit('setStamenFilter', {state: this.state, county: this.county, person: [this.person]})
+        this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: [this.person], id: this.allSongs})
+      } else {
+        this.$store.commit('setPetalFilter', {})
+        this.$store.commit('setStamenFilter', {})
+        this.$store.commit('setStyleFilter', {})
+      }
+    }
+  },
+  created: function () {
+    const attributes = this.$store.getters.getPersonData(this.person, this.county)
+    if (attributes.includes('Black')) {
+      this.styleObject['fill'] = 'url(#RadialGradient2)'
+    } else if (attributes.includes('Mexican')) {
+      this.styleObject['fill'] = 'url(#RadialGradient3)'
+    } else if (attributes.includes('Lomax')) {
+      this.styleObject['fill'] = 'url(#RadialGradient4)'
+    }
+  },
   computed: {
     radiusSize: function () {
       return 5
@@ -17,20 +45,18 @@ export default {
     },
     yPosition: function () {
       return this.$store.getters.getStamenCordY({county: this.county, name: this.person})
+    },
+    shouldRender: function () {
+      let theFilter = this.$store.getters.getStyleFilter
+      if (theFilter === {} || !(theFilter.state === this.state)) { return true }
+      return theFilter.person.includes(this.person)
+    },
+    allSongs: function () {
+      return this.personObject.map((d) => { return d['Digital Id'] })
     }
   }
 }
 </script>
 <style scoped>
-path{
-  stroke: black;
-  stroke-width: 0.3px;
-  fill: transparent;
-}
-circle{
-  fill: #f7cae8;
-}
-circle.beautiful{
-  fill: #75a8f9;
-}
+
 </style>

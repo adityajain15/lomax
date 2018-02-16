@@ -1,5 +1,5 @@
 <template>
-  <path :d="pathData"/>
+  <path v-if="shouldRender" :d="pathData"/>
 </template>
 
 <script>
@@ -7,8 +7,14 @@ import { store } from '../store'
 export default {
   name: 'StamenFillament',
   store: store,
-  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county'],
+  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county', 'state'],
   computed: {
+    shouldRender: function () {
+      let theFilter = this.$store.getters.getStamenFilter
+      if (theFilter === {}) { return true }
+      if (!(theFilter.state === this.state)) { return true }
+      return theFilter.person.includes(this.person)
+    },
     pathData: function () {
       return `M${this.petalCords.x} ${this.petalCords.y} C ${this.firstControlPointX} ${this.firstControlPointY}, ${this.secondControlPointX} ${this.secondControlPointY}, ${this.xPosition} ${this.yPosition}`
     },
@@ -77,7 +83,7 @@ export default {
 </script>
 <style scoped>
 path{
-  stroke: black;
+  stroke: white;
   stroke-width: 0.3px;
   fill: transparent;
 }

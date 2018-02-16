@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { store } from '../store'
 import Petal from './Petal'
 import PetalTooltip from './PetalTooltip'
 import {TweenMax} from 'gsap'
@@ -39,11 +40,12 @@ require('waypoints/lib/noframework.waypoints.js')
 
 export default {
   name: 'Bloom',
+  store: store,
   components: {
     Petal,
     PetalTooltip
   },
-  props: ['data', 'people', 'state'],
+  props: ['data', 'state'],
   data: function () {
     return {
       unfurled: false,
@@ -102,9 +104,6 @@ export default {
     handleResize: function () {
       this.elementWidth = this.$el.clientWidth
       this.elementHeight = this.halfWidth
-    },
-    getPeopleData: function (county) {
-      return this.people.filter((d) => { return d.county === county })
     }
   },
   watch: {

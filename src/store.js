@@ -7,7 +7,10 @@ export const store = new Vuex.Store({
   state: {
     stamenCords: {},
     styleCords: {},
-    petalFilter: {}
+    petalFilter: {},
+    stamenFilter: {},
+    styleFilter: {},
+    people: []
   },
   getters: {
     getStamenCordX: state => {
@@ -42,6 +45,17 @@ export const store = new Vuex.Store({
     },
     getPetalFilter: state => {
       return state.petalFilter
+    },
+    getStamenFilter: state => {
+      return state.stamenFilter
+    },
+    getStyleFilter: state => {
+      return state.styleFilter
+    },
+    getPersonData: state => {
+      return (person, county) => {
+        return state.people.filter((d) => d.name === person && d.county === county)[0]['Data']
+      }
     }
   },
   mutations: {
@@ -56,6 +70,15 @@ export const store = new Vuex.Store({
     },
     setPetalFilter: (state, obj) => {
       state.petalFilter = obj
+    },
+    setStamenFilter: (state, obj) => {
+      state.stamenFilter = obj
+    },
+    setStyleFilter: (state, obj) => {
+      state.styleFilter = obj
+    },
+    setPeopleData: (state, resp) => {
+      state.people = resp
     }
   }
 })

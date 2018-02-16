@@ -1,23 +1,23 @@
 <template>
-  <g v-if="isFiltered">
-    <path :d="pathData" stroke="black" fill="transparent"/>
+  <g v-if="shouldRender">
+    <path :d="pathData"/>
     
     <template v-for="(personObject, person, personIndex) of peopleData">
-      <StamenFillament :personObject="personObject" :person="person" :index="index" :personIndex="personIndex" :angleSize="angleSize" :halfWidth="halfWidth" :numPeople="numPeople" :angleShift="angleShift" :petalCords="petalCords" :county="county"></StamenFillament>
+      <StamenFillament :personObject="personObject" :person="person" :index="index" :personIndex="personIndex" :angleSize="angleSize" :halfWidth="halfWidth" :numPeople="numPeople" :angleShift="angleShift" :petalCords="petalCords" :county="county" :state="state"></StamenFillament>
     </template>
 
     <template v-for="(songObject, songIndex) of this.obj">
-      <StyleFillament :songObject="songObject" :index="index" :songIndex="songIndex" :angleSize="angleSize" :halfWidth="halfWidth" :totalSongs="totalSongs" :angleShift="angleShift" :county="county">
+      <StyleFillament :songObject="songObject" :index="index" :songIndex="songIndex" :angleSize="angleSize" :halfWidth="halfWidth" :totalSongs="totalSongs" :angleShift="angleShift" :county="county" :state="state">
       </StyleFillament>
     </template>
 
     <template v-for="(songObject, songIndex) of this.obj">
-      <Style :songObject="songObject">
+      <Style :songObject="songObject" :county="county" :state="state">
       </Style>
     </template>
 
     <template v-for="(personObject, person, personIndex) of peopleData">
-      <Stamen :person="person" :county="county">
+      <Stamen :person="person" :personObject="personObject" :county="county" :state="state">
       </Stamen>
     </template>
 
@@ -52,10 +52,9 @@ export default {
     }
   },
   computed: {
-    isFiltered: function () {
+    shouldRender: function () {
       let theFilter = this.$store.getters.getPetalFilter
-      if (theFilter === {}) { return true }
-      if (!(theFilter.state === this.state)) { return true }
+      if (theFilter === {} || !(theFilter.state === this.state)) { return true }
       return theFilter.county === this.county
     },
     pathData: function () {
@@ -98,10 +97,13 @@ export default {
         for (let j = 0; j < this.obj[i]['Contributor Names'].length; j++) {
           if (!this.obj[i]['Contributor Names'][j].endsWith(' (Collector)') && !peopleSet.has(this.obj[i]['Contributor Names'][j])) {
             peopleSet.add(this.obj[i]['Contributor Names'][j])
-            people[this.obj[i]['Contributor Names'][j]] = this.obj[i]
+            people[this.obj[i]['Contributor Names'][j]] = [this.obj[i]]
+          } else if (!this.obj[i]['Contributor Names'][j].endsWith(' (Collector)') && peopleSet.has(this.obj[i]['Contributor Names'][j])) {
+            people[this.obj[i]['Contributor Names'][j]] = [...people[this.obj[i]['Contributor Names'][j]], this.obj[i]]
           }
         }
       }
+      console.log()
       return people
     },
     totalSongs: function () {
@@ -113,7 +115,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+circle{
+  fill: url(#RadialGradient1);
+}
 circle:hover{
   cursor: pointer;
+}
+path{
+  stroke: white; 
+  fill: transparent;
 }
 </style>
