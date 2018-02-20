@@ -1,5 +1,6 @@
 <template>
-  <circle v-if="shouldRender" :style="styleObject" :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" class="person" v-on:mouseenter="setStamenFilter(true)" v-on:mouseleave="setStamenFilter(false)"></circle>
+  <circle v-if="shouldRender" :style="styleObject" :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" class="person" v-on:mouseenter="setStamenFilter(true)" v-on:mouseleave="setStamenFilter(false)">
+  </circle>
 </template>
 
 <script>
@@ -29,16 +30,16 @@ export default {
   created: function () {
     const attributes = this.$store.getters.getPersonData(this.person, this.county)
     if (attributes.includes('Black')) {
-      this.styleObject['fill'] = 'url(#RadialGradient2)'
+      this.styleObject['fill'] = '7fb4ff'
     } else if (attributes.includes('Mexican')) {
-      this.styleObject['fill'] = 'url(#RadialGradient3)'
+      this.styleObject['fill'] = 'ffaf69'
     } else if (attributes.includes('Lomax')) {
-      this.styleObject['fill'] = 'url(#RadialGradient4)'
+      this.styleObject['fill'] = '#fc6a6a'
     }
   },
   computed: {
     radiusSize: function () {
-      return 5
+      return 4
     },
     xPosition: function () {
       return this.$store.getters.getStamenCordX({county: this.county, name: this.person})
@@ -58,5 +59,7 @@ export default {
 }
 </script>
 <style scoped>
-
+circle{
+  fill: #fccae6;
+}
 </style>

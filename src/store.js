@@ -10,7 +10,8 @@ export const store = new Vuex.Store({
     petalFilter: {},
     stamenFilter: {},
     styleFilter: {},
-    people: []
+    people: [],
+    styleTooltip: ''
   },
   getters: {
     getStamenCordX: state => {
@@ -56,6 +57,45 @@ export const store = new Vuex.Store({
       return (person, county) => {
         return state.people.filter((d) => d.name === person && d.county === county)[0]['Data']
       }
+    },
+    displayStyleTooltip: state => {
+      return !(state.styleTooltip === '')
+    },
+    styleTooltipX: (state, getters) => {
+      if (getters.displayStyleTooltip) {
+        return state.styleTooltip.mouseX
+      }
+      return 0
+    },
+    styleTooltipY: (state, getters) => {
+      if (getters.displayStyleTooltip) {
+        return state.styleTooltip.mouseY
+      }
+      return 0
+    },
+    styleTooltipSongName: (state, getters) => {
+      if (getters.displayStyleTooltip) {
+        return state.styleTooltip.data.Title
+      }
+      return ''
+    },
+    styleTooltipArtists: (state, getters) => {
+      if (getters.displayStyleTooltip) {
+        return state.styleTooltip.data['Contributor Names']
+      }
+      return ''
+    },
+    styleTooltipDate: (state, getters) => {
+      if (getters.displayStyleTooltip) {
+        return state.styleTooltip.data['Created / Published'].date
+      }
+      return ''
+    },
+    styleTooltipPlace: (state, getters) => {
+      if (getters.displayStyleTooltip) {
+        return `${state.styleTooltip.data['Created / Published'].place}, ${state.styleTooltip.data['Created / Published'].place}`
+      }
+      return ''
     }
   },
   mutations: {
@@ -79,6 +119,9 @@ export const store = new Vuex.Store({
     },
     setPeopleData: (state, resp) => {
       state.people = resp
+    },
+    setStyleToolTip: (state, obj) => {
+      state.styleTooltip = obj
     }
   }
 })

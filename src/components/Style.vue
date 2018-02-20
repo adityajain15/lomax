@@ -1,20 +1,34 @@
 <template>
-  <circle v-if="shouldRender" :cx="xPosition" :cy="yPosition" :r="radiusSize" class="song" v-on:mouseenter="setStyleFilter(true)" v-on:mouseleave="setStyleFilter(false)"></circle>
+  <circle v-if="shouldRender" :cx="xPosition" :cy="yPosition" :r="radiusSize" class="song" v-on:mouseenter="setStyleFilter(true, $event)" v-on:mouseleave="setStyleFilter(false, $event)"></circle>
 </template>
 
 <script>
+
 import { store } from '../store'
+import {Howl, Howler} from 'howler'
+
 export default {
   name: 'Style',
   store: store,
   props: ['songObject', 'county', 'state'],
+  data: function () {
+    return {
+      sound: ''
+    }
+  },
   methods: {
-    setStyleFilter: function (didEnter) {
+    setStyleFilter: function (didEnter, event) {
       if (didEnter) {
         this.$store.commit('setPetalFilter', {state: this.state, county: this.county})
         this.$store.commit('setStamenFilter', {state: this.state, county: this.county, person: this.songContributors})
         this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: this.songContributors, id: [this.songObject['Digital Id']]})
+        this.sound = new Howl({
+          src: [this.songObject.audioUrl]})
+        this.$store.commit('setStyleToolTip', {data: this.songObject, mouseX: event.clientX, mouseY: event.clientY})
+        this.sound.play()
       } else {
+        this.$store.commit('setStyleToolTip', '')
+        this.sound.stop()
         this.$store.commit('setPetalFilter', {})
         this.$store.commit('setStamenFilter', {})
         this.$store.commit('setStyleFilter', {})
@@ -28,7 +42,7 @@ export default {
       return theFilter.id.includes(this.songObject['Digital Id'])
     },
     radiusSize: function () {
-      return 3
+      return 4
     },
     xPosition: function () {
       return this.$store.getters.getStyleCordX(this.songObject['Digital Id'])

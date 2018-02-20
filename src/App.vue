@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <StyleTooltip></StyleTooltip>
     <Bloom :data="theData" state="Mississippi"></Bloom>
     <Bloom :data="theData" state="Texas"></Bloom>
     <Bloom :data="theData" state="Alabama"></Bloom>
@@ -13,6 +14,7 @@
 
 <script>
 import { store } from './store'
+import StyleTooltip from './components/StyleTooltip'
 import Bloom from './components/Bloom'
 import {json as getJSON} from 'd3-request'
 
@@ -20,7 +22,8 @@ export default {
   name: 'app',
   store: store,
   components: {
-    Bloom
+    Bloom,
+    StyleTooltip
   },
   data () {
     return {

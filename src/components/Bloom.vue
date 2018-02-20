@@ -1,6 +1,5 @@
 <template>
   <div>
-    <PetalTooltip :tooltipData="petalData" :elementWidth="elementWidth"></PetalTooltip>
     <svg :height="elementHeight" class="bloom" :id="state">
       <defs>
         <radialGradient id="RadialGradient1">
@@ -22,7 +21,7 @@
       </defs>
       <g :transform="baseTranslate">
         <template v-for="(obj,county,index) of countyData">
-          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :state="state" v-on:petaldataUpdate="petaldataUpdate">
+          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :state="state">
           </Petal> 
         </template>
         <circle :cx="0" :cy="0" :r="radiusSize"></circle>
@@ -34,7 +33,6 @@
 <script>
 import { store } from '../store'
 import Petal from './Petal'
-import PetalTooltip from './PetalTooltip'
 import {TweenMax} from 'gsap'
 require('waypoints/lib/noframework.waypoints.js')
 
@@ -42,8 +40,7 @@ export default {
   name: 'Bloom',
   store: store,
   components: {
-    Petal,
-    PetalTooltip
+    Petal
   },
   props: ['data', 'state'],
   data: function () {
@@ -51,8 +48,7 @@ export default {
       unfurled: false,
       angleShift: Math.PI,
       elementWidth: 500,
-      elementHeight: 500,
-      petalData: {}
+      elementHeight: 500
     }
   },
   mounted: function () {
@@ -73,7 +69,7 @@ export default {
       return `translate(${this.elementWidth / 2},${this.elementHeight})`
     },
     radiusSize: function () {
-      return this.halfWidth / 6
+      return this.halfWidth / 10
     },
     halfWidth: function () {
       return this.elementWidth / 2
@@ -98,9 +94,6 @@ export default {
     }
   },
   methods: {
-    petaldataUpdate: function (petalData) {
-      this.petalData = petalData
-    },
     handleResize: function () {
       this.elementWidth = this.$el.clientWidth
       this.elementHeight = this.halfWidth
