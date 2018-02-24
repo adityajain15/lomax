@@ -10,7 +10,7 @@ export default {
   props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county', 'state'],
   computed: {
     shouldRender: function () {
-      let theFilter = this.$store.getters.getStamenFilter
+      let theFilter = this.$store.getters.getStyleFilter
       if (theFilter === {}) { return true }
       if (!(theFilter.state === this.state)) { return true }
       return theFilter.person.includes(this.person)

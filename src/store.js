@@ -7,11 +7,13 @@ export const store = new Vuex.Store({
   state: {
     stamenCords: {},
     styleCords: {},
-    petalFilter: {},
-    stamenFilter: {},
     styleFilter: {},
     people: [],
-    styleTooltip: ''
+    styleTooltip: {},
+    displayStyleTooltip: false,
+    modalData: {},
+    displayModal: false,
+    appWidth: 500
   },
   getters: {
     getStamenCordX: state => {
@@ -44,12 +46,6 @@ export const store = new Vuex.Store({
         return state.styleCords[id]
       }
     },
-    getPetalFilter: state => {
-      return state.petalFilter
-    },
-    getStamenFilter: state => {
-      return state.stamenFilter
-    },
     getStyleFilter: state => {
       return state.styleFilter
     },
@@ -58,44 +54,68 @@ export const store = new Vuex.Store({
         return state.people.filter((d) => d.name === person && d.county === county)[0]['Data']
       }
     },
-    displayStyleTooltip: state => {
-      return !(state.styleTooltip === '')
-    },
     styleTooltipX: (state, getters) => {
-      if (getters.displayStyleTooltip) {
+      if (getters.getDisplayStyleTooltip) {
         return state.styleTooltip.mouseX
       }
       return 0
     },
     styleTooltipY: (state, getters) => {
-      if (getters.displayStyleTooltip) {
+      if (getters.getDisplayStyleTooltip) {
         return state.styleTooltip.mouseY
       }
       return 0
     },
-    styleTooltipSongName: (state, getters) => {
-      if (getters.displayStyleTooltip) {
-        return state.styleTooltip.data.Title
+    modalSongName: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.data.Title
       }
       return ''
     },
-    styleTooltipArtists: (state, getters) => {
-      if (getters.displayStyleTooltip) {
-        return state.styleTooltip.data['Contributor Names']
+    modalArtists: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.data['Contributor Names']
       }
       return ''
     },
-    styleTooltipDate: (state, getters) => {
-      if (getters.displayStyleTooltip) {
-        return state.styleTooltip.data['Created / Published'].date
+    modalDate: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.data['Created / Published'].date
       }
       return ''
     },
-    styleTooltipPlace: (state, getters) => {
-      if (getters.displayStyleTooltip) {
-        return `${state.styleTooltip.data['Created / Published'].place}, ${state.styleTooltip.data['Created / Published'].place}`
+    modalPlace: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return `${state.modalData.data['Created / Published'].place}, ${state.modalData.data['Created / Published'].place}`
       }
       return ''
+    },
+    modalGenres: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.data.Genre.filter(d => { return d !== 'Music' && d !== 'Songs' })
+      }
+      return ''
+    },
+    modalNotes: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.data.Notes
+      }
+      return ''
+    },
+    modalAudioUrl: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.data.audioUrl
+      }
+      return ''
+    },
+    getDisplayStyleTooltip: (state) => {
+      return state.displayStyleTooltip
+    },
+    getDisplayModal: (state) => {
+      return state.displayModal
+    },
+    getAppWidth: (state) => {
+      return state.appWidth
     }
   },
   mutations: {
@@ -108,12 +128,6 @@ export const store = new Vuex.Store({
     setStyleCords: (state, styleRecord) => {
       Vue.set(state.styleCords, styleRecord.id, {x: styleRecord.x, y: styleRecord.y})
     },
-    setPetalFilter: (state, obj) => {
-      state.petalFilter = obj
-    },
-    setStamenFilter: (state, obj) => {
-      state.stamenFilter = obj
-    },
     setStyleFilter: (state, obj) => {
       state.styleFilter = obj
     },
@@ -122,6 +136,18 @@ export const store = new Vuex.Store({
     },
     setStyleToolTip: (state, obj) => {
       state.styleTooltip = obj
+    },
+    setDisplayStyleTooltip: (state, value) => {
+      state.displayStyleTooltip = value
+    },
+    setModal: (state, obj) => {
+      state.modalData = obj
+    },
+    setDisplayModal: (state, value) => {
+      state.displayModal = value
+    },
+    setAppWidth: (state, value) => {
+      state.appWidth = value
     }
   }
 })

@@ -47,13 +47,14 @@ export default {
     },
     setPetalFilter: function (didEnter) {
       if (didEnter) {
-        this.$store.commit('setPetalFilter', {state: this.state, county: this.county})
-      } else { this.$store.commit('setPetalFilter', {}) }
+        let allSongs = this.obj.map(d => { return d['Digital Id'] })
+        this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: Object.keys(this.peopleData), id: allSongs})
+      } else { this.$store.commit('setStyleFilter', {}) }
     }
   },
   computed: {
     shouldRender: function () {
-      let theFilter = this.$store.getters.getPetalFilter
+      let theFilter = this.$store.getters.getStyleFilter
       if (theFilter === {} || !(theFilter.state === this.state)) { return true }
       return theFilter.county === this.county
     },
@@ -103,7 +104,6 @@ export default {
           }
         }
       }
-      console.log()
       return people
     },
     totalSongs: function () {

@@ -2,6 +2,11 @@
   <div>
     <svg :height="elementHeight" class="bloom" :id="state">
       <defs>
+        <pattern id="theBrave" width="5" height="5"
+            patternUnits="userSpaceOnUse" style="background:white">
+          <rect x="0" y="0" width="5" height="5" style="fill:#7fb4ff"/></rect>
+          <circle cx="2.5" cy="2.5" r="2" style="fill:#1557c1"></circle>
+        </pattern>
         <radialGradient id="RadialGradient1">
           <stop offset="0%" stop-color="#fccae6"/>
           <stop offset="100%" stop-color="#ffffff"/>
@@ -108,7 +113,7 @@ export default {
           this.angleShift = tweenedVal[0]
         }
         let tweenedData = {}
-        let tweenSourceData = {onUpdate: update, ease: Back.easeOut, onUpdateScope: this}
+        let tweenSourceData = {onUpdate: update, ease: Power1.easeOut, onUpdateScope: this}
         tweenedData[0] = Math.PI
         tweenSourceData[0] = 0
         TweenMax.to(tweenedData, 4, tweenSourceData)

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <StyleTooltip></StyleTooltip>
+    <StyleModal></StyleModal>
     <Bloom :data="theData" state="Mississippi"></Bloom>
     <Bloom :data="theData" state="Texas"></Bloom>
     <Bloom :data="theData" state="Alabama"></Bloom>
@@ -15,6 +16,7 @@
 <script>
 import { store } from './store'
 import StyleTooltip from './components/StyleTooltip'
+import StyleModal from './components/StyleModal'
 import Bloom from './components/Bloom'
 import {json as getJSON} from 'd3-request'
 
@@ -23,7 +25,8 @@ export default {
   store: store,
   components: {
     Bloom,
-    StyleTooltip
+    StyleTooltip,
+    StyleModal
   },
   data () {
     return {
@@ -65,5 +68,6 @@ a {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  max-width: 1400px;
 }
 </style>
