@@ -1,29 +1,42 @@
 <template>
   <div id="styleModal" :style="styleObject">
     <div id="close" v-on:click="closeDisplay">×</div>
-    <h1>{{this.$store.getters.modalSongName}}</h1>
-    <div id="progress-bar" v-on:click="scrub">
-      <div id="progress" :style="this.progressStyle"></div>
-      <div id="progressOverlay" v-on:click="scrub"></div>
-    </div>
-    <button v-on:click="playSong">Play</button>
-    <h2>Date of recording</h2>
-    <span>{{this.$store.getters.modalDate}}</span>
-    <h2>Place of recording</h2>
-    <span>{{this.$store.getters.modalPlace}}</span>
-    <template v-if="hasGenres">
-      <h2>Genres</h2>
-      <template v-for="genre of this.$store.getters.modalGenres">
-        <span>{{genre}}</span>  
+    
+    <template v-if="this.$store.getters.modalIsSong">
+      <h1>{{this.$store.getters.modalSongName}}</h1>
+      <div id="progress-bar" v-on:click="scrub">
+        <div id="progress" :style="this.progressStyle"></div>
+        <div id="progressOverlay" v-on:click="scrub"></div>
+      </div>
+      <button v-on:click="playSong">{{buttonString()}} song</button>
+      <h2>Date of recording</h2>
+      <span>{{this.$store.getters.modalDate}}</span>
+      <h2>Place of recording</h2>
+      <span>{{this.$store.getters.modalPlace}}</span>
+      <template v-if="hasGenres">
+        <h2>Genres</h2>
+        <template v-for="genre of this.$store.getters.modalGenres">
+          <span>{{genre}}</span>
+        </template>
+      </template>
+      <h2>Contributors</h2>
+      <template v-for="name of this.$store.getters.modalArtists">
+        <span>{{name}}</span>  
+      </template>
+      <h2>Notes</h2>
+      <template v-for="note of this.$store.getters.modalNotes">
+        <span>{{note}}</span>  
       </template>
     </template>
-    <h2>Contributors</h2>
-    <template v-for="name of this.$store.getters.modalArtists">
-      <span>{{name}}</span>  
-    </template>
-    <h2>Notes</h2>
-    <template v-for="note of this.$store.getters.modalNotes">
-      <span>{{note}}</span>  
+
+    <template v-if="this.$store.getters.modalIsPerson">
+      <h1>{{this.$store.getters.modalPerson}}</h1>
+      <h2>Place of performance</h2>
+      <span>{{this.$store.getters.modalPOP}}</span>
+      <h2>Songs</h2>
+      <template v-for="song of this.$store.getters.modalPersonSongs">
+        <SoundText :audioUrl="song.audioUrl" :text="song.Title" :shouldRender="shouldRender"></SoundText>
+      </template>
     </template>
   </div>
 </template>
@@ -31,15 +44,20 @@
 <script>
 import { store } from '../store'
 import {Howl, Howler} from 'howler'
+import SoundText from './SoundText'
 export default {
   name: 'StyleModal',
   store: store,
+  components: {
+    SoundText
+  },
   data () {
     return {
       sound: '',
       progressStyle: {
         width: '0%'
-      }
+      },
+      songId: 0
     }
   },
   computed: {
@@ -59,6 +77,22 @@ export default {
         display: this.shouldRender ? 'block' : 'none',
         left: `${(window.innerWidth - this.calculatedWidth) / 2}px`
       }
+    },
+    audioUrl: function () {
+      return this.$store.getters.modalAudioUrl
+    }
+  },
+  watch: {
+    audioUrl: function (newVal, oldVal) {
+      if (this.sound !== '') {
+        this.sound.stop()
+        this.sound = ''
+      }
+      this.progressStyle = {width: '0%'}
+      this.sound = new Howl({
+        src: [this.$store.getters.modalAudioUrl],
+        onload: this.progressFunc
+      })
     }
   },
   methods: {
@@ -66,31 +100,36 @@ export default {
       const position = event.offsetX / event.toElement.clientWidth
       const audioPosition = position * this.sound.duration()
       this.sound.seek(audioPosition)
+      this.progressStyle = {
+        width: `${(this.sound.seek() / this.sound.duration()) * 100}%`}
     },
     closeDisplay: function () {
-      this.sound.stop()
-      this.progressStyle = {width: '0%'}
       this.$store.commit('setDisplayModal', false)
     },
-    playSong: function () {
-      if (this.sound !== '') {
-        this.sound.stop()
-        this.progressStyle = {width: '0%'}
+    buttonString: function () {
+      if (this.sound !== '' && this.sound.playing(this.songId)) {
+        return 'Pause'
       }
-      this.sound = new Howl({
-        src: [this.$store.getters.modalAudioUrl],
-        onload: () => {
-          const intervalId = window.setInterval(() => {
-            if (!this.sound.playing(songId)) {
-              window.clearInterval(intervalId)
-              return
-            }
-            this.progressStyle = {
-              width: `${(this.sound.seek() / this.sound.duration()) * 100}%`}
-          }, 60)
+      return 'Play'
+    },
+    progressFunc: function () {
+      const intervalId = window.setInterval(() => {
+        if (this.sound === '' || !this.sound.playing(this.songId)) {
+          window.clearInterval(intervalId)
+          return
         }
-      })
-      const songId = this.sound.play()
+        this.progressStyle = {
+          width: `${(this.sound.seek() / this.sound.duration()) * 100}%`}
+      }, 60)
+    },
+    playSong: function () {
+      // song source is same but not playing
+      if (!this.sound.playing()) {
+        this.songId = this.sound.play()
+        this.progressFunc()
+        return
+      }
+      this.sound.pause()
     }
   }
 }
@@ -106,6 +145,7 @@ export default {
   box-sizing: border-box;
   border-radius: 5px;
   padding: 12px;
+  z-index: 5;
 }
 #close{
   border: 1px solid white;
@@ -141,6 +181,25 @@ export default {
   left: 0;
   position: absolute;
   cursor: pointer; 
+}
+button{
+  margin-bottom: 5px;
+  margin-top: 15px;
+  color:white;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: rgba(56, 56, 56, 1);
+  font-family: 'Biryani', sans-serif;
+  font-weight: 800;
+  text-align: center;
+}
+button:hover{
+  cursor: pointer;
+  background-color: white;
+  color: rgba(56, 56, 56, 1);
+}
+.textButton {
+  display: block;
 }
 h1{
   font-family: 'Biryani', sans-serif;

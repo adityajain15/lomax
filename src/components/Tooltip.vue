@@ -1,22 +1,22 @@
 <template>
-  <div id="styleTooltip" :style="styleObject">
-    <span>Click on circle for more information or to play the song</span>
+  <div id="tooltip" :style="styleObject">
+    <span>{{this.$store.getters.tooltipText}}</span>
   </div>
 </template>
 
 <script>
 import { store } from '../store'
 export default {
-  name: 'StyleTooltip',
+  name: 'Tooltip',
   store: store,
   computed: {
     shouldRender: function () {
-      return this.$store.getters.getDisplayStyleTooltip
+      return this.$store.getters.getDisplayTooltip
     },
     styleObject: function () {
       let widthFix = 400
-      let topFix = this.$store.getters.styleTooltipY
-      let leftFix = this.$store.getters.styleTooltipX + 10
+      let topFix = this.$store.getters.tooltipY
+      let leftFix = this.$store.getters.tooltipX + 10
       if (window.innerWidth < (leftFix + widthFix)) { leftFix = leftFix - widthFix - 20 }
       if (topFix <= 0) { topFix = 10 }
       return {
@@ -38,6 +38,7 @@ div{
   border-radius: 5px;
   padding: 12px;
   background-color: rgba(56, 56, 56, 0.3);
+  z-index: 5;
 }
 span{
   font-family: 'Biryani', sans-serif;

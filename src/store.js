@@ -9,10 +9,11 @@ export const store = new Vuex.Store({
     styleCords: {},
     styleFilter: {},
     people: [],
-    styleTooltip: {},
-    displayStyleTooltip: false,
+    tooltip: {},
+    displayTooltip: false,
     modalData: {},
     displayModal: false,
+    displayLegend: false,
     appWidth: 500
   },
   getters: {
@@ -54,65 +55,111 @@ export const store = new Vuex.Store({
         return state.people.filter((d) => d.name === person && d.county === county)[0]['Data']
       }
     },
-    styleTooltipX: (state, getters) => {
-      if (getters.getDisplayStyleTooltip) {
-        return state.styleTooltip.mouseX
+    tooltipX: (state, getters) => {
+      if (getters.getDisplayTooltip) {
+        return state.tooltip.mouseX
       }
       return 0
     },
-    styleTooltipY: (state, getters) => {
-      if (getters.getDisplayStyleTooltip) {
-        return state.styleTooltip.mouseY
+    tooltipY: (state, getters) => {
+      if (getters.getDisplayTooltip) {
+        return state.tooltip.mouseY
       }
       return 0
+    },
+    tooltipText: (state, getters) => {
+      if (getters.getDisplayTooltip) {
+        return state.tooltip.text
+      }
+      return ''
+    },
+    modalIsPerson: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.type === 'person'
+      }
+      return false
+    },
+    modalPerson: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.name
+      }
+      return ''
+    },
+    modalPersonSongs: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.data
+      }
+      return ''
+    },
+    modalPOP: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return `${state.modalData.county}, ${state.modalData.state}`
+      }
+      return ''
+    },
+    modalIsCounty: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.type === 'county'
+      }
+      return false
+    },
+    modalIsSong: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return state.modalData.type === 'song'
+      }
+      return false
     },
     modalSongName: (state, getters) => {
-      if (getters.getDisplayModal) {
+      if (getters.getDisplayModal && getters.modalIsSong) {
         return state.modalData.data.Title
       }
       return ''
     },
     modalArtists: (state, getters) => {
-      if (getters.getDisplayModal) {
+      if (getters.getDisplayModal && getters.modalIsSong) {
         return state.modalData.data['Contributor Names']
       }
       return ''
     },
     modalDate: (state, getters) => {
-      if (getters.getDisplayModal) {
+      if (getters.getDisplayModal && getters.modalIsSong) {
         return state.modalData.data['Created / Published'].date
       }
       return ''
     },
     modalPlace: (state, getters) => {
-      if (getters.getDisplayModal) {
+      if (getters.getDisplayModal && getters.modalIsSong) {
         return `${state.modalData.data['Created / Published'].place}, ${state.modalData.data['Created / Published'].place}`
       }
       return ''
     },
     modalGenres: (state, getters) => {
-      if (getters.getDisplayModal) {
+      if (getters.getDisplayModal && getters.modalIsSong) {
+        if (state.modalData.data.Genre === 'Music' || state.modalData.data.Genre === 'Songs') { return [] }
         return state.modalData.data.Genre.filter(d => { return d !== 'Music' && d !== 'Songs' })
       }
       return ''
     },
     modalNotes: (state, getters) => {
-      if (getters.getDisplayModal) {
+      if (getters.getDisplayModal && getters.modalIsSong) {
         return state.modalData.data.Notes
       }
       return ''
     },
     modalAudioUrl: (state, getters) => {
-      if (getters.getDisplayModal) {
+      if (getters.getDisplayModal && getters.modalIsSong) {
         return state.modalData.data.audioUrl
       }
       return ''
     },
-    getDisplayStyleTooltip: (state) => {
-      return state.displayStyleTooltip
+    getDisplayTooltip: (state) => {
+      return state.displayTooltip
     },
     getDisplayModal: (state) => {
       return state.displayModal
+    },
+    getDisplayLegend: (state) => {
+      return state.displayLegend
     },
     getAppWidth: (state) => {
       return state.appWidth
@@ -134,17 +181,20 @@ export const store = new Vuex.Store({
     setPeopleData: (state, resp) => {
       state.people = resp
     },
-    setStyleToolTip: (state, obj) => {
-      state.styleTooltip = obj
+    setTooltip: (state, obj) => {
+      state.tooltip = obj
     },
-    setDisplayStyleTooltip: (state, value) => {
-      state.displayStyleTooltip = value
+    setDisplayTooltip: (state, value) => {
+      state.displayTooltip = value
     },
     setModal: (state, obj) => {
       state.modalData = obj
     },
     setDisplayModal: (state, value) => {
       state.displayModal = value
+    },
+    setDisplayLegend: (state, value) => {
+      state.displayLegend = value
     },
     setAppWidth: (state, value) => {
       state.appWidth = value

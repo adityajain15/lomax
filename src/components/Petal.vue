@@ -21,7 +21,7 @@
       </Stamen>
     </template>
 
-    <circle :cx="xPosition" :cy="yPosition" :r="8" :class="county" v-on:mouseenter="setPetalFilter(true)" v-on:mouseleave="setPetalFilter(false)"></circle>
+    <circle :cx="xPosition" :cy="yPosition" :r="8" :class="county" v-on:mouseenter="setPetalFilter(true, $event)" v-on:mouseleave="setPetalFilter(false, $event)"></circle>
   </g>
 </template>
 
@@ -45,11 +45,16 @@ export default {
     getPersonAttributes: function (personName) {
       return this.personAttributes.filter((d) => { return d.name === personName })[0]
     },
-    setPetalFilter: function (didEnter) {
+    setPetalFilter: function (didEnter, event) {
       if (didEnter) {
         let allSongs = this.obj.map(d => { return d['Digital Id'] })
         this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: Object.keys(this.peopleData), id: allSongs})
-      } else { this.$store.commit('setStyleFilter', {}) }
+        this.$store.commit('setDisplayTooltip', true)
+        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: 'Click circle for more information about this county'})
+      } else {
+        this.$store.commit('setStyleFilter', {})
+        this.$store.commit('setDisplayTooltip', false)
+      }
     }
   },
   computed: {

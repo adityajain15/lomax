@@ -1,5 +1,5 @@
 <template>
-  <circle v-if="shouldRender" :style="styleObject" :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" v-on:mouseenter="setStamenFilter(true)" v-on:mouseleave="setStamenFilter(false)">
+  <circle v-if="shouldRender" :style="styleObject" :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" v-on:mouseenter="setStamenFilter(true, $event)" v-on:mouseleave="setStamenFilter(false, $event)" v-on:click="displayModal()">
   </circle>
 </template>
 
@@ -15,11 +15,19 @@ export default {
   },
   props: ['person', 'personObject', 'county', 'state'],
   methods: {
+    displayModal: function () {
+      this.$store.commit('setModal', {data: this.personObject, name: this.person, county: this.county, state: this.state, type: 'person'})
+      this.$store.commit('setDisplayModal', true)
+      this.$store.commit('setDisplayTooltip', false)
+    },
     setStamenFilter: function (didEnter) {
       if (didEnter) {
         this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: [this.person], id: this.allSongs})
+        this.$store.commit('setDisplayTooltip', true)
+        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: 'Click circle for more information about this person'})
       } else {
         this.$store.commit('setStyleFilter', {})
+        this.$store.commit('setDisplayTooltip', false)
       }
     }
   },

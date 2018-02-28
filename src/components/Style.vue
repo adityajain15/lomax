@@ -16,17 +16,17 @@ export default {
   },
   methods: {
     displayModal: function () {
-      this.$store.commit('setModal', {data: this.songObject})
-      this.$store.commit('setDisplayStyleTooltip', false)
+      this.$store.commit('setModal', {data: this.songObject, type: 'song'})
       this.$store.commit('setDisplayModal', true)
+      this.$store.commit('setDisplayTooltip', false)
     },
     setStyleFilter: function (didEnter, event) {
       if (didEnter) {
-        this.$store.commit('setDisplayStyleTooltip', true)
-        this.$store.commit('setStyleToolTip', {mouseX: event.clientX, mouseY: event.clientY})
+        this.$store.commit('setDisplayTooltip', true)
+        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: 'Click circle to hear the recording or to see more information such as the genre'})
         this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: this.songContributors, id: [this.songObject['Digital Id']]})
       } else {
-        this.$store.commit('setDisplayStyleTooltip', false)
+        this.$store.commit('setDisplayTooltip', false)
         this.$store.commit('setStyleFilter', {})
       }
     }

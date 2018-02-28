@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div class="bloomContainer">
+    <button id="legendButton" v-on:click="showLegend()">How to read this Visualization</button>
     <svg :height="elementHeight" class="bloom" :id="state">
       <defs>
         <pattern id="theBrave" width="5" height="5"
@@ -101,7 +102,10 @@ export default {
   methods: {
     handleResize: function () {
       this.elementWidth = this.$el.clientWidth
-      this.elementHeight = this.halfWidth
+      this.elementHeight = this.halfWidth + 25
+    },
+    showLegend: function () {
+      this.$store.commit('setDisplayLegend', true)
     }
   },
   watch: {
@@ -124,11 +128,38 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css?family=Biryani:400,700,800');
   svg{
     width: 100%;
-    background: linear-gradient(to right, #141e30, #243b55);
+    
+    background: #141e30
   }
   circle{
     fill: url(#RadialGradient1);
+  }
+  .bloomContainer{
+    position: relative;
+  }
+  #legendButton{
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    width: 25%;
+    text-align: middle;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #141e30;
+    font-family: 'Biryani', sans-serif;
+    color: white;
+    font-weight: 800;
+    font-size: 16px;
+    padding: 15px;
+    box-sizing: border-box;
+    line-height: 1.1;
+  }
+  #legendButton:hover{
+    cursor: pointer;
+    color: #141e30;
+    background-color: white;
   }
 </style>
