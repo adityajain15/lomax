@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     playSong: function () {
-      if(this.isDefined) {
+      if(!this.isDefined) {
         this.sound = new Howl({ src: [this.audioUrl] });
       }
 
