@@ -52,7 +52,6 @@ export default {
       this.windowHeight = window.innerHeight
     },
     closeDisplay: function () {
-      console.log('hi')
       this.$store.commit('setDisplayLegend', false)
     }
   },

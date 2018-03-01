@@ -97,6 +97,12 @@ export const store = new Vuex.Store({
       }
       return ''
     },
+    modalPersonCounty: (state, getters) => {
+      if (getters.getDisplayModal) {
+        return `${state.modalData.county}`
+      }
+      return ''
+    },
     modalIsCounty: (state, getters) => {
       if (getters.getDisplayModal) {
         return state.modalData.type === 'county'

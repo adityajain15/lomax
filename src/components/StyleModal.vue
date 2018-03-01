@@ -4,46 +4,61 @@
     
     <template v-if="this.$store.getters.modalIsSong">
       <h1>{{this.$store.getters.modalSongName}}</h1>
-      <div id="progress-bar" v-on:click="scrub">
-        <div id="progress" :style="this.progressStyle"></div>
-        <div id="progressOverlay" v-on:click="scrub"></div>
-      </div>
-      <button v-on:click="playSong">{{buttonString()}} song</button>
-      <h2>Date of recording</h2>
-      <span>{{this.$store.getters.modalDate}}</span>
-      <h2>Place of recording</h2>
-      <span>{{this.$store.getters.modalPlace}}</span>
-      <template v-if="hasGenres">
-        <h2>Genres</h2>
-        <template v-for="genre of this.$store.getters.modalGenres">
-          <span>{{genre}}</span>
+      <div class="textWrapper">
+        <div id="progress-bar" v-on:click="scrub">
+          <div id="progress" :style="this.progressStyle"></div>
+          <div id="progressOverlay" v-on:click="scrub"></div>
+        </div>
+        <button v-on:click="playSong">{{buttonString()}} song</button>
+        <h2>Date of recording</h2>
+        <span>{{this.$store.getters.modalDate}}</span>
+        <h2>Place of recording</h2>
+        <span>{{this.$store.getters.modalPlace}}</span>
+        <template v-if="hasGenres">
+          <h2>Genres</h2>
+          <template v-for="genre of this.$store.getters.modalGenres">
+            <span>{{genre}}</span>
+          </template>
         </template>
-      </template>
-      <h2>Contributors</h2>
-      <template v-for="name of this.$store.getters.modalArtists">
-        <span>{{name}}</span>  
-      </template>
-      <h2>Notes</h2>
-      <template v-for="note of this.$store.getters.modalNotes">
-        <span>{{note}}</span>  
-      </template>
+        <h2>Contributors</h2>
+        <template v-for="name of this.$store.getters.modalArtists">
+          <span>{{name}}</span>  
+        </template>
+        <h2>Notes</h2>
+        <template v-for="note of this.$store.getters.modalNotes">
+          <span>{{note}}</span>  
+        </template>
+      </div>
     </template>
 
     <template v-if="this.$store.getters.modalIsPerson">
       <h1>{{this.$store.getters.modalPerson}}</h1>
-      <h2>Place of performance</h2>
-      <span>{{this.$store.getters.modalPOP}}</span>
-      <h2>Songs</h2>
-      <template v-for="song of this.$store.getters.modalPersonSongs">
-        <SoundText :audioUrl="song.audioUrl" :text="song.Title" :shouldRender="shouldRender"></SoundText>
-      </template>
+      <div class="textWrapper">
+        <h2>Place of performance</h2>
+        <span>{{this.$store.getters.modalPOP}}</span>
+        <h2>Attributes</h2>
+        <span>{{this.$store.getters.getPersonData(this.$store.getters.modalPerson, this.$store.getters.modalPersonCounty)}}</span>
+        <h2>Songs</h2>
+        <template v-for="song of this.$store.getters.modalPersonSongs">
+          <div class="sound-text-wrapper">
+            <SoundText :audioUrl="song.audioUrl" :text="song.Title" :shouldRender="shouldRender"></SoundText>
+          </div>
+          <h3>Genres</h3>
+          <template v-for="genre of song.Genre">
+            <template v-if="genre !== 'Music' && genre!== 'Songs'">
+              <span>{{genre}}</span>
+            </template>
+          </template>
+          
+        </template>
+      </div>
     </template>
   </div>
 </template>
 
 <script>
 import { store } from '../store'
-import {Howl, Howler} from 'howler'
+import {Howl} from 'howler'
 import SoundText from './SoundText'
 export default {
   name: 'StyleModal',
@@ -147,6 +162,11 @@ export default {
   padding: 12px;
   z-index: 5;
 }
+.textWrapper{
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
 #close{
   border: 1px solid white;
   border-radius: 30px;
@@ -201,6 +221,9 @@ button:hover{
 .textButton {
   display: block;
 }
+.sound-text-wrapper{
+  text-align: left;
+}
 h1{
   font-family: 'Biryani', sans-serif;
   font-weight: 800;
@@ -216,6 +239,17 @@ h2{
   color: white;
   margin-top: 10px;
   margin-bottom: 5px;
+  text-decoration: underline;
+}
+h3{
+  font-family: 'Biryani', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  text-align: left;
+  text-decoration: underline;
 }
 span{
   font-family: 'Biryani', sans-serif;

@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <FullPageContainer></FullPageContainer>
     <Tooltip></Tooltip>
     <StyleModal></StyleModal>
     <BloomLegend></BloomLegend>
@@ -16,6 +17,7 @@
 
 <script>
 import { store } from './store'
+import FullPageContainer from './components/FullPageContainer'
 import Tooltip from './components/Tooltip'
 import StyleModal from './components/StyleModal'
 import BloomLegend from './components/BloomLegend'
@@ -26,6 +28,7 @@ export default {
   name: 'app',
   store: store,
   components: {
+    FullPageContainer,
     Bloom,
     Tooltip,
     StyleModal,
