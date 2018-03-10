@@ -36,7 +36,7 @@
       <div class="textWrapper">
         <h2>Place of performance</h2>
         <span>{{this.$store.getters.modalPOP}}</span>
-        <h2>Attributes</h2>
+        <h2>Additional Information</h2>
         <span>{{this.$store.getters.getPersonData(this.$store.getters.modalPerson, this.$store.getters.modalPersonCounty)}}</span>
         <h2>Songs</h2>
         <template v-for="song of this.$store.getters.modalPersonSongs">

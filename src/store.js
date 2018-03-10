@@ -14,7 +14,8 @@ export const store = new Vuex.Store({
     modalData: {},
     displayModal: false,
     displayLegend: false,
-    appWidth: 500
+    appWidth: 500,
+    allData: []
   },
   getters: {
     getStamenCordX: state => {
@@ -169,6 +170,11 @@ export const store = new Vuex.Store({
     },
     getAppWidth: (state) => {
       return state.appWidth
+    },
+    getData: (state) => {
+      return (theState) => {
+        return state.allData.filter((d) => {return d['Created / Published']['state'] === theState})
+      }
     }
   },
   mutations: {
@@ -204,6 +210,9 @@ export const store = new Vuex.Store({
     },
     setAppWidth: (state, value) => {
       state.appWidth = value
+    },
+    setData: (state, value) => {
+      state.allData = value
     }
   }
 })

@@ -11,7 +11,9 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "d3-force": "^1.1.0",
     "d3-request": "^1.0.6",
+    "d3-scale": "^2.0.0",
     "es6-request": "^2.3.7",
     "gsap": "^1.20.3",
     "howler": "^2.0.9",

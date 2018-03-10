@@ -47,13 +47,13 @@ export default {
       return shouldRenderObject
     },
     radiusSize: function () {
-      return 5
+      return 4
     },
     arcSize: function () {
       return this.angleSize * this.arcRadius
     },
     arcRadius: function () {
-      return this.halfWidth / 1.3
+      return this.halfWidth / 1.2
     },
     perLayer: function () {
       return Math.floor(this.arcSize / (2 * this.radiusSize))
