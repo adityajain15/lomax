@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     onResize: function () {
-      this.width = this.$el.getBoundingClientRect().width - this.margin - this.maxTextLength
+      this.width = this.$el.clientWidth - this.margin - this.maxTextLength
     },
     getColor: function (song) {
       for(let i = 0; i < colorMap.length; i++){
@@ -45,8 +45,7 @@ export default {
   watch: {
     segmentedSongs: function (newVal, oldVal){
       this.$nextTick(function () {
-        this.maxTextLength = Math.max(...Array.from(this.$el.getElementsByTagName(`text`)).map(d => {return d.getBoundingClientRect().width}))
-        console.log(this.maxTextLength)
+        this.maxTextLength = Math.max(...Array.from(this.$el.getElementsByTagName(`text`)).map(d => {return d.clientWidth}))
         this.onResize()
       })
     }
@@ -96,6 +95,7 @@ export default {
     radius: function () {
       let computeRadius = (this.width / this.domainMax) / 2
       if(computeRadius > 6) {return 6}
+
       return computeRadius
     }
   },
