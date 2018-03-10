@@ -3,7 +3,7 @@
     <template v-for="(songCategory, songCategoryIndex) of sortedSegmentedSongs">
       <text :state="state" :x="margin" :y="margin + 2 * radius + (songCategoryIndex * (radius * 4))">{{songCategory}}</text>
       <template v-for="(song, songIndex) of segmentedSongs[songCategory]">
-        <circle :cx="maxTextLength + radius + (songIndex * (2 * radius))" :cy="margin + radius + (songCategoryIndex * (radius * 4))" :r="radius" :fill="getColor(song)"></circle>
+        <circle :cx="maxTextLength + radius + (songIndex * (2 * radius))" :cy="margin + radius + (songCategoryIndex * (radius * 4))" :r="radius" :fill="getColor(song)" v-on:click="displayModal(song)"></circle>
       </template>
     </template>
   </svg>
@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     onResize: function () {
-      this.width = this.$el.clientWidth - this.margin - this.maxTextLength
+      this.width = this.$el.getBoundingClientRect().width - this.margin - this.maxTextLength
     },
     getColor: function (song) {
       for(let i = 0; i < colorMap.length; i++){
@@ -35,12 +35,18 @@ export default {
           return colorMap[i][1]
         }
       }
+    },
+    displayModal: function (song) {
+      this.$store.commit('setModal', {data: song, type: 'song'})
+      this.$store.commit('setDisplayModal', true)
+      //this.$store.commit('setDisplayTooltip', false)
     }
   },
   watch: {
     segmentedSongs: function (newVal, oldVal){
       this.$nextTick(function () {
-        this.maxTextLength = Math.max(...Array.from(this.$el.getElementsByTagName(`text`)).map(d => {return d.clientWidth}))
+        this.maxTextLength = Math.max(...Array.from(this.$el.getElementsByTagName(`text`)).map(d => {return d.getBoundingClientRect().width}))
+        console.log(this.maxTextLength)
         this.onResize()
       })
     }
@@ -105,8 +111,8 @@ svg{
   background: black;
   max-width: 1000px;
 }
-circle{
-  
+circle:hover{
+  cursor: pointer;
 }
 text{
   font-family: 'Alfa Slab One', cursive;
