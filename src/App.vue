@@ -5,6 +5,7 @@
     <p>Many of the people and places they planned to visit were already familiar to them, and while they were always on the alert for previously unrecorded musical genres, songs and tunes, one of the purposes of this trip was to record some of their favorite folk songs and folk singers from past expeditions on state-of-the-art equipment. The Library of Congress provided the Lomaxes with the latest in recording technology: a portable Presto disc-cutting machine, with extra batteries and a supply of blank 12-inch acetate discs and sapphire needles that could be replenished upon request. Hauling this heavy equipment to and from the trunk of their Plymouth as they stopped to make recordings in schools, churches, homes, hotels, prisons and even along the roadside in locales throughout the rural South, they could hardly have suspected that, in 60 years' time, the cultural heritage they were collecting for deposit in the Archive of American Folk Song at the Library of Congress would be played back, with the click of a mouse button, through computer speakers in homes, schools and offices around the world, at the Library's Web Site.
     </p>
     <ImageAndCaption source="00343r.jpg" caption='Stavin Chain playing guitar and singing the ballad "Batson" accompanied by a musician playing violin, Lafayette, La.' link="https://www.loc.gov/item/2007660400/"></ImageAndCaption>
+    <MapContainer></MapContainer>
     <Tooltip></Tooltip>
     <StyleModal></StyleModal>
     <BloomLegend></BloomLegend>
@@ -32,6 +33,7 @@
 
 <script>
 import { store } from './store'
+import MapContainer from './components/MapContainer'
 import FullPageContainer from './components/FullPageContainer'
 import Tooltip from './components/Tooltip'
 import StyleModal from './components/StyleModal'
@@ -40,10 +42,13 @@ import Bloom from './components/Bloom'
 import BarChart from './components/BarChart'
 import ImageAndCaption from './components/ImageAndCaption'
 import {json as getJSON} from 'd3-request'
+import moment from 'moment'
+
 export default {
   name: 'app',
   store: store,
   components: {
+    MapContainer,
     FullPageContainer,
     BarChart,
     Bloom,
@@ -59,9 +64,22 @@ export default {
   },
   created: function () {
     getJSON('/static/data.json', (resp) => {
-      this.theData = resp
+      /*resp = resp.sort(function(a,b){
+        let first = new moment(a['Created / Published'].date,'MMMM DD, YYYY')
+        let second = new moment(b['Created / Published'].date,'MMMM DD, YYYY')
+        if(first < second) {
+          return -1
+        } else if(second < first){
+          return 1
+        } else{
+          return 0
+        }
+      })*/
       this.$store.commit('setData', resp)
+      this.theData = resp
+      //console.log(JSON.stringify(resp))
     })
+
     getJSON('/static/people.json', (resp) => {
       this.$store.commit('setPeopleData', resp)
     })
@@ -72,9 +90,6 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Roboto');
 
-#mapContainer{
-  position: relative;
-}
 #app {
   font-family: 'Alfa Slab One', cursive;
   font-family: 'Roboto', sans-serif;
@@ -84,6 +99,7 @@ export default {
   color: #2c3e50;
   background-color: floralwhite;
 }
+
 p{
   font-family: 'Georgia';
   background-color: white;

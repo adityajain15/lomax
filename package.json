@@ -11,9 +11,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "d3": "^5.0.0-rc.4",
     "d3-force": "^1.1.0",
     "d3-request": "^1.0.6",
     "d3-scale": "^2.0.0",
+    "d3-transition": "^1.1.1",
     "es6-request": "^2.3.7",
     "gsap": "^1.20.3",
     "howler": "^2.0.9",
@@ -56,6 +58,7 @@
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.8",
     "postcss-url": "^7.2.1",
+    "push-dir": "^0.4.1",
     "rimraf": "^2.6.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.6",
