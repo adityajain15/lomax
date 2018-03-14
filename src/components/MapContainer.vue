@@ -224,7 +224,6 @@ export default {
   methods: {
     animateLine: function (number) {
       if(number === 33) {return}
-      console.log(number)
       let pathLength = document.querySelector(`#Layer${number}`).getTotalLength()
 
       let t = d3.transition()

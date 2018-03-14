@@ -43,6 +43,8 @@ import BarChart from './components/BarChart'
 import ImageAndCaption from './components/ImageAndCaption'
 import {json as getJSON} from 'd3-request'
 import moment from 'moment'
+import dataFile from '../static/data.json'
+import peopleFile from '../static/people.json'
 
 export default {
   name: 'app',
@@ -63,7 +65,7 @@ export default {
     }
   },
   created: function () {
-    getJSON('../static/data.json', (resp) => {
+    getJSON(dataFile, (resp) => {
       /*resp = resp.sort(function(a,b){
         let first = new moment(a['Created / Published'].date,'MMMM DD, YYYY')
         let second = new moment(b['Created / Published'].date,'MMMM DD, YYYY')
@@ -80,7 +82,7 @@ export default {
       //console.log(JSON.stringify(resp))
     })
 
-    getJSON('../static/people.json', (resp) => {
+    getJSON(peopleFile, (resp) => {
       this.$store.commit('setPeopleData', resp)
     })
   }
