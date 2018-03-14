@@ -6,6 +6,7 @@
     </p>
     <ImageAndCaption source="00343r.jpg" caption='Stavin Chain playing guitar and singing the ballad "Batson" accompanied by a musician playing violin, Lafayette, La.' link="https://www.loc.gov/item/2007660400/"></ImageAndCaption>
     <ImageAndCaption source="00276r.jpg" caption='Stavin Chain playing guitar and singing the ballad "Batson" accompanied by a musician playing violin, Lafayette, La.' link="https://www.loc.gov/item/2007660400/"></ImageAndCaption>
+    <ImageAndCaption source="38809r.jpg" caption='Stavin Chain playing guitar and singing the ballad "Batson" accompanied by a musician playing violin, Lafayette, La.' link="https://www.loc.gov/item/2007660400/"></ImageAndCaption>
     <MapContainer></MapContainer>
     <Tooltip></Tooltip>
     <StyleModal></StyleModal>
