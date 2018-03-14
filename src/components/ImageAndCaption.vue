@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="this.source"/>
+    <img :src="theImage"/>
     <caption>{{this.caption}}</caption><a :href="this.link"><span>From the Library of Congress (Source)</span></a>
   </div>
 </template>
@@ -9,7 +9,12 @@
 
 export default {
   name: 'ImageAndCaption',
-  props: ['source', 'caption', 'link']
+  props: ['source', 'caption', 'link'],
+  computed: {
+    theImage: function(){
+      return require(`../../static/Images/${this.source}`)
+    }
+  }
 }
 </script>
 
