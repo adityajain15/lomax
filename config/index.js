@@ -49,8 +49,8 @@ module.exports = {
 
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'lomax/static',
-    assetsPublicPath: '',
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '..lomax/',
 
     /**
      * Source Maps
