@@ -12,7 +12,7 @@ export default {
   props: ['source', 'caption', 'link'],
   computed: {
     thePath: function () {
-      return `../static/Images/${this.source}`
+      return `../../static/${this.source}`
     }
   }
 }
