@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img :src="thePath"/>
+    <img :src="this.source"/>
     <caption>{{this.caption}}</caption><a :href="this.link"><span>From the Library of Congress (Source)</span></a>
   </div>
 </template>
@@ -9,12 +9,7 @@
 
 export default {
   name: 'ImageAndCaption',
-  props: ['source', 'caption', 'link'],
-  computed: {
-    thePath: function () {
-      return `../../static/${this.source}`
-    }
-  }
+  props: ['source', 'caption', 'link']
 }
 </script>
 
