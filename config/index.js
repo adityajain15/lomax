@@ -9,7 +9,7 @@ module.exports = {
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/lomax',
+    assetsPublicPath: 'lomax',
     proxyTable: {},
 
     // Various Dev Server settings
