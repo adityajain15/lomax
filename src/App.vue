@@ -63,7 +63,7 @@ export default {
     }
   },
   created: function () {
-    getJSON('/static/data.json', (resp) => {
+    getJSON('../static/data.json', (resp) => {
       /*resp = resp.sort(function(a,b){
         let first = new moment(a['Created / Published'].date,'MMMM DD, YYYY')
         let second = new moment(b['Created / Published'].date,'MMMM DD, YYYY')
@@ -80,7 +80,7 @@ export default {
       //console.log(JSON.stringify(resp))
     })
 
-    getJSON('/static/people.json', (resp) => {
+    getJSON('../static/people.json', (resp) => {
       this.$store.commit('setPeopleData', resp)
     })
   }
