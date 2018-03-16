@@ -1,7 +1,7 @@
 <template>
   <div id="mapContainer">
-    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-   viewBox="0 0 2412.2 1846.5" style="enable-background:new 0 0 2412.2 1846.5;" xml:space="preserve">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+   viewBox="0 0 2412.2 1846.5" style="enable-background:new 0 0 2412.2 1846.5;" xml:space="preserve" id="map">
 
 <image style="overflow:visible;enable-background:new;" width="10204" height="7811" xlink:href="../../static/map_lower.jpg"  transform="matrix(0.2364 0 0 0.2364 0 0)">
 </image>
@@ -208,27 +208,6 @@
         c0.5-0.4,0.7-1,0.9-1.6c1.3-2.8,3.8-4.9,6.8-5.6c2.9-0.8,6.2-0.1,8.7,1.6c0.7,0.5,1.4,1.1,2.2,1.4c2.6,0.8,4.7-1.9,7.2-3.1
         c2.3-1.1,5.2-0.9,7.1-2.5c1.1-0.9,1.7-2.2,2.6-3.2c1.5-1.7,3.8-2.4,6-3.2c15.2-4.9,30.5-9.9,45.7-14.8"/>
 </g>
-<g id="Annotations">
-    <g id="Annotation1Box">
-        <path class="st1" d="M407.2,1426.9c0,55.5,46.6,100.4,104.1,100.4"/>
-        <rect x="504.9" y="1518.7" class="st2" width="1018.1" height="221.7"/>
-        <text id="Annotation1Text" transform="matrix(1 0 0 1 504.8865 1560.6093)"><tspan x="0" y="0" class="st3 st4 st5">John A. Lomax and Ruby Lomax began </tspan><tspan x="0" y="70.8" class="st3 st4 st5">their trip on March 31, 1939 from their </tspan><tspan x="0" y="141.6" class="st3 st4 st5">vacation home in San José Island, Texas </tspan></text>
-    </g>
-    <g id="Layer_7" class="st6">
-        <path class="st7" d="M1294.4,1051.8H547.9c-14.5,0-26.3-11.8-26.3-26.3V831.1c0-14.5,11.8-26.3,26.3-26.3h746.5
-            c14.5,0,26.3,11.8,26.3,26.3v194.4C1320.7,1040,1308.8,1051.8,1294.4,1051.8z"/>
-        <rect x="558.5" y="840.1" class="st8" width="800" height="174.2"/>
-        <text transform="matrix(1 0 0 1 558.5429 868.5464)" class="st9"><tspan x="0" y="0" class="st3 st4 st10">Their first stop was at Austin, Texas where</tspan><tspan x="0" y="48" class="st3 st4 st10">they met up with a Mechanic  “who could </tspan><tspan x="0" y="96" class="st3 st4 st10">check the machine to be sure all parts </tspan><tspan x="0" y="144" class="st3 st4 st10">were there and working”</tspan></text>
-        <path class="st11" d="M531.6,1044.8c0,77.9-63,140.9-140.9,140.9"/>
-    </g>
-    <g id="Layer_9" class="st6">
-        <path class="st12" d="M579.1,1271.2c0,55.6,46.5,100.6,104,100.6"/>
-        <path class="st7" d="M1444.8,1602.5H698.3c-14.5,0-26.3-11.8-26.3-26.3v-194.4c0-14.5,11.8-26.3,26.3-26.3h746.5
-            c14.5,0,26.3,11.8,26.3,26.3v194.4C1471.1,1590.7,1459.3,1602.5,1444.8,1602.5z"/>
-        <rect x="711" y="1406.8" class="st8" width="755.3" height="164.5"/>
-        <text transform="matrix(1 0 0 1 711.0137 1437.9191)" class="st9"><tspan x="0" y="0" class="st3 st4 st13">On April 4, the Lomaxes arrived at </tspan><tspan x="0" y="52.6" class="st3 st4 st13">Houston, where they made headquarters </tspan><tspan x="0" y="105.1" class="st3 st4 st13">for the next two weeks</tspan></text>
-    </g>
-</g>
 <circle id="lomaxCar" cx="0" cy="0" r="10" fill="red"/>
 <g id="Stops">
     <g id="Stop1">
@@ -360,71 +339,134 @@
 
 <script>
 import * as d3 from 'd3'
+import annotation from 'd3-svg-annotation'
 require('waypoints/lib/noframework.waypoints.js')
 
 export default {
   name: 'MapContainer',
   methods: {
     animateLine: function (number) {
-      if(number === 33) {
+      if (number === 33) {
         document.querySelector(`#Stop33`).style.display = null
         return
       }
       const thisStop = document.querySelector(`#Stop${number}`)
-      if(thisStop !== null){
+      if (thisStop !== null) {
         thisStop.style.display = null
       }
       const pathLength = document.querySelector(`#Layer${number}`).getTotalLength()
 
       let t = d3.transition()
-        .duration(pathLength * 10)
+        .duration(pathLength * 30)
         .ease(d3.easeLinear)
         .on('end', () => {
-          d3.select(`#Layer${number}`)
-          .style('stroke','red')
-          
+          d3.select(`#Layer${number}`).style('stroke', 'red')
           this.animateLine(number + 1)
         })
 
-
       d3.select(`#Layer${number}`)
-      .style('stroke','#00ff48')
-      .style('stroke-dasharray', pathLength)
-      .style('stroke-dashoffset', pathLength)
-      .transition(t)
-      .style('stroke-dashoffset', 0)
+        .style('stroke', '#00ff48')
+        .style('stroke-dasharray', pathLength)
+        .style('stroke-dashoffset', pathLength)
+        .transition(t)
+        .style('stroke-dashoffset', 0)
 
-      d3.select("#lomaxCar")
-      .transition(t)
-      .attrTween('cx', function(){
-        var interpolate = d3.interpolateNumber(0, pathLength)
-        return function(t){
-          return document.getElementById(`Layer${number}`).getPointAtLength(interpolate(t)).x
-        }
-      })
-      .attrTween('cy', function(){
-        var interpolate = d3.interpolateNumber(0, pathLength)
-        return function(t){
-          return document.getElementById(`Layer${number}`).getPointAtLength(interpolate(t)).y
-        }
-      })
-
+      d3.select('#lomaxCar')
+        .transition(t)
+        .attrTween('cx', function () {
+          var interpolate = d3.interpolateNumber(0, pathLength)
+          return function (t) {
+            return document.getElementById(`Layer${number}`).getPointAtLength(interpolate(t)).x
+          }
+        })
+        .attrTween('cy', function () {
+          var interpolate = d3.interpolateNumber(0, pathLength)
+          return function (t) {
+            return document.getElementById(`Layer${number}`).getPointAtLength(interpolate(t)).y
+          }
+        })
     }
   },
   mounted: function () {
     const allStops = document.querySelector('#Stops').children
-    for(let i = 0; i < allStops.length; i++){
-        allStops[i].style.display = 'none'
+    for (let i = 0; i < allStops.length; i++) {
+      allStops[i].style.display = 'none'
     }
-    d3.select("#lomaxCar")
-    .attr('cx',function(){return document.getElementById('Layer1').getPointAtLength(0).x})
-    .attr('cy',function(){return document.getElementById('Layer1').getPointAtLength(0).y})
+    const blah = [{
+      note: {
+        label: "John and Ruby Lomax begin their trip in John Lomax's 1939 Plymouth, loaded with the recording equipment",
+        title: 'March 31, 1939 at San José Island, Texas',
+        wrap: 1200
+      },
+      data: { stops: ['Stop1'] },
+      subject: { radius: 40, radiusPadding: 0 },
+      dy: 60,
+      dx: 80
+    }, {
+      note: {
+        label: 'The Lomax family makes their first stop at Austin, Texas where they meet up with a mechanic “who could check the machine to be sure all parts were there and working”',
+        title: 'April 1, 1939 at Austin, Texas',
+        wrap: 1200
+      },
+      data: { stops: ['Stop2'] },
+      subject: { radius: 40, radiusPadding: 0 },
+      dy: -60,
+      dx: 80
+    }]
+
+    const makeAnnotations = annotation.annotation()
+      .type(annotation.annotationCalloutCircle)
+      .accessors({
+        x: d => {
+          let avgX = 0
+          for (let i = 0; i < d.stops.length; i++) {
+            avgX = avgX + document.querySelector(`#${d.stops[i]}`).getBBox().x + (document.querySelector(`#${d.stops[i]}`).getBBox().width / 2)
+          }
+          return avgX / d.stops.length
+        },
+        y: d => {
+          let avgY = 0
+          for (let i = 0; i < d.stops.length; i++) {
+            avgY = avgY + document.querySelector(`#${d.stops[i]}`).getBBox().y + (document.querySelector(`#${d.stops[i]}`).getBBox().height / 2)
+          }
+          return avgY / d.stops.length
+        }
+      })
+      .annotations(blah)
+
+    d3.select(this.$el.children[0])
+      .append('g')
+      .attr('id', 'annotation-group')
+      .call(makeAnnotations)
+
+    d3.select('#lomaxCar')
+      .attr('cx', function () { return document.getElementById('Layer1').getPointAtLength(0).x })
+      .attr('cy', function () { return document.getElementById('Layer1').getPointAtLength(0).y })
     this.animateLine(1)
-    
   }
 }
 </script>
-
+<style>
+.annotation-note-title{
+  font-size: 52px;
+  font-family: 'Alfa Slab One', cursive;
+  font-weight: normal;
+  fill: deeppink;
+}
+.annotation-note-label{
+  font-size: 48px;
+  font-family: 'Georgia';
+  fill: white;
+}
+.annotation-note-bg{
+    fill: black;
+    fill-opacity:1;
+}
+.annotation path{
+    stroke: black;
+    stroke-width: 10px;
+}
+</style>
 <style scoped>
 #mapContainer{
   width: 95%;
@@ -435,9 +477,7 @@ export default {
   margin-bottom: 30px;
   position: relative;
 }
-#map{
-  
-}
+
 #Layer_1{
   width: 100%;
 }

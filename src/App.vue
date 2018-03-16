@@ -44,7 +44,6 @@ import Bloom from './components/Bloom'
 import BarChart from './components/BarChart'
 import ImageAndCaption from './components/ImageAndCaption'
 import {json as getJSON} from 'd3-request'
-import moment from 'moment'
 import dataFile from '../static/data.json'
 import peopleFile from '../static/people.json'
 
@@ -68,20 +67,8 @@ export default {
   },
   created: function () {
     getJSON(dataFile, (resp) => {
-      /*resp = resp.sort(function(a,b){
-        let first = new moment(a['Created / Published'].date,'MMMM DD, YYYY')
-        let second = new moment(b['Created / Published'].date,'MMMM DD, YYYY')
-        if(first < second) {
-          return -1
-        } else if(second < first){
-          return 1
-        } else{
-          return 0
-        }
-      })*/
       this.$store.commit('setData', resp)
       this.theData = resp
-      //console.log(JSON.stringify(resp))
     })
 
     getJSON(peopleFile, (resp) => {
