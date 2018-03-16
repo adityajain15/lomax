@@ -398,8 +398,8 @@ export default {
         title: 'March 31, 1939 at San José Island, Texas',
         wrap: 1200
       },
-      data: { stops: ['Stop1'] },
-      subject: { radius: 40, radiusPadding: 0 },
+      data: {stops: ['Stop1'], x: 401.4499969482422, y: 1421.2000122070312},
+      subject: { radius: 30, radiusPadding: 0 },
       dy: 60,
       dx: 80
     }, {
@@ -408,8 +408,8 @@ export default {
         title: 'April 1, 1939 at Austin, Texas',
         wrap: 1200
       },
-      data: { stops: ['Stop2'] },
-      subject: { radius: 40, radiusPadding: 0 },
+      data: {stops: ['Stop2'], x: 377.8500061035156, y: 1189.7999877929688},
+      subject: { radius: 30, radiusPadding: 0 },
       dy: -60,
       dx: 80
     }]
@@ -418,17 +418,21 @@ export default {
       .type(annotation.annotationCalloutCircle)
       .accessors({
         x: d => {
+          return d.x
           let avgX = 0
           for (let i = 0; i < d.stops.length; i++) {
             avgX = avgX + document.querySelector(`#${d.stops[i]}`).getBBox().x + (document.querySelector(`#${d.stops[i]}`).getBBox().width / 2)
           }
+          console.log(avgX / d.stops.length)
           return avgX / d.stops.length
         },
         y: d => {
+          return d.y
           let avgY = 0
           for (let i = 0; i < d.stops.length; i++) {
             avgY = avgY + document.querySelector(`#${d.stops[i]}`).getBBox().y + (document.querySelector(`#${d.stops[i]}`).getBBox().height / 2)
           }
+          console.log(avgY / d.stops.length)
           return avgY / d.stops.length
         }
       })
