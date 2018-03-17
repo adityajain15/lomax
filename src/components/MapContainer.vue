@@ -5,7 +5,7 @@
 
 <image style="overflow:visible;enable-background:new;" width="10204" height="7811" xlink:href="../../static/map_lower.jpg"  transform="matrix(0.2364 0 0 0.2364 0 0)">
 </image>
-<g id="Layer_2_1_">
+<g id="allRoads">
     <path id="Layer1" class="st0" d="M400.2,1422c-25.3,0.6-40-24.4-46.2-45.9c-1.4-4.7-2.4-9.7-2.3-14.6c0.1-4.7-1.2-8.6-2-13
         c-1-5.6-3.9-10.6-3.7-16.4c0.1-1.4,0.3-2.9-0.1-4.3c-1.1-4.7-5.5-9.1-8.1-13c-0.7-1-1.5-2.1-2.4-2.9c-5.4-4.7-3.7-11.4-7.8-16.5
         c-0.4-0.5-0.8-1-0.8-1.6c0-0.7,0.7-1.2,1.3-1.6c3.3-2.3,6.8-4.6,10.7-5.4c0.6-0.1,1.2-0.2,1.7,0.1c0.4,0.3,0.7,0.7,1.1,1
@@ -340,39 +340,66 @@
 <script>
 import * as d3 from 'd3'
 import annotation from 'd3-svg-annotation'
+import {annotationObject, removalMap} from '../annotations'
 require('waypoints/lib/noframework.waypoints.js')
 
 export default {
   name: 'MapContainer',
+  data () {
+    return {
+      t: d3.transition(),
+      hasPlayed: false
+    }
+  },
   methods: {
     animateLine: function (number) {
       if (number === 33) {
         document.querySelector(`#Stop33`).style.display = null
         return
       }
+      // show location marker
       const thisStop = document.querySelector(`#Stop${number}`)
       if (thisStop !== null) {
         thisStop.style.display = null
       }
+
+      if (removalMap.hasOwnProperty(`Stop${number}`)) {
+        for (let i = 0; i < removalMap[`Stop${number}`].length; i++) {
+          d3.select(`#annotation-group-${removalMap[`Stop${number}`][i]}`)
+            .transition()
+            .ease(d3.easeLinear)
+            .duration(250)
+            .style('opacity', '0')
+        }
+      }
+
+      d3.select(`#annotation-group-Stop${number}`)
+        .transition()
+        .ease(d3.easeLinear)
+        .duration(750)
+        .style('opacity', '1')
+
       const pathLength = document.querySelector(`#Layer${number}`).getTotalLength()
 
-      let t = d3.transition()
+      this.t = d3.transition()
         .duration(pathLength * 30)
         .ease(d3.easeLinear)
         .on('end', () => {
-          d3.select(`#Layer${number}`).style('stroke', 'red')
-          this.animateLine(number + 1)
+          if (this.t !== null) {
+            d3.select(`#Layer${number}`).style('stroke', 'red')
+            this.animateLine(number + 1)
+          }
         })
 
       d3.select(`#Layer${number}`)
         .style('stroke', '#00ff48')
         .style('stroke-dasharray', pathLength)
         .style('stroke-dashoffset', pathLength)
-        .transition(t)
+        .transition(this.t)
         .style('stroke-dashoffset', 0)
 
       d3.select('#lomaxCar')
-        .transition(t)
+        .transition(this.t)
         .attrTween('cx', function () {
           var interpolate = d3.interpolateNumber(0, pathLength)
           return function (t) {
@@ -385,68 +412,71 @@ export default {
             return document.getElementById(`Layer${number}`).getPointAtLength(interpolate(t)).y
           }
         })
+    },
+    resetMap: function () {
+      // turn off all the location markers
+      this.t = null
+      const allStops = document.querySelector('#Stops').children
+      for (let i = 0; i < allStops.length; i++) {
+        allStops[i].style.display = 'none'
+      }
+
+      const children = Array.from(document.querySelectorAll('#allRoads path'))
+      for (let i = 0; i < children.length; i++) {
+        //console.log(children[i])
+        d3.select(children[i]).style.fill = 'none'
+      }
+
+      d3.select('#lomaxCar')
+        .attr('cx', function () { return document.getElementById('Layer1').getPointAtLength(0).x })
+        .attr('cy', function () { return document.getElementById('Layer1').getPointAtLength(0).y })
     }
   },
   mounted: function () {
-    const allStops = document.querySelector('#Stops').children
-    for (let i = 0; i < allStops.length; i++) {
-      allStops[i].style.display = 'none'
+    this.resetMap()
+
+    for (let i = 0; i < annotationObject.length; i++) {
+      const makeAnnotations = annotation.annotation()
+        .type(annotation.annotationCalloutCircle)
+        .accessors({
+          x: d => {
+            let avgX = 0
+            for (let i = 0; i < d.stops.length; i++) {
+              avgX = avgX + document.querySelector(`#${d.stops[i]}`).getBBox().x + (document.querySelector(`#${d.stops[i]}`).getBBox().width / 2)
+            }
+            console.log(avgX / d.stops.length)
+            return d.x
+            // return avgX / d.stops.length
+          },
+          y: d => {
+            let avgY = 0
+            for (let i = 0; i < d.stops.length; i++) {
+              avgY = avgY + document.querySelector(`#${d.stops[i]}`).getBBox().y + (document.querySelector(`#${d.stops[i]}`).getBBox().height / 2)
+            }
+            console.log(avgY / d.stops.length)
+            return d.y
+            // return avgY / d.stops.length
+          }
+        })
+        .annotations(annotationObject[i])
+      console.log(annotationObject[i][0])
+      d3.select(this.$el.children[0])
+        .append('g')
+        .attr('id', `annotation-group-${annotationObject[i][0].data.stops[0]}`)
+        .style('opacity', '0')
+        .call(makeAnnotations)
     }
-    const blah = [{
-      note: {
-        label: "John and Ruby Lomax begin their trip in John Lomax's 1939 Plymouth, loaded with the recording equipment",
-        title: 'March 31, 1939 at San José Island, Texas',
-        wrap: 1200
-      },
-      data: {stops: ['Stop1'], x: 401.4499969482422, y: 1421.2000122070312},
-      subject: { radius: 30, radiusPadding: 0 },
-      dy: 60,
-      dx: 80
-    }, {
-      note: {
-        label: 'The Lomax family makes their first stop at Austin, Texas where they meet up with a mechanic “who could check the machine to be sure all parts were there and working”',
-        title: 'April 1, 1939 at Austin, Texas',
-        wrap: 1200
-      },
-      data: {stops: ['Stop2'], x: 377.8500061035156, y: 1189.7999877929688},
-      subject: { radius: 30, radiusPadding: 0 },
-      dy: -60,
-      dx: 80
-    }]
 
-    const makeAnnotations = annotation.annotation()
-      .type(annotation.annotationCalloutCircle)
-      .accessors({
-        x: d => {
-          return d.x
-          let avgX = 0
-          for (let i = 0; i < d.stops.length; i++) {
-            avgX = avgX + document.querySelector(`#${d.stops[i]}`).getBBox().x + (document.querySelector(`#${d.stops[i]}`).getBBox().width / 2)
-          }
-          console.log(avgX / d.stops.length)
-          return avgX / d.stops.length
-        },
-        y: d => {
-          return d.y
-          let avgY = 0
-          for (let i = 0; i < d.stops.length; i++) {
-            avgY = avgY + document.querySelector(`#${d.stops[i]}`).getBBox().y + (document.querySelector(`#${d.stops[i]}`).getBBox().height / 2)
-          }
-          console.log(avgY / d.stops.length)
-          return avgY / d.stops.length
+    const animateWaypoint = new Waypoint({
+      element: this.$el,
+      offset: 'bottom-in-view',
+      handler: (direction) => {
+        if (direction === 'down' && !this.hasPlayed) {
+          this.animateLine(1)
+          this.hasPlayed = true
         }
-      })
-      .annotations(blah)
-
-    d3.select(this.$el.children[0])
-      .append('g')
-      .attr('id', 'annotation-group')
-      .call(makeAnnotations)
-
-    d3.select('#lomaxCar')
-      .attr('cx', function () { return document.getElementById('Layer1').getPointAtLength(0).x })
-      .attr('cy', function () { return document.getElementById('Layer1').getPointAtLength(0).y })
-    this.animateLine(1)
+      }
+    })
   }
 }
 </script>
