@@ -353,10 +353,6 @@ export default {
   },
   methods: {
     animateLine: function (number) {
-      if (number === 33) {
-        document.querySelector(`#Stop33`).style.display = null
-        return
-      }
       // show location marker
       const thisStop = document.querySelector(`#Stop${number}`)
       if (thisStop !== null) {
@@ -378,6 +374,11 @@ export default {
         .ease(d3.easeLinear)
         .duration(750)
         .style('opacity', '1')
+
+      // just break out of the chain if we've reached Washington, DC
+      if (number === 33) {
+        return
+      }
 
       const pathLength = document.querySelector(`#Layer${number}`).getTotalLength()
 
@@ -444,7 +445,6 @@ export default {
             for (let i = 0; i < d.stops.length; i++) {
               avgX = avgX + document.querySelector(`#${d.stops[i]}`).getBBox().x + (document.querySelector(`#${d.stops[i]}`).getBBox().width / 2)
             }
-            console.log(avgX / d.stops.length)
             return d.x
             // return avgX / d.stops.length
           },
@@ -453,13 +453,12 @@ export default {
             for (let i = 0; i < d.stops.length; i++) {
               avgY = avgY + document.querySelector(`#${d.stops[i]}`).getBBox().y + (document.querySelector(`#${d.stops[i]}`).getBBox().height / 2)
             }
-            console.log(avgY / d.stops.length)
             return d.y
             // return avgY / d.stops.length
           }
         })
         .annotations(annotationObject[i])
-      console.log(annotationObject[i][0])
+
       d3.select(this.$el.children[0])
         .append('g')
         .attr('id', `annotation-group-${annotationObject[i][0].data.stops[0]}`)
@@ -477,6 +476,7 @@ export default {
         }
       }
     })
+    
   }
 }
 </script>

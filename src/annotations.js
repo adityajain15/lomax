@@ -56,7 +56,7 @@ const annotationObject = [
   }],
   [{
     note: {
-      label: 'The Lomaxes are introduced to Miss Manuela Longoria, the principal of a public school for Mexican children',
+      label: 'The Lomaxes are introduced to and record Miss Manuela Longoria, the principal of a public school for Mexican children',
       title: 'April 24, 1939 at Brownsville, Texas',
       wrap: 1200
     },
@@ -72,7 +72,7 @@ const annotationObject = [
       wrap: 1200
     },
     data: {stops: ['Stop8'], x: 302.75, y: 1476.2000122070312},
-    subject: { radius: 15, radiusPadding: 0 },
+    subject: { radius: 20, radiusPadding: 0 },
     dy: -100,
     dx: 300
   }],
@@ -83,7 +83,7 @@ const annotationObject = [
       wrap: 1200
     },
     data: {stops: ['Stop11'], x: 330.09999084472656, y: 1449.8999633789062},
-    subject: { radius: 15, radiusPadding: 0 },
+    subject: { radius: 20, radiusPadding: 0 },
     dy: 30,
     dx: 150
   }],
@@ -161,8 +161,8 @@ const annotationObject = [
     },
     data: {stops: ['Stop23'], x: 917.7000122070312, y: 867.6000061035156},
     subject: { radius: 20, radiusPadding: 0 },
-    dy: -330,
-    dx: 0
+    dy: -400,
+    dx: 30
   }],
   [{
     note: {
@@ -172,8 +172,96 @@ const annotationObject = [
     },
     data: {stops: ['Stop24'], x: 944.7000122070312, y: 903.7999877929688},
     subject: { radius: 20, radiusPadding: 0 },
-    dy: -330,
+    dy: 300,
+    dx: 40
+  }],
+  [{
+    note: {
+      label: 'Lomaxes make prison recordings at State Farm, Camp #1 and #10',
+      title: 'May 23, 1939 at Parchman, Mississippi',
+      wrap: 1200
+    },
+    data: {stops: ['Stop25'], x: 1004.8500061035156, y: 883.2999877929688},
+    subject: { radius: 20, radiusPadding: 0 },
+    dy: -200,
+    dx: 40
+  }],
+  [{
+    note: {
+      label: 'Led by Mrs. Ruby Pickens Tartt, the Lomaxes record a large number of songs, mostly spirituals',
+      title: 'May 25, 1939 at Livingston, Alabama',
+      wrap: 1200
+    },
+    data: {stops: ['Stop26'], x: 1190.2000122070312, y: 1020.7000122070312},
+    subject: { radius: 30, radiusPadding: 0 },
+    dy: -100,
     dx: 0
+  }],
+  [{
+    note: {
+      label: 'Lomaxes record and dine with Mrs. G. A. Griffin, a woman who had “built a house with my own hands”',
+      title: 'June 1, 1939 at Newberry, Florida',
+      wrap: 1200
+    },
+    data: {stops: ['Stop27'], x: 1652.75, y: 1305.7999877929688},
+    subject: { radius: 30, radiusPadding: 0 },
+    dy: 200,
+    dx: -1
+  }],
+  [{
+    note: {
+      label: 'Lomaxes make prison recordings at the Florida State Penitentiary',
+      title: 'June 2, 1939 at Raiford, Florida',
+      wrap: 1200
+    },
+    data: {stops: ['Stop28'], x: 1684.8499755859375, y: 1264.3999633789062},
+    subject: { radius: 30, radiusPadding: 0 },
+    dy: -200,
+    dx: -1
+  }],
+  [{
+    note: {
+      label: 'Lomaxes make some recordings with the help of their friend Mrs. Floyd but their intention to record children’s songs are stymied by a Polio epidemic',
+      title: 'June 6, 1939 at Murrells Inlet, South Carolina',
+      wrap: 1200
+    },
+    data: {stops: ['Stop29'], x: 1939.5, y: 906.0500183105469},
+    subject: { radius: 30, radiusPadding: 0 },
+    dy: -200,
+    dx: -1
+  }],
+  [{
+    note: {
+      label: 'Lomaxes make recordings at Clemson. In Anderson, SC they are shocked to encounter a chain gang in a convict camp. Later that day they attend a “white singing festival” at Toccoa Falls',
+      title: 'June 9-11, 1939 at Clemson, South Carolina and Toccoa Falls, Georgia',
+      wrap: 1200
+    },
+    data: {stops: ['Stop30', 'Stop31'], x: 1629.0499877929688, y: 824.5},
+    subject: { radius: 40, radiusPadding: 0 },
+    dy: 300,
+    dx: -1
+  }],
+  [{
+    note: {
+      label: 'Lomaxes make  a scheduled stop at Galax, Virginia but do not make any recordings because “one of our principals was ill with duodenal ulcer”',
+      title: 'June 13, 1939 at Galax, Virginia',
+      wrap: 1500
+    },
+    data: {stops: ['Stop32'], x: 1768.6500244140625, y: 617.8999938964844},
+    subject: { radius: 30, radiusPadding: 0 },
+    dy: 20,
+    dx: -200
+  }],
+  [{
+    note: {
+      label: 'Lomaxes reach their final destination: the Library of Congress',
+      title: 'June 14, 1939 at Washington, DC',
+      wrap: 1500
+    },
+    data: {stops: ['Stop33'], x: 2055.7000122070312, y: 383.09999084472656},
+    subject: { radius: 30, radiusPadding: 0 },
+    dy: -50,
+    dx: -200
   }]
 ]
 
@@ -189,8 +277,16 @@ const removalMap = {
   'Stop17': ['Stop15'],
   'Stop18': ['Stop16'],
   'Stop19': ['Stop17'],
-  'Stop23': ['Stop18'],
-  'Stop24': ['Stop19']
+  'Stop23': ['Stop19'],
+  'Stop24': ['Stop18'],
+  'Stop26': ['Stop23', 'Stop24'],
+  'Stop27': ['Stop25'],
+  'Stop28': ['Stop26'],
+  'Stop29': ['Stop27'],
+  'Stop30': ['Stop28'],
+  'Stop31': ['Stop29'],
+  'Stop32': ['Stop30'],
+  'Stop33': ['Stop32']
 }
 
 export {annotationObject, removalMap}
