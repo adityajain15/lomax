@@ -83,7 +83,7 @@ export default {
       return !(this.$store.getters.modalGenres.length === 0)
     },
     calculatedWidth: function () {
-      return window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.5)
+      return window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.75)
     },
     styleObject: function () {
       return {

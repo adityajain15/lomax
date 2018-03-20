@@ -14,7 +14,7 @@ export default {
       return this.$store.getters.getDisplayTooltip
     },
     styleObject: function () {
-      let widthFix = 400
+      let widthFix = window.innerWidth / 2
       let topFix = this.$store.getters.tooltipY
       let leftFix = this.$store.getters.tooltipX + 10
       if (window.innerWidth < (leftFix + widthFix)) { leftFix = leftFix - widthFix - 20 }
@@ -37,7 +37,7 @@ div{
   box-sizing: border-box;
   border-radius: 5px;
   padding: 12px;
-  background-color: rgba(56, 56, 56, 0.3);
+  background-color: rgba(56, 56, 56, 0.8);
   z-index: 5;
 }
 span{

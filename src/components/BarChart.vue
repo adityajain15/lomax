@@ -1,9 +1,11 @@
 <template>
   <svg :height="SVGHeight" width="95%">
+    <text :x="clientWidth / 2" :y="margin" text-anchor="middle">Genre breakdown of songs from {{state}}</text>
+    <text :x="clientWidth / 2" :y="margin + textHeight" text-anchor="middle">Click circles for more information</text>
     <template v-for="(songCategory, songCategoryIndex) of sortedSegmentedSongs">
-      <text :state="state" :x="margin" :y="margin + 2 * radius + (songCategoryIndex * (radius * 4))">{{songCategory}}</text>
+      <text class="barChartLabel" :state="state" :x="margin" :y="margin + (2 * textHeight) + (2 * textHeight * songCategoryIndex)">{{songCategory}}</text>
       <template v-for="(song, songIndex) of segmentedSongs[songCategory]">
-        <circle :cx="maxTextLength + radius + (songIndex * (2 * radius))" :cy="margin + radius + (songCategoryIndex * (radius * 4))" :r="radius" :fill="getColor(song)" v-on:click="displayModal(song)"></circle>
+        <circle :cx="margin + radius + (songIndex * (2 * radius))" :cy="margin + (3 * textHeight) + (2 * textHeight * songCategoryIndex) - radius" :r="radius" :fill="getColor(song)" v-on:mouseover="setTooltip(song, $event)" v-on:mouseleave="removeTooltip" v-on:click="displayModal(song)"></circle>
       </template>
     </template>
   </svg>
@@ -12,26 +14,29 @@
 <script>
 import {store} from '../store'
 import colorMap from '../colorMap'
-import {scaleLinear} from 'd3-scale'
 import Vue from 'vue'
 export default {
   name: 'BarChart',
   store: store,
   props: ['state'],
-  data(){
+  data () {
     return {
-      'width': 500,
+      'chartWidth': 500,
+      'clientWidth': 500,
+      'marginTop': 30,
       'margin': 20,
-      'maxTextLength': 100
+      'padding': 10,
+      'textHeight': 22
     }
   },
   methods: {
     onResize: function () {
-      this.width = this.$el.clientWidth - this.margin - this.maxTextLength
+      this.chartWidth = this.$el.clientWidth - (2 * this.margin)
+      this.clientWidth = this.$el.clientWidth
     },
     getColor: function (song) {
-      for(let i = 0; i < colorMap.length; i++){
-        if(song.Genre.includes(colorMap[i][0])){
+      for (let i = 0; i < colorMap.length; i++) {
+        if (song.Genre.includes(colorMap[i][0])) {
           return colorMap[i][1]
         }
       }
@@ -40,26 +45,25 @@ export default {
       this.$store.commit('setModal', {data: song, type: 'song'})
       this.$store.commit('setDisplayModal', true)
       //this.$store.commit('setDisplayTooltip', false)
-    }
-  },
-  watch: {
-    segmentedSongs: function (newVal, oldVal){
-      this.$nextTick(function () {
-        this.maxTextLength = Math.max(...Array.from(this.$el.getElementsByTagName(`text`)).map(d => {return d.clientWidth}))
-        this.onResize()
-      })
+    },
+    setTooltip: function (song, event) {
+      this.$store.commit('setDisplayTooltip', true)
+      this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: song.Title})
+    },
+    removeTooltip: function () {
+      this.$store.commit('setDisplayTooltip', false)
     }
   },
   computed: {
-    segmentedSongs: function (){
+    segmentedSongs: function () {
       let songs = this.$store.getters.getData(this.state)
       let tempSegmented = {}
-      for(let i = 0; i < songs.length; i++){
-        for(let j = 0; j < colorMap.length; j++){
-          if(songs[i].Genre.includes(colorMap[j][0])){
-            if(tempSegmented.hasOwnProperty(colorMap[j][0])){
+      for (let i = 0; i < songs.length; i++) {
+        for (let j = 0; j < colorMap.length; j++) {
+          if (songs[i].Genre.includes(colorMap[j][0])) {
+            if (tempSegmented.hasOwnProperty(colorMap[j][0])) {
               tempSegmented[colorMap[j][0]].push(songs[i])
-            } else{
+            } else {
               Vue.set(tempSegmented, colorMap[j][0], [songs[i]])
             }
             break
@@ -69,13 +73,13 @@ export default {
       return tempSegmented
     },
     sortedSegmentedSongs: function () {
-      return Object.keys(this.segmentedSongs).sort((a,b) => {
-        if(this.segmentedSongs[a].length < this.segmentedSongs[b].length){
+      return Object.keys(this.segmentedSongs).sort((a, b) => {
+        if (this.segmentedSongs[a].length < this.segmentedSongs[b].length) {
           return -1
-        } else if(this.segmentedSongs[a].length > this.segmentedSongs[b].length) {
+        } else if (this.segmentedSongs[a].length > this.segmentedSongs[b].length) {
           return 1
         } else {
-          return 0 
+          return 0
         }
       })
     },
@@ -83,19 +87,19 @@ export default {
       return this.sortedSegmentedSongs.length
     },
     SVGHeight: function () {
-      return (this.numCategories * 2 * this.radius * 2) + (2 * this.margin)
+      // this math is possibly wrong
+      return ((this.numCategories) * 2 * this.textHeight) + (2 * this.margin) + (this.textHeight)
     },
     domainMax: function () {
-      if(this.segmentedSongs.hasOwnProperty(this.sortedSegmentedSongs[this.sortedSegmentedSongs.length - 1])){
+      if (this.segmentedSongs.hasOwnProperty(this.sortedSegmentedSongs[this.sortedSegmentedSongs.length - 1])) {
         return this.segmentedSongs[this.sortedSegmentedSongs[this.sortedSegmentedSongs.length - 1]].length
       } else {
         return 0
       }
     },
     radius: function () {
-      let computeRadius = (this.width / this.domainMax) / 2
-      if(computeRadius > 6) {return 6}
-
+      let computeRadius = (this.chartWidth / this.domainMax) / 2
+      if (computeRadius > 6) { return 6 }
       return computeRadius
     }
   },
@@ -117,5 +121,9 @@ circle:hover{
 text{
   font-family: 'Alfa Slab One', cursive;
   fill: deeppink;
+}
+
+.barChartLabel{
+  fill: white;
 }
 </style>
