@@ -42,6 +42,7 @@ export default {
       }
     },
     displayModal: function (song) {
+      this.removeTooltip()
       this.$store.commit('setModal', {data: song, type: 'song'})
       this.$store.commit('setDisplayModal', true)
       //this.$store.commit('setDisplayTooltip', false)
