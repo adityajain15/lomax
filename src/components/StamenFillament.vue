@@ -34,7 +34,7 @@ export default {
       return -((this.arcRadius) - (1 / 3 * this.lineLength)) * Math.sin(this.angle) - 10
     },
     radiusSize: function () {
-      return 4
+      return 2
     },
     arcSize: function () {
       return this.angleSize * (this.arcRadius)

@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     radiusSize: function () {
-      return 4
+      return 2
     },
     xPosition: function () {
       return this.$store.getters.getStamenCordX({county: this.county, name: this.person})

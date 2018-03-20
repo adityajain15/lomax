@@ -38,7 +38,7 @@ export default {
       return theFilter.id.includes(this.songObject['Digital Id'])
     },
     radiusSize: function () {
-      return 4
+      return 2
     },
     xPosition: function () {
       return this.$store.getters.getStyleCordX(this.songObject['Digital Id'])

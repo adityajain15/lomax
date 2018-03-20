@@ -47,7 +47,7 @@ export default {
       return shouldRenderObject
     },
     radiusSize: function () {
-      return 4
+      return 2
     },
     arcSize: function () {
       return this.angleSize * this.arcRadius
