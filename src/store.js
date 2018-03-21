@@ -156,7 +156,7 @@ export const store = new Vuex.Store({
     modalAudioUrl: (state, getters) => {
       if (getters.getDisplayModal && getters.modalIsSong) {
         let fileName = state.modalData.data.audioUrl.slice(state.modalData.data.audioUrl.lastIndexOf('/') + 1)
-        return `static/audio_files/${fileName}`
+        return `./static/audio_files/${fileName}`
       }
       return ''
     },
