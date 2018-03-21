@@ -103,6 +103,7 @@ export default {
         this.sound.stop()
         this.sound = ''
       }
+
       this.progressStyle = {width: '0%'}
       this.sound = new Howl({
         src: [this.$store.getters.modalAudioUrl],

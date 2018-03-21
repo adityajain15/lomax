@@ -4,9 +4,7 @@
     <span>{{isPlayingSymbol}}{{this.text}}</span>
   </div>
 </template>
-
 <script>
-import { store } from '../store'
 import {Howl} from 'howler'
 export default {
   name: 'SoundText',
@@ -18,16 +16,16 @@ export default {
       default: true
     }
   },
-  data(){
+  data () {
     return {
       sound: undefined,
       progressBarStyle: {
-        width: '0%',
+        width: '0%'
       }
     }
   },
-  beforeDestroy: function() {
-    if(this.isDefined){
+  beforeDestroy: function () {
+    if (this.isDefined) {
       this.sound.stop()
     }
   },
@@ -36,7 +34,7 @@ export default {
       return this.sound !== undefined
     },
     isPlayingSymbol: function () {
-      if(this.isDefined && this.sound.playing()){
+      if (this.isDefined && this.sound.playing()) {
         return '❙❙ '
       }
       return '► '
@@ -44,22 +42,22 @@ export default {
   },
   methods: {
     playSong: function () {
-      if(!this.isDefined) {
+      if (!this.isDefined) {
         this.sound = new Howl({
           src: [this.audioUrl],
           onplay: this.progressFunc,
           onend: this.completeProgress
         })
       }
-      if(this.sound.playing()){
+      if (this.sound.playing()) {
         this.sound.pause()
-      } else{
+      } else {
         this.sound.play()
         this.progressFunc()
       }
     },
     completeProgress: function () {
-      this.progressBarStyle = {width:'100%'}
+      this.progressBarStyle = {width: '100%'}
     },
     progressFunc: function () {
       const intervalId = window.setInterval(() => {

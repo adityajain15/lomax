@@ -46,7 +46,6 @@ import ImageAndCaption from './components/ImageAndCaption'
 import {json as getJSON} from 'd3-request'
 import dataFile from '../static/data.json'
 import peopleFile from '../static/people.json'
-var download = require('downloadjs')
 
 export default {
   name: 'app',
@@ -70,18 +69,6 @@ export default {
     getJSON(dataFile, (resp) => {
       this.$store.commit('setData', resp)
       this.theData = resp
-      for (var i = 0; i < this.theData.length; i++) {
-        window.setTimeout((data, i) => {
-          let fileName = data.audioUrl.slice(data.audioUrl.lastIndexOf('/') + 1)
-          var x = new XMLHttpRequest()
-          x.open('GET', data.audioUrl, true)
-          x.responseType = 'blob'
-          x.onload = function (e) {
-            download(e.target.response, fileName, 'image/png')
-          }
-          x.send()
-        }, 10000 * i, this.theData[i], i)
-      }
     })
     getJSON(peopleFile, (resp) => {
       this.$store.commit('setPeopleData', resp)

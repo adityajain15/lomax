@@ -136,7 +136,7 @@ export const store = new Vuex.Store({
     },
     modalPlace: (state, getters) => {
       if (getters.getDisplayModal && getters.modalIsSong) {
-        return `${state.modalData.data['Created / Published'].place}, ${state.modalData.data['Created / Published'].place}`
+        return `${state.modalData.data['Created / Published'].place}, ${state.modalData.data['Created / Published'].state}`
       }
       return ''
     },
@@ -155,7 +155,8 @@ export const store = new Vuex.Store({
     },
     modalAudioUrl: (state, getters) => {
       if (getters.getDisplayModal && getters.modalIsSong) {
-        return state.modalData.data.audioUrl
+        let fileName = state.modalData.data.audioUrl.slice(state.modalData.data.audioUrl.lastIndexOf('/') + 1)
+        return `../static/audio_files/${fileName}`
       }
       return ''
     },
