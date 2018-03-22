@@ -43,8 +43,9 @@ export default {
   methods: {
     playSong: function () {
       if (!this.isDefined) {
+        let fileName = this.audioUrl.slice(this.audioUrl.lastIndexOf('/') + 1)
         this.sound = new Howl({
-          src: [this.audioUrl],
+          src: [`./static/audio_files/${fileName}`],
           onplay: this.progressFunc,
           onend: this.completeProgress
         })
