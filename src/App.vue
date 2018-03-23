@@ -105,4 +105,11 @@ p{
   color: black;
   text-align: left;
 }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 600px) {
+  p{
+    width: 85%;
+  }
+}
+
 </style>
