@@ -86,11 +86,11 @@ export default {
     },
     styleObject: function () {
       return {
-        width: `${this.innerWidth > 1200 ? 500 : this.innerWidth * 0.75}px`,
+        width: `${this.innerWidth > 1000 ? 500 : this.innerWidth * 0.75}px`,
         height: `${this.innerHeight * 0.50}px`,
         display: this.shouldRender ? 'block' : 'none',
         top: `${this.innerHeight * 0.25}px`,
-        left: `${this.innerWidth > 1200 ? (this.innerWidth - 500) / 2 : this.innerWidth * 0.125}px`
+        left: `${this.innerWidth > 1000 ? (this.innerWidth - 500) / 2 : this.innerWidth * 0.125}px`
       }
     },
     audioUrl: function () {
@@ -216,8 +216,7 @@ button{
   border: 1px solid white;
   border-radius: 5px;
   background-color: rgba(56, 56, 56, 1);
-  font-family: 'Biryani', sans-serif;
-  font-weight: 800;
+  font-family: 'Alfa Slab One', cursive;
   text-align: center;
 }
 button:hover{
@@ -232,25 +231,21 @@ button:hover{
   text-align: left;
 }
 h1{
-  font-family: 'Biryani', sans-serif;
-  font-weight: 800;
-  font-size: 20px;
-  color: white;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 22px;
+  color: deeppink;
   margin-bottom: 5px;
 }
 h2{
-  font-family: 'Biryani', sans-serif;
-  font-weight: 700;
+  font-family: 'Alfa Slab One', cursive;
   font-size: 16px;
   text-align: left;
-  color: white;
+  color: deeppink;
   margin-top: 10px;
   margin-bottom: 5px;
-  text-decoration: underline;
 }
 h3{
-  font-family: 'Biryani', sans-serif;
-  font-weight: 700;
+  font-family: 'Alfa Slab One', cursive;
   font-size: 14px;
   color: white;
   margin-top: 10px;
@@ -259,9 +254,8 @@ h3{
   text-decoration: underline;
 }
 span{
-  font-family: 'Biryani', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
+  font-family: Georgia;
+  font-size: 15px;
   text-align: left;
   color: white;
   display: block;
