@@ -112,7 +112,7 @@ export default {
     }
   },
   mounted: function () {
-    window.onresize = this.resizeFunction
+    window.addEventListener('touchend', this.resize)
   },
   methods: {
     scrub: function (event) {
@@ -150,8 +150,7 @@ export default {
       }
       this.sound.pause()
     },
-    resizeFunction: function () {
-      this.calculatedWidth = window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.75)
+    handleResize: function () {
       this.currentInnerWidth = window.innerWidth
     }
   }
