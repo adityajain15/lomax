@@ -163,7 +163,7 @@ export default {
 #styleModal{
   position: fixed;
   overflow: scroll;
-  background-color: rgba(56, 56, 56, 1);
+  background-color: #141e30;
   box-sizing: border-box;
   border-radius: 5px;
   padding: 12px;

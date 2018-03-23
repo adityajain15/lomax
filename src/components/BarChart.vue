@@ -113,7 +113,7 @@ export default {
 
 <style scoped>
 svg{
-  background: black;
+  background: #141e30;
   max-width: 1000px;
 }
 circle:hover{
