@@ -4,7 +4,6 @@
     
     <template v-if="this.$store.getters.modalIsSong">
       <h1>{{this.$store.getters.modalSongName}}</h1>
-      <h1>{{this.currentInnerWidth}}</h1>
       <div class="textWrapper">
         <div id="progress-bar" v-on:click="scrub">
           <div id="progress" :style="this.progressStyle"></div>
@@ -74,8 +73,8 @@ export default {
         width: '0%'
       },
       songId: 0,
-      calculatedWidth: window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.75),
-      currentInnerWidth: window.innerWidth
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight
     }
   },
   computed: {
@@ -87,10 +86,11 @@ export default {
     },
     styleObject: function () {
       return {
-        width: `${this.calculatedWidth}px`,
-        height: `${window.innerHeight * 0.50}px`,
+        width: `${this.innerWidth > 1200 ? 500 : this.innerWidth * 0.75}px`,
+        height: `${this.innerHeight * 0.50}px`,
         display: this.shouldRender ? 'block' : 'none',
-        left: `${(window.innerWidth - this.calculatedWidth) / 2}px`
+        top: `${this.innerHeight * 0.25}px`,
+        left: `${this.innerWidth > 1200 ? (this.innerWidth - 500) / 2 : this.innerWidth * 0.125}px`
       }
     },
     audioUrl: function () {
@@ -112,7 +112,7 @@ export default {
     }
   },
   mounted: function () {
-    window.addEventListener('touchend', this.resize)
+    window.onresize = this.handleResize
   },
   methods: {
     scrub: function (event) {
@@ -151,7 +151,8 @@ export default {
       this.sound.pause()
     },
     handleResize: function () {
-      this.currentInnerWidth = window.innerWidth
+      this.innerWidth = window.innerWidth
+      this.innerHeight = window.innerHeight
     }
   }
 }
@@ -162,7 +163,6 @@ export default {
 #styleModal{
   position: fixed;
   overflow: scroll;
-  top: 25%;
   background-color: rgba(56, 56, 56, 1);
   box-sizing: border-box;
   border-radius: 5px;
