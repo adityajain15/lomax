@@ -166,6 +166,7 @@ export default {
   background-color: #141e30;
   box-sizing: border-box;
   border-radius: 5px;
+  border: 1px solid white;
   padding: 12px;
   z-index: 5;
 }
