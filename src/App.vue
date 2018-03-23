@@ -87,7 +87,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: floralwhite;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 p{
@@ -106,7 +108,7 @@ p{
   text-align: left;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 600px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 750px) {
   p{
     width: 85%;
   }
