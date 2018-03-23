@@ -24,9 +24,6 @@ export default {
 }
 </script>
 <style scoped>
-#full-page-container{
-
-}
 #textWrapper{
   padding: 2%;
   box-sizing: border-box;
