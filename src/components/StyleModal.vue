@@ -4,7 +4,7 @@
     
     <template v-if="this.$store.getters.modalIsSong">
       <h1>{{this.$store.getters.modalSongName}}</h1>
-      <h1>{{this.calculatedWidth}}</h1>
+      <h1>{{this.currentInnerWidth}}</h1>
       <div class="textWrapper">
         <div id="progress-bar" v-on:click="scrub">
           <div id="progress" :style="this.progressStyle"></div>
@@ -74,7 +74,8 @@ export default {
         width: '0%'
       },
       songId: 0,
-      calculatedWidth: window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.75)
+      calculatedWidth: window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.75),
+      currentInnerWidth: window.innerWidth
     }
   },
   computed: {
@@ -151,6 +152,7 @@ export default {
     },
     resizeFunction: function () {
       this.calculatedWidth = window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.75)
+      this.currentInnerWidth = window.innerWidth
     }
   }
 }
