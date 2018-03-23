@@ -5,7 +5,7 @@
       <div id="titleCard">
         <div id="headings">
           <h1>Southern Mosaic</h1>
-          <h2>By Aditya Jain & Rachel I. Howard</h2>
+          <h2>By Aditya Jain</h2>
         </div>
       </div>
     </div>

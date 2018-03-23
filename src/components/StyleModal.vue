@@ -4,6 +4,7 @@
     
     <template v-if="this.$store.getters.modalIsSong">
       <h1>{{this.$store.getters.modalSongName}}</h1>
+      <h1>{{this.calculatedWidth}}</h1>
       <div class="textWrapper">
         <div id="progress-bar" v-on:click="scrub">
           <div id="progress" :style="this.progressStyle"></div>
@@ -72,7 +73,8 @@ export default {
       progressStyle: {
         width: '0%'
       },
-      songId: 0
+      songId: 0,
+      calculatedWidth: window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.75)
     }
   },
   computed: {
@@ -81,9 +83,6 @@ export default {
     },
     hasGenres: function () {
       return !(this.$store.getters.modalGenres.length === 0)
-    },
-    calculatedWidth: function () {
-      return window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.75)
     },
     styleObject: function () {
       return {
@@ -110,6 +109,9 @@ export default {
         onload: this.progressFunc
       })
     }
+  },
+  mounted: function () {
+    window.onresize = this.resizeFunction
   },
   methods: {
     scrub: function (event) {
@@ -146,6 +148,9 @@ export default {
         return
       }
       this.sound.pause()
+    },
+    resizeFunction: function () {
+      this.calculatedWidth = window.innerWidth > 1200 ? 500 : (window.innerWidth * 0.75)
     }
   }
 }

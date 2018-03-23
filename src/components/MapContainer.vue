@@ -409,7 +409,7 @@ export default {
       const pathLength = document.querySelector(`#Layer${number}`).getTotalLength()
 
       this.t = d3.transition()
-        .duration(pathLength * 1)
+        .duration(pathLength * 20)
         .ease(d3.easeLinear)
         .on('end', () => {
           if (this.t !== null) {
