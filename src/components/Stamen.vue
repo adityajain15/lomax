@@ -5,14 +5,10 @@
 
 <script>
 import { store } from '../store'
+import Vue from 'vue'
 export default {
   name: 'Stamen',
   store: store,
-  data () {
-    return {
-      styleObject: {}
-    }
-  },
   props: ['person', 'personObject', 'county', 'state'],
   methods: {
     displayModal: function () {
@@ -31,19 +27,6 @@ export default {
       }
     }
   },
-  created: function () {
-    const attributes = this.$store.getters.getPersonData(this.person, this.county)
-    if (attributes.includes('Convict')) {
-      this.styleObject['fill'] = 'url(#horizontalLines2)'
-    } else if (attributes.includes('Black')) {
-      this.styleObject['fill'] = 'url(#horizontalLines1)'
-    } else if (attributes.includes('Mexican')) {
-      this.styleObject['fill'] = 'url(#horizontalLines5)'
-    } else if (attributes.includes('Lomax')) {
-      this.styleObject['fill'] = 'url(#horizontalLines4)'
-    }
-    // d
-  },
   computed: {
     radiusSize: function () {
       return 4
@@ -61,6 +44,20 @@ export default {
     },
     allSongs: function () {
       return this.personObject.map((d) => { return d['Digital Id'] })
+    },
+    styleObject: function () {
+      let temp = {}
+      const attributes = this.$store.getters.getPersonData(this.person, this.county)
+      if (attributes.includes('Convict')) {
+        temp['fill'] = 'url(#horizontalLines2)'
+      } else if (attributes.includes('Black')) {
+        temp['fill'] = 'url(#horizontalLines1)'
+      } else if (attributes.includes('Mexican')) {
+        temp['fill'] = 'url(#horizontalLines5)'
+      } else if (attributes.includes('Lomax')) {
+        temp['fill'] = 'url(#horizontalLines4)'
+      }
+      return temp
     }
   }
 }
