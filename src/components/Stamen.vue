@@ -42,6 +42,7 @@ export default {
     } else if (attributes.includes('Lomax')) {
       this.styleObject['fill'] = 'url(#horizontalLines4)'
     }
+    // d
   },
   computed: {
     radiusSize: function () {
