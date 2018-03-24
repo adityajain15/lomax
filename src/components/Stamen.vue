@@ -24,7 +24,7 @@ export default {
       if (didEnter) {
         this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: [this.person], id: this.allSongs})
         this.$store.commit('setDisplayTooltip', true)
-        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: 'Click circle for more information about this person'})
+        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: `${this.person}. Click circle for more information`})
       } else {
         this.$store.commit('setStyleFilter', {})
         this.$store.commit('setDisplayTooltip', false)
@@ -34,18 +34,18 @@ export default {
   created: function () {
     const attributes = this.$store.getters.getPersonData(this.person, this.county)
     if (attributes.includes('Convict')) {
-      this.styleObject['fill'] = 'url(#theBrave)'
+      this.styleObject['fill'] = 'url(#horizontalLines2)'
     } else if (attributes.includes('Black')) {
-      this.styleObject['fill'] = '#7fb4ff'
+      this.styleObject['fill'] = 'url(#horizontalLines1)'
     } else if (attributes.includes('Mexican')) {
-      this.styleObject['fill'] = '#ffaf69'
+      this.styleObject['fill'] = 'url(#horizontalLines5)'
     } else if (attributes.includes('Lomax')) {
-      this.styleObject['fill'] = '#fc6a6a'
+      this.styleObject['fill'] = 'url(#horizontalLines4)'
     }
   },
   computed: {
     radiusSize: function () {
-      return 2
+      return 4
     },
     xPosition: function () {
       return this.$store.getters.getStamenCordX({county: this.county, name: this.person})

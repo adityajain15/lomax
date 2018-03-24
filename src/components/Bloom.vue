@@ -3,10 +3,31 @@
     <h2>{{this.state}}</h2>
     <svg :height="elementHeight" class="bloom" :id="state">
       <defs>
-        <pattern id="theBrave" width="5" height="5"
-            patternUnits="userSpaceOnUse" style="background:white">
-          <rect x="0" y="0" width="5" height="5" style="fill:#7fb4ff"/></rect>
-          <circle cx="2.5" cy="2.5" r="2" style="fill:#1557c1"></circle>
+        <pattern id="circlePattern" width="4" height="4"
+            patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="4" height="4" style="fill:red"/></rect>
+          <circle cx="2" cy="2" r="1.50" style="fill:white"></circle>
+        </pattern>
+        <pattern id="horizontalLines1" width="4" height="4" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="4" height="4" fill='white'/>
+          <rect x="0" y="1" width="4" height="2" fill='#7fb4ff'/>
+        </pattern>
+        <pattern id="horizontalLines2" width="4" height="4" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="4" height="4" fill='white'/>
+          <rect x="0" y="1" width="4" height="1.5" fill='#01A7C2'/>
+          <rect x="1" y="0" width="1.5" height="4" fill='#01A7C2'/>
+        </pattern>
+        <pattern id="horizontalLines3" width="4" height="4" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="4" height="4" fill='white'/>
+          <rect x="0" y="1" width="4" height="2" fill='#ffaf69'/>
+        </pattern>
+        <pattern id="horizontalLines4" width="4" height="4" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="4" height="4" fill='white'/>
+          <rect x="0" y="1" width="4" height="2" fill='red'/>
+        </pattern>
+        <pattern id="horizontalLines5" width="4" height="4" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="4" height="4" fill='black'/>
+          <rect x="0" y="1" width="4" height="2" fill='#ffcc00'/>
         </pattern>
         <radialGradient id="RadialGradient1">
           <stop offset="0%" stop-color="#fccae6"/>
@@ -62,7 +83,7 @@ export default {
     this.handleResize()
     const unfurlWaypoint = new Waypoint({
       element: this.$el,
-      offset: this.elementHeight / 2,
+      offset: this.elementHeight * 0.75,
       handler: (direction) => {
         if (!this.unfurled && direction === 'down') {
           this.unfurled = true

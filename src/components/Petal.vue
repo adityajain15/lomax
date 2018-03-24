@@ -50,7 +50,7 @@ export default {
         let allSongs = this.obj.map(d => { return d['Digital Id'] })
         this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: Object.keys(this.peopleData), id: allSongs})
         this.$store.commit('setDisplayTooltip', true)
-        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: 'Click circle for more information about this county'})
+        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: `${this.county}`})
       } else {
         this.$store.commit('setStyleFilter', {})
         this.$store.commit('setDisplayTooltip', false)

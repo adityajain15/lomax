@@ -23,7 +23,7 @@ export default {
     setStyleFilter: function (didEnter, event) {
       if (didEnter) {
         this.$store.commit('setDisplayTooltip', true)
-        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: 'Click circle to hear the recording or to see more information such as the genre'})
+        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: `${this.songObject.Title}. Click for more information`})
         this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: this.songContributors, id: [this.songObject['Digital Id']]})
       } else {
         this.$store.commit('setDisplayTooltip', false)
@@ -38,7 +38,7 @@ export default {
       return theFilter.id.includes(this.songObject['Digital Id'])
     },
     radiusSize: function () {
-      return 2
+      return 4
     },
     xPosition: function () {
       return this.$store.getters.getStyleCordX(this.songObject['Digital Id'])

@@ -10,24 +10,34 @@
           <div id="progressOverlay" v-on:click="scrub"></div>
         </div>
         <button v-on:click="playSong">{{buttonString()}} song</button>
-        <h2>Date of recording</h2>
-        <span>{{this.$store.getters.modalDate}}</span>
-        <h2>Place of recording</h2>
-        <span>{{this.$store.getters.modalPlace}}</span>
-        <template v-if="hasGenres">
-          <h2>Genres</h2>
-          <template v-for="genre of this.$store.getters.modalGenres">
-            <span>{{genre}}</span>
+        <div class="modalElement">
+          <h2>Date of recording</h2>
+          <span>{{this.$store.getters.modalDate}}</span>
+        </div>
+        <div class="modalElement">
+          <h2>Place of recording</h2>
+          <span>{{this.$store.getters.modalPlace}}</span>
+        </div>
+        <div class="modalElement">
+          <template v-if="hasGenres">
+            <h2>Genres</h2>
+            <template v-for="genre of this.$store.getters.modalGenres">
+              <span>{{genre}}</span>
+            </template>
           </template>
-        </template>
-        <h2>Contributors</h2>
-        <template v-for="name of this.$store.getters.modalArtists">
-          <span>{{name}}</span>  
-        </template>
-        <h2>Notes</h2>
-        <template v-for="note of this.$store.getters.modalNotes">
-          <span>{{note}}</span>  
-        </template>
+        </div>
+        <div class="modalElement">
+          <h2>Contributors</h2>
+          <template v-for="name of this.$store.getters.modalArtists">
+            <span>{{name}}</span>  
+          </template>
+        </div>
+        <div class="modalElement">
+          <h2>Notes</h2>
+          <template v-for="note of this.$store.getters.modalNotes">
+            <span>{{note}}</span>  
+          </template>
+        </div>
       </div>
     </template>
 
@@ -180,10 +190,10 @@ export default {
   z-index: 5;
 }
 .styleModalSong:not(:first-of-type){
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .modalElement:not(:first-of-type){
-  margin-top: 25px;
+  margin-top: 40px;
 }
 .textWrapper{
   width: 80%;
@@ -192,17 +202,18 @@ export default {
 }
 #close{
   border: 1px solid white;
-  border-radius: 30px;
-  color: white;
-  width: 5%;
-  height: 5%;
+  border-radius: 300px;
+  width: 30px;
+  height: 30px;
+  font-size: 30px;
+  color: deeppink;
   margin-left: 92.5%;
-  margin-bottom: 5px;
-  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 #close:hover{
-  color: black;
-  background-color: white;
+  color: #141e30;
+  background-color: deeppink;
   cursor: pointer;
 }
 #progress-bar{
@@ -271,7 +282,7 @@ h3{
 }
 span{
   font-family: Georgia;
-  font-size: 15px;
+  font-size: 18px;
   text-align: left;
   color: white;
   display: block;
