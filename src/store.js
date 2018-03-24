@@ -53,7 +53,7 @@ export const store = new Vuex.Store({
     },
     getPersonData: state => {
       return (person, county) => {
-        if (state.people === []) { return '' }
+        if (state.people.length === 0) { return '' }
         return state.people.filter((d) => d.name === person && d.county === county)[0]['Data']
       }
     },
