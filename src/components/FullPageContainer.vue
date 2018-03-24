@@ -89,11 +89,11 @@ h2{
 </style>
 <style>
 .hexagonBackground{
-  animation: pulseBackground 3s infinite;
+  animation: pulseBackground 1s infinite;
   animation-direction: alternate;  
 }
 .hexagonPatterns{
-  animation: pulse 3s infinite;
+  animation: pulse 1s infinite;
   animation-direction: alternate;
 }
 @keyframes pulse {

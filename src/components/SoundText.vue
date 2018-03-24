@@ -10,11 +10,7 @@ export default {
   name: 'SoundText',
   props: {
     audioUrl: String,
-    text: String,
-    shouldRender: {
-      type: Boolean,
-      default: true
-    }
+    text: String
   },
   data () {
     return {
@@ -80,7 +76,7 @@ export default {
   position: absolute;
   top: 0px;
   left: 0px;
-  background: #ffcc00;
+  background: deeppink;
 }
 .progressWrapper:hover{
   cursor: pointer;
@@ -96,7 +92,7 @@ export default {
   line-height: 1.2;
   padding: 5px;
   padding-bottom: 1px;
-  background: #dbd360;
+  background: #f47cbc;
 }
 span{
   color: black;

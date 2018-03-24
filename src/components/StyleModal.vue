@@ -34,23 +34,32 @@
     <template v-if="this.$store.getters.modalIsPerson">
       <h1>{{this.$store.getters.modalPerson}}</h1>
       <div class="textWrapper">
-        <h2>Place of performance</h2>
-        <span>{{this.$store.getters.modalPOP}}</span>
-        <h2>Additional Information</h2>
-        <span>{{this.$store.getters.getPersonData(this.$store.getters.modalPerson, this.$store.getters.modalPersonCounty)}}</span>
-        <h2>Songs</h2>
-        <template v-for="song of this.$store.getters.modalPersonSongs">
-          <div class="sound-text-wrapper">
-            <SoundText :audioUrl="song.audioUrl" :text="song.Title" :shouldRender="shouldRender"></SoundText>
-          </div>
-          <h3>Genres</h3>
-          <template v-for="genre of song.Genre">
-            <template v-if="genre !== 'Music' && genre!== 'Songs'">
-              <span>{{genre}}</span>
+        <div class="modalElement">
+          <h2>Place of performance</h2>
+          <span>{{this.$store.getters.modalPOP}}</span>
+        </div>
+        <div class="modalElement">
+          <h2>Additional Information</h2>
+          <span>{{this.$store.getters.getPersonData(this.$store.getters.modalPerson, this.$store.getters.modalPersonCounty)}}</span>
+        </div>
+        <div class="modalElement">
+          <h2>Songs</h2>
+          <ol>
+            <template v-for="song of this.$store.getters.modalPersonSongs">
+              <li class="styleModalSong">
+                <div class="sound-text-wrapper">
+                  <SoundText :audioUrl="song.audioUrl" :text="song.Title"></SoundText>
+                </div>
+                <h3>Genres</h3>
+                <template v-for="genre of song.Genre">
+                  <template v-if="genre !== 'Music' && genre!== 'Songs'">
+                    <span>{{genre}}</span>
+                  </template>
+                </template>
+              </li>
             </template>
-          </template>
-          
-        </template>
+          </ol>
+        </div>
       </div>
     </template>
   </div>
@@ -170,6 +179,12 @@ export default {
   padding: 12px;
   z-index: 5;
 }
+.styleModalSong:not(:first-of-type){
+  margin-top: 20px;
+}
+.modalElement:not(:first-of-type){
+  margin-top: 25px;
+}
 .textWrapper{
   width: 80%;
   margin-right: auto;
@@ -199,7 +214,7 @@ export default {
   position: relative;
 }
 #progress{
-  background: white;
+  background: deeppink;
   height: 100%;
 }
 #progressOverlay{
@@ -213,17 +228,18 @@ export default {
 button{
   margin-bottom: 5px;
   margin-top: 15px;
-  color:white;
+  color: deeppink;
   border: 1px solid white;
   border-radius: 5px;
-  background-color: rgba(56, 56, 56, 1);
+  background-color: #141e30;
   font-family: 'Alfa Slab One', cursive;
+  font-size: 16px;
   text-align: center;
 }
 button:hover{
   cursor: pointer;
-  background-color: white;
-  color: rgba(56, 56, 56, 1);
+  background-color: deeppink;
+  color: #141e30;
 }
 .textButton {
   display: block;
@@ -233,9 +249,9 @@ button:hover{
 }
 h1{
   font-family: 'Alfa Slab One', cursive;
-  font-size: 22px;
+  font-size: 28px;
   color: deeppink;
-  margin-bottom: 5px;
+  margin-bottom: 40px;
 }
 h2{
   font-family: 'Alfa Slab One', cursive;
@@ -248,11 +264,10 @@ h2{
 h3{
   font-family: 'Alfa Slab One', cursive;
   font-size: 14px;
-  color: white;
-  margin-top: 10px;
-  margin-bottom: 5px;
+  color: deeppink;
+  margin-top: 3px;
+  margin-bottom: 3px;
   text-align: left;
-  text-decoration: underline;
 }
 span{
   font-family: Georgia;
@@ -261,5 +276,9 @@ span{
   color: white;
   display: block;
   line-height: 1.1
+}
+ol{
+  list-style-type: decimal;
+  color: white;
 }
 </style>

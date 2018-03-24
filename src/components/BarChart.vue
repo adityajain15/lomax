@@ -118,6 +118,8 @@ svg{
 }
 circle:hover{
   cursor: pointer;
+  stroke: white;
+  stroke-width: 2px;
 }
 text{
   font-family: 'Alfa Slab One', cursive;

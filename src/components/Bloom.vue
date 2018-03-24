@@ -102,7 +102,7 @@ export default {
   methods: {
     handleResize: function () {
       this.elementWidth = this.$el.clientWidth
-      this.elementHeight = this.halfWidth + 25
+      this.elementHeight = this.halfWidth
     },
     showLegend: function () {
       this.$store.commit('setDisplayLegend', true)
@@ -135,7 +135,7 @@ export default {
     fill: url(#RadialGradient1);
   }
   .bloomContainer{
-    padding-top: 10px;
+    padding-top: 5px;
     position: relative;
     background: #141e30;
     margin-bottom: 10px;

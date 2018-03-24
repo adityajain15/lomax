@@ -3,7 +3,7 @@
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    viewBox="0 0 2412.2 1846.5" style="enable-background:new 0 0 2412.2 1846.5;" xml:space="preserve" id="map">
 
-<image style="overflow:visible;enable-background:new;" width="10204" height="7811" xlink:href="../../static/map_lower.jpg"  transform="matrix(0.2364 0 0 0.2364 0 0)">
+<image style="overflow:visible;enable-background:new;" width="10204" height="7811" xlink:href="../../static/map_lowerr.jpg"  transform="matrix(0.2364 0 0 0.2364 0 0)">
 </image>
 <g id="allRoads">
     <path id="Layer1" class="st0" d="M400.2,1422c-25.3,0.6-40-24.4-46.2-45.9c-1.4-4.7-2.4-9.7-2.3-14.6c0.1-4.7-1.2-8.6-2-13
@@ -208,7 +208,7 @@
         c0.5-0.4,0.7-1,0.9-1.6c1.3-2.8,3.8-4.9,6.8-5.6c2.9-0.8,6.2-0.1,8.7,1.6c0.7,0.5,1.4,1.1,2.2,1.4c2.6,0.8,4.7-1.9,7.2-3.1
         c2.3-1.1,5.2-0.9,7.1-2.5c1.1-0.9,1.7-2.2,2.6-3.2c1.5-1.7,3.8-2.4,6-3.2c15.2-4.9,30.5-9.9,45.7-14.8"/>
         </g>
-        <circle id="lomaxCar" cx="0" cy="0" r="10" fill="red"/>
+        <circle id="lomaxCar" cx="0" cy="0" r="10" fill="deeppink"/>
         <g id="Stops">
             <g id="Stop1">
                 <polygon class="st14" points="401.5,1409 405.4,1417.1 414.3,1418.3 407.9,1424.6 409.4,1433.4 401.5,1429.3 393.5,1433.4 
@@ -402,7 +402,7 @@ export default {
             .duration(750)
             .style('opacity', '0')
           this.playAgain = true
-        }, 1500)
+        }, 2500)
         return
       }
 
@@ -413,13 +413,13 @@ export default {
         .ease(d3.easeLinear)
         .on('end', () => {
           if (this.t !== null) {
-            d3.select(`#Layer${number}`).style('stroke', 'red')
+            d3.select(`#Layer${number}`).style('stroke', '#f47cbc')
             this.animateLine(number + 1)
           }
         })
 
       d3.select(`#Layer${number}`)
-        .style('stroke', '#00ff48')
+        .style('stroke', 'deeppink')
         .style('stroke-dasharray', pathLength)
         .style('stroke-dashoffset', pathLength)
         .transition(this.t)
@@ -506,11 +506,11 @@ export default {
   fill: white;
 }
 .annotation-note-bg{
-  fill: black;
+  fill: #141e30;
   fill-opacity:1;
 }
 .annotation path{
-  stroke: black;
+  stroke: #141e30;
   stroke-width: 10px;
 }
 </style>
@@ -588,7 +588,7 @@ export default {
   stroke-miterlimit:10;
 }
 .st1{fill:none;stroke:#000000;stroke-width:7.2263;stroke-miterlimit:10;}
-.st2{fill:black;}
+.st2{fill:#141e30;}
 .st3{fill:#FF4BFA;}
 .st4{font-family: 'Georgia';}
 .st5{font-size:59px;}
@@ -601,7 +601,7 @@ export default {
 .st12{display:inline;fill:none;stroke:#000000;stroke-width:7.2277;stroke-miterlimit:10;}
 .st13{font-size:43.8075px;}
 .st14{
-  fill: black; 
+  fill: #141e30; 
   stroke: white;
 }
 </style>
