@@ -526,12 +526,12 @@ export default {
 }
 
 #mapModal{
-  background-color: #141e30;
+  background-color: rgb(20,30,48,0.8);
   padding: 20px;
   position: absolute;
-  top: 40%;
-  left: 20%;
-  width: 60%;
+  bottom: 0px;
+  right: 10%;
+  width: 80%;
 }
 
 #mapModal button{

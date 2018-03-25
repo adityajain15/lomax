@@ -5,7 +5,6 @@
 
 <script>
 import { store } from '../store'
-import Vue from 'vue'
 export default {
   name: 'Stamen',
   store: store,
