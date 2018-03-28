@@ -1,5 +1,7 @@
 <template>
   <div id="mapContainer">
+    <h2>Visualizing the journey</h2>
+    <p>John and Ruby Lomax travelled for 6,502 miles in their journey, across 10 different states in 3 months. We visualized a possible route they might have taken using the recorded dates of sound recordings and a 1939 map of Southern roads from <a href="https://www.loc.gov/maps/">the Library of Congress Maps Collection</a>.</p>
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
    viewBox="0 0 2412.2 1846.5" style="enable-background:new 0 0 2412.2 1846.5;" xml:space="preserve" id="map">
 
@@ -334,9 +336,6 @@
     </svg>
     <template v-if="!playedOnce">
       <div id="mapModal">
-        <p class="modalText">
-          John and Ruby Lomax travelled for 6,502 miles in their journey, across 10 different states in 3 months. We visualized their journey on a map using recorded dates and a 1939 map of Southern roads from the Library of Congress Maps Collection.
-        </p>
         <button v-on:click="playMap">Start your journey</button>
       </div>
     </template>
@@ -484,7 +483,7 @@ export default {
         })
         .annotations(annotationObject[i])
 
-      d3.select(this.$el.children[0])
+      d3.select(this.$el.children[2])
         .append('g')
         .attr('id', `annotation-group-${annotationObject[i][0].data.stops[0]}`)
         .style('opacity', '0')
@@ -515,14 +514,41 @@ export default {
 }
 </style>
 <style scoped>
+a{
+  color: deeppink;
+  font-family: 'Georgia';
+}
+a:visited{
+  color: white;
+}
+a:hover{
+  color: #f47cbc;
+}
 #mapContainer{
   width: 95%;
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30px;
-  margin-bottom: 30px;
   position: relative;
+}
+
+h2{
+  color: deeppink;
+  font-family: 'Alfa Slab One', cursive;
+  font-size: 30px;
+}
+
+p{
+  color: white;
+  font-family: 'Georgia';
+  font-size: 18px;
+  line-height: 1.2;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 #mapModal{
@@ -550,15 +576,6 @@ export default {
 #mapModal button:hover{
   color: #141e30;
   background: deeppink;
-}
-
-.modalText{
-  font-size: 18px;
-  font-family: 'Georgia';
-  color: white;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 20px;
 }
 
 #playAgain{

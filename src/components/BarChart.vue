@@ -115,6 +115,7 @@ export default {
 svg{
   background: #141e30;
   max-width: 1000px;
+  border: 1px solid white;
 }
 circle:hover{
   cursor: pointer;

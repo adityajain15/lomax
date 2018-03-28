@@ -1,19 +1,37 @@
 <template>
   <div>
-    <img :src="theImage"/>
-    <caption>{{this.caption}}</caption><a :href="this.link"><span>From the Library of Congress (Source)</span></a>
+    <img class="lozad" :data-src="theImage"/>
+    <caption v-if="this.caption.length!==0">{{this.caption}}</caption>
+    <a v-if="this.link.length!==0" :href="this.link"><span>From the Library of Congress</span></a>
   </div>
 </template>
 
 <script>
+import lozad from 'lozad'
 
 export default {
   name: 'ImageAndCaption',
-  props: ['source', 'caption', 'link'],
+  props: {
+    'source': {
+      type: String
+    },
+    'caption': {
+      type: String,
+      default: ''
+    },
+    'link': {
+      type: String,
+      default: ''
+    }
+  },
   computed: {
-    theImage: function(){
+    theImage: function () {
       return require(`../../static/Images/${this.source}`)
     }
+  },
+  mounted: function () {
+    const observer = lozad(this.$el.children[0])
+    observer.observe()
   }
 }
 </script>
@@ -31,15 +49,17 @@ img{
 caption{
   display: inline-block;
   font-style: italic;
-  color: black;
+  font-family: 'Georgia';
+  color: white;
 }
 a{
-  color: black;
+  font-family: 'Georgia';
+  display: block;
 }
 a:visited{
-  color: black;
+  color: white;
 }
 a:hover{
-  color: deeppink;
+  color: #f47cbc;
 }
 </style>

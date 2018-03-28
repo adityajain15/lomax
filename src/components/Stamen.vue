@@ -48,13 +48,21 @@ export default {
       let temp = {}
       const attributes = this.$store.getters.getPersonData(this.person, this.county)
       if (attributes.includes('Convict')) {
-        temp['fill'] = 'url(#horizontalLines2)'
-      } else if (attributes.includes('Black')) {
+        if (attributes.includes('White')) {
+          temp['fill'] = 'url(#horizontalLines8)'
+        } else {
+          temp['fill'] = 'url(#horizontalLines2)'
+        }
+      } else if (attributes.includes('Negro')) {
         temp['fill'] = 'url(#horizontalLines1)'
       } else if (attributes.includes('Mexican')) {
         temp['fill'] = 'url(#horizontalLines5)'
       } else if (attributes.includes('Lomax')) {
         temp['fill'] = 'url(#horizontalLines4)'
+      } else if (attributes.includes('White')) {
+        temp['fill'] = 'url(#horizontalLines6)'
+      } else {
+        temp['fill'] = '#96999e'
       }
       return temp
     }
@@ -64,5 +72,9 @@ export default {
 <style scoped>
 circle{
   fill: #fccae6;
+}
+circle:hover{
+  stroke: white;
+  stroke-width: 1px;
 }
 </style>
