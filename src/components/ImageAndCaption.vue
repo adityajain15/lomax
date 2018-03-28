@@ -2,7 +2,7 @@
   <div>
     <img class="lozad" :data-src="theImage"/>
     <caption v-if="this.caption.length!==0">{{this.caption}}</caption>
-    <a v-if="this.link.length!==0" :href="this.link"><span>From the Library of Congress</span></a>
+    <a v-if="this.link.length!==0" :href="this.link" target="blank"><span>From the Library of Congress</span></a>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <FullPageContainer></FullPageContainer>
-    <p>On March 31 1939, when John and Ruby Lomax left their vacation home on Port Aransas, Texas, they already had some idea of what they would encounter on their three-month, 6,502 mile journey through the southern United States collecting folk songs<span><a href="https://www.loc.gov/loc/lcib/9908/lomax.html">Southern Mosaic</a>, Rachel I. Howard, 1999</span></p>
+    <p>“On March 31 1939, when John and Ruby Lomax left their vacation home on Port Aransas, Texas, they already had some idea of what they would encounter on their three-month, 6,502 mile journey through the southern United States collecting folk songs”<span><a href="https://www.loc.gov/loc/lcib/9908/lomax.html">Southern Mosaic</a>, Rachel I. Howard, 1999</span></p>
     <hr />
     <div id="tw">
       <h2>Author’s Note</h2>
@@ -54,7 +54,61 @@
     <hr />
     <h1>Texas</h1>
     <ImageAndCaption source="00276r.jpg" caption='Mexican girls, San Antonio, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660002/"></ImageAndCaption>
-    <p>As with African Americans in the South, Southern Mosaic documents the trials and culture of Mexicans in the Southwest. Songs in Spanish tell stories about Mexicans, such as the migrant cotton pickers of <SoundText audioUrl="http://cdn.loc.gov/master/afc/afc1939001/afc1939001_02611a1.wav" text="Yo cuando era niño - mi padre querido"></SoundText>, or the immigrants, known as "wet-backs," in <SoundText audioUrl="http://cdn.loc.gov/master/afc/afc1939001/afc1939001_02618a2.wav" text="Versos del mojado"></SoundText></p>
+    <p>
+      “We left Port Aransas, where we had spent the winter months, on March 31. At Aransas
+      Pass, on the mainland, we unboxed and loaded into our Plymouth the fine almost-new
+      recording machine, microphone, stand and converter, leaving the two heavy batteries to
+      be shipped directly to Houston by express. Then we headed for Austin wheere we knew a
+      mechanic who could check the machine to be sure all parts were there and working.”
+      <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0006.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
+    </p>
+    <p>
+      The Lomaxes arrived in Houston on April 4, 1939, where they set up headquarters there for the next two weeks. The engagement that set the date for this trip was a performance of a Sacred Drama, The Good Thief, about which Sister Joan of Arc of the Our Lady of the Lake College had written to the Lomaxes. It was to be presented on Easter Sunday, April 9, at Guadalupe Church, Houston, by a group of Mexican Texans led by the Gozalo Lopez Family of Sugarland. Unfortunately after two of the choruses had been recorded <SoundText audioUrl="./static/audio_files/afc1939001_02600b2.wav" text="the batteries failed"></SoundText>; they visited the López family at their home in Sugar Land two weeks later to capture the entire drama.
+    </p>
+    <p>
+      Some of the first recordings made on the trip John B. Jones, who used to be a student of John A. Lomax at the Texas Agricultural and Mechanical College. While at college Jones had became interested in folk songs and was helpful in bringing in folk materials. This was an interest he had kept. At Jones’ home in Houston, on April 10, John Lomax recorded old tunes with words, including a ‘Bawdy song’ <SoundText audioUrl="./static/audio_files/afc1939001_02589a2.wav" text="The British King"></SoundText>, that Jones had learned from various sources. His mother, Mrs. Kate W. Jones, who had come to Texas from Mississippi in 1868, also knew and recorded several fragments, mostly children's songs such as <SoundText audioUrl="./static/audio_files/afc1939001_02590a4.wav" text="All Those Pretty Little Horses"></SoundText>.
+    </p>
+    <ImageAndCaption source="00318v.jpg" caption='Woman sitting in car, Texas
+' link="http://www.loc.gov/pictures/collection/lomax/item/2007660045/"></ImageAndCaption>
+    <p>
+      On April 12, 1939, the Lomaxes recorded John Lowry Goree who was educated at Judson College; his great-grandfather, a trustee of that college and plantation owner, gave his children the plantation. Mr. Goree’s mother died when he was born; as a small child he had Scrofula and was sent to the plantation to be nursed by an old mammy, Aunt Harriet; he lived in a log cabin with her for two years. From her he learned the lullabies, such as <SoundText audioUrl="./static/audio_files/afc1939001_02592b1.wav" text="Who Curled Your Hair"></SoundText>, by which he was often sung to sleep. Furthermore he sang his own children to sleep by them.
+    </p>
+    <p>
+      The next day the Lomaxes recorded Ray Wood, a “T-man”, who had seen service in many parts of the U.S. possessions. He was
+brought up in Arkansas and had retained an affection for the homely rhymes and jingles of the backwoods. He recorded several “American Mother Goose jingles” such as <SoundText audioUrl="./static/audio_files/afc1939001_02594b3.wav" text="Granny, Will Your Dog Bite"></SoundText> and <SoundText audioUrl="./static/audio_files/afc1939001_02594a1.wav" text="Sugar Babe"></SoundText> 
+    </p>
+    <hr />
+    <ImageAndCaption source="00287v.jpg" caption='&quot;Lightnin&quot; Washington, an African American prisoner, singing with his group in the woodyard at Darrington State Farm, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660013/"></ImageAndCaption>
+    <p>
+      “On Saturday, April 15, we drove over to Clemens State Farm, a few miles away to arrange for a meeting with “the boys”, Negro convi[c]ts stationed on the farm. On Saturday the boys who were working near headquarters were hauling dirt, grading, clearing ditches and otherwise improving the grounds around a new brick and steel dormitory. A group of ditch-diggers was working in time to the musical calls of the leader. We arranged to return to make records on the next day, Sunday, and returned to West Columbia to rent batteries for power, the dormitory being wired for DC current.”
+      <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0032.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
+    </p>
+    <p>
+      When the Lomaxes arrived at Clemens State Farm on April 16th, after John Lomax made some suggestions as to what kind of music he wished to record, musicians and singers volunteered or were pushed forward by their companions. Some people such as Ace Johnson and Smith Cason already had had experience before the microphone, since they were sometimes on a program called “Behind the Walls”, broadcast from the Huntsville, Texas Penitentiary on Wednesday nights. After two hours the Lomaxes stopped for lunch, they being served with the white guards, and after lunch they recorded for an hour or so until the time came for “base-ball practice and preaching services”.
+    </p>
+    <p>
+      Work songs were used by African American railroad work crews in the southern United States before modern machinery became available in the 1960s. Anne Kimzey of the Alabama Center For Traditional Culture writes: “All-black gandy dancer crews used songs and chants as tools to help accomplish specific tasks and to send coded messages to each other so as not to be understood by the foreman and others. The lead singer, or caller, would chant to his crew, for example, to realign a rail to a certain position. His purpose was to uplift his crew, both physically and emotionally, while seeing to the coordination of the work at hand. It took a skilled, sensitive caller to raise the right chant to fit the task at hand and the mood of the men. Using tonal boundaries and melodic style typical of the blues, each caller had his own signature. The effectiveness of a caller to move his men has been likened to how a preacher can move a congregation.”
+      <span><a href="https://en.wikipedia.org/wiki/Work_song#African-American_work_songs" target="blank">Wikipedia</a></span>
+    </p>
+    <p>
+      The recordings made at Clemens State Farm comprise mostly of the Blues and work songs. The recordings include a poignant work song titled <SoundText audioUrl="./static/audio_files/afc1939001_03551b2.wav" text="Old Hannah"></SoundText> that addresses the Sun and asks it to “rise no more”. Alan Lomax later remarked that ‘Old Hannah’ is “the American Volga Boatmen”. Other notable songs include the ‘Disaster Ballad’ <SoundText audioUrl="./static/audio_files/afc1939001_03552b3.wav" text="Influenza"></SoundText>  
+    </p>
+    <ImageAndCaption source="00288v.jpg" caption='Prisoner in camp hospital, Darrington State Farm, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660014/"></ImageAndCaption>
+    <p>
+      The Lomax also made a fruitless trip to the Central State Farm near Sugarland, Texas. On previous occasions the Lomaxes had acquired material that they were looking for but this time they found that “The old crowd had scattered, the new boys sang fewer of the old songs and in performance imitated radio artists. We did not set up the machine.”
+    </p>
+    <p>
+      The Lomaxes proceeded on to Camp Four of the Ramsey State Farm. With the help of the Captain and some of his guards they located some singers, who were admitted one by one or by small groups into a small office where the recording machine was set up. One of these groups included Columbus Christopher, Alexander Hamilton and George Washington, who sang for them under guard, behind three sets of locks.
+    </p>
+    <p>
+      It was customary to set down nicknames of singers along with their names, which caused some embarrassment at Ramsey. In routine manner, “What is your name?” asked Mrs. Lomax of one of the singers. He gave it readily. “Your nickname?” No reply, just a shuffling of feet. “Haven't you a nickname?” Again a shuffling of feet, and then hesitatingly: “Dey calls me Monkey.” A swift glance at the boy's features stopped the usual “How did you get that nickname?” Mrs. Lomax changed to an embarrassed and especially cordial “Thank you.” Supper with the white guards closed our day at Ramsey. <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0049.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
+    </p>
+    <ImageAndCaption source="00283v.jpg" caption='James Baker (Iron Head), head-and-shoulders portrait, facing right, Sugar Land, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660009/"></ImageAndCaption>
+    <p>
+      At Ramsey, the Lomaxes also located James “Iron Head” Baker, who had previously made many recordings for them and had also toured with John Lomax on a recording trip through the South. The field-notes report that Baker was initially reluctant to come forward for he was ashamed that John Lomax, who had successfully petitioned for his parole in the past, would find him in worse case. Finally, he interrupted a group that was singing a popular music-hall ditty and said “No he don't
+want that kind o' stuff. This is kindly what he's after”, and he started off on an old-time spiritual. Baker recorded spirituals such as <SoundText audioUrl="./static/audio_files/afc1939001_02604b3.wav" text="Will You March Down"></SoundText> and <SoundText audioUrl="./static/audio_files/afc1939001_02604b2.wav" text="This Heart o' Mine"></SoundText>  
+    </p>
+    <p>As with African Americans in the South, Southern Mosaic documents the trials and culture of Mexicans in the Southwest. Songs in Spanish tell stories about Mexicans, such as the migrant cotton pickers of <SoundText audioUrl="./static/audio_files/afc1939001_02611a1.wav" text="Yo cuando era niño - mi padre querido"></SoundText>, or the immigrants, known as "wet-backs," in <SoundText audioUrl="./static/audio_files/afc1939001_02618a2.wav" text="Versos del mojado"></SoundText></p>
     <Tooltip></Tooltip>
     <StyleModal></StyleModal>
     <BarChart state="Texas"></BarChart>
