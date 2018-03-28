@@ -55,6 +55,7 @@
     <hr />
     <h1>Texas</h1>
     <ImageAndCaption source="00276r.jpg" caption='Mexican girls, San Antonio, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660002/"></ImageAndCaption>
+    <p>As with African Americans in the South, Southern Mosaic documents the trials and culture of Mexicans in the Southwest. Songs in Spanish tell stories about Mexicans, such as the migrant cotton pickers of <SoundText audioUrl="http://cdn.loc.gov/master/afc/afc1939001/afc1939001_02611a1.wav" text="Yo cuando era niño - mi padre querido"></SoundText>, or the immigrants, known as "wet-backs," in <SoundText audioUrl="http://cdn.loc.gov/master/afc/afc1939001/afc1939001_02618a2.wav" text="Versos del mojado"></SoundText></p>
     <Tooltip></Tooltip>
     <StyleModal></StyleModal>
     <BarChart state="Texas"></BarChart>
@@ -87,6 +88,7 @@ import StyleModal from './components/StyleModal'
 import Bloom from './components/Bloom'
 import BarChart from './components/BarChart'
 import ImageAndCaption from './components/ImageAndCaption'
+import SoundText from './components/SoundText'
 import {json as getJSON} from 'd3-request'
 import dataFile from '../static/data.json'
 import peopleFile from '../static/people.json'
@@ -100,6 +102,7 @@ export default {
     BarChart,
     Bloom,
     Tooltip,
+    SoundText,
     StyleModal,
     ImageAndCaption
   },
