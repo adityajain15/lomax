@@ -5,7 +5,7 @@
     <hr />
     <div id="tw">
       <h2>Author’s Note</h2>
-      <span>The following interactive contains words, in the form of sound recordings or text in data, that we know now to be unacceptable. They are presented here as is so that we may confront our dark past with sincerity, with hopes of building a better future</span>
+      <span>The following interactives contain sound recordings and data that may be offensive to visitors. The collection information is presented in its original form from 1939-1940 with related historical context.</span>
     </div>
     <hr />
     <p>
