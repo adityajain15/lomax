@@ -3,6 +3,11 @@
     <FullPageContainer></FullPageContainer>
     <p>On March 31 1939, when John and Ruby Lomax left their vacation home on Port Aransas, Texas, they already had some idea of what they would encounter on their three-month, 6,502 mile journey through the southern United States collecting folk songs<span><a href="https://www.loc.gov/loc/lcib/9908/lomax.html">Southern Mosaic</a>, Rachel I. Howard, 1999</span></p>
     <hr />
+    <div id="tw">
+      <h2>Author’s Note</h2>
+      <span>The following interactive contains words, in the form of sound recordings or text in data, that we know now to be unacceptable. They are presented here as is so that we may confront our dark past with sincerity, with hopes of building a better future</span>
+    </div>
+    <hr />
     <p>
       John Avery Lomax, born Sept. 23, 1867, in Goodman, Miss., had been collecting songs since his childhood in Bosque County, Texas, jotting down lyrics to cowboy songs as he listened. Lomax later taught English at Texas A&M University, researched and collected cowboy songs and, with Professor Leonidas Payne of the University of Texas at Austin, co-founded the Texas Folklore Society, a branch of the American Folklore Society. 
     </p>
@@ -40,12 +45,6 @@
         In 1940, when the couple traversed the same path through the South, she took on the additional role of photographer. Many photographs from the 1940 recording expedition accompany this piece.
       </p>
     <hr />
-    <div id="tw">
-      <h2>Author’s Note</h2>
-      <span>The following interactives contain sound recordings and data, in the form of text, that we know now to be unacceptable. They are presented here as is so that we may confront our dark past with sincerity, with hopes of building a better future</span>
-    </div>
-    <hr />
-    
 <!--
   <ImageAndCaption source="key.png"></ImageAndCaption>
     <ImageAndCaption source="00343r.jpg" caption='Stavin Chain playing guitar and singing the ballad "Batson" accompanied by a musician playing violin, Lafayette, La.' link="https://www.loc.gov/item/2007660400/"></ImageAndCaption>
