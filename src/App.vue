@@ -52,8 +52,8 @@
     <ImageAndCaption source="38809r.jpg" caption='Stavin Chain playing guitar and singing the ballad "Batson" accompanied by a musician playing violin, Lafayette, La.' link="https://www.loc.gov/item/2007660400/"></ImageAndCaption> -->
     <MapContainer></MapContainer>
     <hr />
-    <h1>Texas</h1>
     <ImageAndCaption source="00319v.jpg" caption='Man and woman riding horses, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660046/"></ImageAndCaption>
+    <h1>Texas</h1>
     <p class="quotationBlock">
       We left Port Aransas, where we had spent the winter months, on March 31. At Aransas
       Pass, on the mainland, we unboxed and loaded into our Plymouth the fine almost-new
@@ -221,19 +221,61 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     </p>
     <hr />
     <ImageAndCaption source="1470066081.jpg" caption='A group of singers from the Goree Unit at the Texas Prison Rodeo (Source: Texas Department of Criminal Justice)'></ImageAndCaption> 
-   
+   <p>
+    On May 12, John Lomax visited the State Penitentiary in Huntsville, Texas. There he met the director of the broadcast program <a href= "https://www.themarshallproject.org/2016/05/16/a-peek-at-the-golden-age-of-prison-radio" target="blank">“Thirty minutes behind the Walls"</a>. Some notable recordings include a religious song <SoundText audioUrl="./static/audio_files/afc1939001_02646b2.wav" text="When the Gates Swing Open"/>, <SoundText audioUrl="./static/audio_files/afc1939001_02646b2.wav" text="When the Gates Swing Open"/>, the fiddle tune titled <SoundText audioUrl="./static/audio_files/afc1939001_02649a1.wav" text="Inspiration"/>, and the remarkable spoken word recording <SoundText audioUrl="./static/audio_files/afc1939001_02646a2.wav" text="Cat and Dog Fight"/>
+  </p>
+  <p>
+    Two days later, the Lomaxes visited the Goree state farm for women. There he recorded Hattie Ellis, a popular blues singer on “Thirty minutes behind the Walls". She claims to have composed <SoundText audioUrl="./static/audio_files/afc1939001_02650a1.wav" text="Desert Blues"/>. The Captain of the farm told the Lomaxes that Ellis had received 3,000 fan letters in just one week. Ellis was had recieved thirty years of prison for killing a man.
+  </p>
+  <p class="quotationBlock">
+    Another Dallas, Texas Negro girl who “come visitin' in Arkansas and got took up for somethin' I didn't do”, told us that Hattie wouldn't have got such a long term if she hadn't sassed the judge when he brought her boot-legging activities into the murder case.
+    <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0147.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
+  </p>
+  <hr />
+  <ImageAndCaption source="00383v.jpg" caption='African American children playing singing games, Eatonville, Florida' link="http://www.loc.gov/pictures/collection/lomax/item/2007660109/"></ImageAndCaption> 
+  <p>
+    The Lomaxes crossed the state line into Merryville, Louisiana on May 15 but went back into Texas the next day at the urging of Alan Lomax, who wanted them to record Henry Truvillion, an African-American foreman at the Wier Lumber Company, whose farm home was located on the main highway between Newton and Burkeville.
+  </p>
+  <p>
+    A few miles from Newton the Lomaxes chanced upon the segregated Liberty High School with African-American children playing in the yard. Several little girls were singing a ring game and the Lomaxes stopped and watched. They then asked the principal for permission to interview the children about songs. The principal quickly understood their mission and soon had the entire school assembled in the largest of three classrooms. The children sang and recorded for about an hour, tunes such as <SoundText audioUrl="./static/audio_files/afc1939001_02657a4.wav" text="Lost My Handkerchief Yesterday"/> and <SoundText audioUrl="./static/audio_files/afc1939001_02653b3.wav" text="Hard Times"/>
+  </p>
+  <p>
+    The Lomaxes then proceeded onto Wiergate, the headquarters of the Wier Lumber Company, which employed many African-American workmen. While they were waiting to see some the Wier officials, the Lomaxes drove over to “the quarters”, or the African-American settlement; on the school grounds they saw a group of small girls circling around and singing. Mrs. Lomax asked one of the girls what they were playing. <SoundText audioUrl="./static/audio_files/afc1939001_02656b2.wav" text="Seed-tick"/>, she replied. With the permission of the principal and his wife, an assembly was called. The same group of little girls sang and made other recordings such as <SoundText audioUrl="./static/audio_files/afc1939001_02656b3.wav" text="London Bridge"/> and <SoundText audioUrl="./static/audio_files/afc1939001_02656b4.wav" text="Little Gal, Little Gal, Yes, Ma'am"/>
+  </p>
+  <hr />
+  <ImageAndCaption source="38773v.jpg" caption='Henry Truvillion and wife, in his garden, Rt. #1, Newton, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660044/"></ImageAndCaption> 
+  <p class="quotationBlock">
+    “Yessir, I knows you”, said Henry Truvillion as he greeted Mr. Lomax on the porch of his East Texas farmhouse. “You come here once with your son. Yessir, I got your letter, but I didn't see no use to answer, 'cause everything's changed now; I done took to preachin'. I don't sing none o' them songs like you want no more.”<br><br>
 
-
-
-
-
-
-    <p>As with African Americans in the South, Southern Mosaic documents the trials and culture of Mexicans in the Southwest. Songs in Spanish tell stories about Mexicans, such as the migrant cotton pickers of <SoundText audioUrl="./static/audio_files/afc1939001_02611a1.wav" text="Yo cuando era niño - mi padre querido"></SoundText>, or the immigrants, known as "wet-backs," in <SoundText audioUrl="./static/audio_files/afc1939001_02618a2.wav" text="Versos del mojado"></SoundText></p>
+    “Don't you work at Wiergate any more?” “Oh, yessir, I works on a week days and I preaches on Sundays, first an' third Sundays.” “And you quit singing those pretty work songs and calls?” “Oh, no, sir, they's part o' my business. I has to call de track an' all dat to git de work done. But them others, them old-fashioned plantation melods, I done had a complete change an' I don't sing dat kind no more. Us sings spirituals now, an' church hymns,- short meter, yessir, common meter an' long meter, mostly long meter.”
+    <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0168.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
+  </p>
+  <p>
+    It was late afternoon, almost dusk and Henry was exhausted. He and his family had just returned from the funeral of his wife's sister-in-law, her brother's wife who had left a tiny baby girl for the Truvillions to “tend”. There had been sleepless nights of sitting up, with the sick woman and then with her lifeless body, and everybody was exhausted further by the long exciting funeral service. And so John Lomax did not press Henry Truvillion to promise him “worldly” songs, but let him relax in the cool of the front porch and ramble quietly from snatches of spirituals to comment and miniature sermon.
+  </p>
+  <p>
+    Henry Truvillion, born in Mississippi, was foreman of a work gang for Wier Lumber Company. He had been twice married and his second wife, a young woman who called him “Mr. Henry”, and five children, from eleven years down to one in 1939, helped make his home on his farm on the highway between Newton and Burkeville, Texas, some eight miles from his work which he reached in his substantial-looking green Ford car. Truvillion thought that East Texas lumber may have played out some day, and so he had “bought a little place to work and lay something by.” He had a neat white house of four rooms, comfortably furnished, and he and the children cultivated a vegetable garden, flowers in the front yard and an orchard. Cotton, corn and peanuts were his best crops. He also kept a good cow and raised pigs and chickens. The Lomaxes report that his mules looked well-fed.
+  </p>
+  <p class="quotationBlock">
+    One evening later in the week we returned and set up our machine with batteries in the Truvillion living-room. We tried to persuade Henry to go with us to our hotel in Newton, where we could hitch on to electricity, but he refused. He said frankly that he was afraid, -afraid that such a visit to a white people's hotel might cause trouble for him after we were gone.
+    <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0170.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
+  </p>
+  <p>
+    Truvillion’s wife served as a second line of defense for his conscience in the matter of singing “worldly songs”. But after she heard spirituals such as <SoundText audioUrl="./static/audio_files/afc1939001_02655a2.wav" text="The Mighty Rider"/> played back, she made no objections to Henry's recording his everyday work songs, among them <SoundText audioUrl="./static/audio_files/afc1939001_02658a1.wav" text="Steel-driving song"/> and <SoundText audioUrl="./static/audio_files/afc1939001_02664b1.wav" text="Who's Been Here Since I Been Gone"/>. Then she could see no harm in his singing the inoffensive children's songs, especially when he took his daughter into his lap to help with <SoundText audioUrl="./static/audio_files/afc1939001_02662b1.wav" text="Mary had a red dress"/>. Hadn't he sung her to sleep with it many a night? “From then on out” Henry relaxed and let his mind slip back, “way back yander”, to his childhood days in Mississippi on through his varied experiences of work and amusement, prompted now and then by a discreetly quiet but leading question from John Lomax. Some of his explanations and comments the Lomaxes tried to record are as interesting as the songs. 
+    </p>
+    <hr />
     <Tooltip></Tooltip>
     <StyleModal></StyleModal>
     <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="Texas"></Bloom>
     <hr />
+    <ImageAndCaption source="00323v.jpg" caption='Baptist women, Alma Plantation, False River, Louisiana' link="http://www.loc.gov/pictures/collection/lomax/item/2007660091/"></ImageAndCaption> 
+    <h1>Louisiana</h1>
+    <p>
+      Reverend J. R. Gipson, “Blind Gipson”, was introduced by H. R. Weaver, the uncle of Alan Lomax’s wife. He was a well-known African-American Baptist evangelist who supplemented his sermons with the singing of “jazzed” spirituals, playing his own accompaniment on the piano. His loud chords topped by loud, husky singing, made an interesting combination, but one difficult to record. His wife and two neighbor children came with him to the Weaver home, where the recordings were made. They assisted him with some of the spirituals such as <SoundText audioUrl="./static/audio_files/afc1939001_02651b2.wav" text="I'm Lookin' for Dat Man Dat Don't Know Jesus"/>, and the children sang <SoundText audioUrl="./static/audio_files/afc1939001_02652a1.wav" text="Green Old Tree, Old Rocky Row"/> and <SoundText audioUrl="./static/audio_files/afc1939001_02652a2.wav" text="Little Sally Walker"/>.
+    </p>
+<ImageAndCaption source="00336v.jpg" caption='Sam Ballard (Old Dad), New Iberia, Louisiana' link="http://www.loc.gov/pictures/collection/lomax/item/2007660064/"></ImageAndCaption> 
+
     <BarChart state="Louisiana"></BarChart>
     <Bloom :data="theData" state="Louisiana"></Bloom>
     <BarChart state="Arkansas"></BarChart>
@@ -362,6 +404,16 @@ p span{
   font-size: 14px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+p a{
+  font-style: italic;
+  color: deeppink;
+}
+p a:visited{
+  color: black;
+}
+p a:hover{
+  color: #f47cbc;
 }
 p span a{
   font-style: italic;
