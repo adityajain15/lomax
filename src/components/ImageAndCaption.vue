@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="imageContainer">
     <img class="lozad" :data-src="theImage"/>
     <caption v-if="this.caption.length!==0">{{this.caption}}</caption>
     <a v-if="this.link.length!==0" :href="this.link" target="blank"><span>From the Library of Congress</span></a>
@@ -47,6 +47,7 @@ img{
   width: 100%;
 }
 caption{
+  margin-top: 10px;
   display: inline-block;
   font-style: italic;
   font-family: 'Georgia';

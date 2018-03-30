@@ -619,10 +619,24 @@ p span{
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+p + p {
+  margin-top: 50px;
+}
+
+.imageContainer + p{
+  margin-top: 50px;
+}
+
+p + .imageContainer{
+  margin-top: 50px;
+}
+
 p a{
   font-style: italic;
   color: deeppink;
 }
+
 p a:visited{
   color: black;
 }
@@ -643,6 +657,10 @@ h1{
   font-family: 'Alfa Slab One', cursive;
   font-size: 80px;
   color: deeppink;
+}
+.imageContainer + h1 {
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 hr {
   margin: 12px 0;
