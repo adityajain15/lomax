@@ -193,6 +193,7 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
       In the afternoon of May 4, the Lomaxes recorded C.W. Saathoff and J.O. Evans’ rendition of the <SoundText audioUrl="./static/audio_files/afc1939001_02635b1.wav" text="Fox and Hounds"/>, with Charles Eckhardt blowing the horn and calling the dogs using an old-fashioned cow-horn which he had polished himself and had used on his ranch for many years. He recorded other ranch calls made with this horn in <SoundText audioUrl="./static/audio_files/afc1939001_02639a1.wav" text="Calling Farm Animals"/>. The Lomaxes note that all these men were Hill Country” ranchmen. Eckhardt was a skillful tanner, leather-tooler, hunter and fisherman. When he visited the Lomaxes' cabin he was wearing his “new” buckskin shirt, which he had shot, dressed, treated and sewed himself, and which he had been wearing five years. He had a complete Indian outfit which he made by the same process.
     </p>
     <hr />
+    <ImageAndCaption source="afc2014008.jpeg" caption='Alan Lomax, Bess Lomax Hawes, Shirley Lomax Mansell, John Jr. Lomax (AFC 2014/008)'></ImageAndCaption> 
     <p>
       On May 7, the Lomaxes made recordings in the home of Judge and Mrs. Oscar Callaway in Comanche, Texas. The person being recorded was no other than John Lomax’s daughter Shirley Lomax Mansell. Mansell recorded songs that she had learned from her mother, and John Lomax’s deceased first wife, Bess Brown Lomax. Mansell’s most notable recording is <SoundText audioUrl="./static/audio_files/afc1939001_02638b1.wav" text="All the Pretty Little Horses"/>, a classic southern lullaby, for which she herself wrote the following note
     </p>
@@ -492,10 +493,10 @@ Negroes themselves<span><a href="http://tile.loc.gov/image-services/jp2.py?data=
     <ImageAndCaption source="01526v.jpg" caption="Capitol Hill, aerial view showing Library of Congress and annex, 1939" link="https://www.loc.gov/item/2012646221/" />
     <h1>Washington, D.C.</h1>
     <p>
-      The Lomaxes arrived at Galax, Virginia late in the afternoon of June 13 and at once communicated with Dr. W. P. Davis, the director or chairman of the Bogtrotters Band who they found ill at his country home. Realizing that they could make no recordings on this trip, they started next morning on the last day's travel on their 1939 recording trip and reached Washington in the late afternoon of June 14. Their speedometer showed 6502 miles since they started out in Texas on March 31.
+      The Lomaxes arrived at Galax, Virginia late in the afternoon of June 13 and at once communicated with Dr. W. P. Davis, the director or chairman of the Bogtrotters Band who they found ill at his country home. Realizing that they could make no recordings on this trip, they started next morning on the last day's travel of their 1939 recording trip and reached Washington in the late afternoon of June 14. Their speedometer showed 6502 miles since they started out in Texas on March 31.
     </p>
-    <p>
-      Our speedometer showed 6502 miles since we started out in Texas on March 31.
+    <p class="quotationBlock">
+      From February 8,1939 until June i4,1939, I made a ballad-collecting criss-cross trip of 6502 miles through Texas, Louisiana, Mississippi, Alabama, Florida, Georgia, South Carolina and Virginia on into Washington,D. C. During this three and a half months, with the assistance of Mrs. Ruby Terrill Lomax, I recorded on one hundred and forty-two discs the music of more than six hundred folk tunes. Some were new to us, though in many instances we re-recorded folk songs sung in a different manner,or slightly different musically from already known material. In visiting the homes, schools and churches of the Southern folk and recording their singing in their own locale, we carried out the theory of the Folk Song Archive of the Library of Congress, namely, that folk singers render their music more naturally in the easy sociability of their own people.<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_tr0001/0001.jp2&res=1" target="blank">1939 Southern Recording Trip Report</a></span>
     </p>
   </div>
 </template>
