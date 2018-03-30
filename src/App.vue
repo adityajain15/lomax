@@ -222,7 +222,7 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <hr />
     <ImageAndCaption source="1470066081.jpg" caption='A group of singers from the Goree Unit at the Texas Prison Rodeo (Source: Texas Department of Criminal Justice)'></ImageAndCaption> 
    <p>
-    On May 12, John Lomax visited the State Penitentiary in Huntsville, Texas. There he met the director of the broadcast program <a href= "https://www.themarshallproject.org/2016/05/16/a-peek-at-the-golden-age-of-prison-radio" target="blank">“Thirty minutes behind the Walls"</a>. Some notable recordings include a religious song <SoundText audioUrl="./static/audio_files/afc1939001_02646b2.wav" text="When the Gates Swing Open"/>, <SoundText audioUrl="./static/audio_files/afc1939001_02646b2.wav" text="When the Gates Swing Open"/>, the fiddle tune titled <SoundText audioUrl="./static/audio_files/afc1939001_02649a1.wav" text="Inspiration"/>, and the remarkable spoken word recording <SoundText audioUrl="./static/audio_files/afc1939001_02646a2.wav" text="Cat and Dog Fight"/>
+    On May 12, John Lomax visited the State Penitentiary in Huntsville, Texas. There he met the director of the broadcast program <a href= "https://www.themarshallproject.org/2016/05/16/a-peek-at-the-golden-age-of-prison-radio" target="blank">“Thirty minutes behind the Walls"</a>. Some notable recordings include a religious song <SoundText audioUrl="./static/audio_files/afc1939001_02646b2.wav" text="When the Gates Swing Open"/>, the fiddle tune titled <SoundText audioUrl="./static/audio_files/afc1939001_02649a1.wav" text="Inspiration"/>, and the remarkable spoken word recording <SoundText audioUrl="./static/audio_files/afc1939001_02646a2.wav" text="Cat and Dog Fight"/>
   </p>
   <p>
     Two days later, the Lomaxes visited the Goree state farm for women. There he recorded Hattie Ellis, a popular blues singer on “Thirty minutes behind the Walls". She claims to have composed <SoundText audioUrl="./static/audio_files/afc1939001_02650a1.wav" text="Desert Blues"/>. The Captain of the farm told the Lomaxes that Ellis had received 3,000 fan letters in just one week. Ellis was had recieved thirty years of prison for killing a man.
@@ -274,14 +274,111 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <p>
       Reverend J. R. Gipson, “Blind Gipson”, was introduced by H. R. Weaver, the uncle of Alan Lomax’s wife. He was a well-known African-American Baptist evangelist who supplemented his sermons with the singing of “jazzed” spirituals, playing his own accompaniment on the piano. His loud chords topped by loud, husky singing, made an interesting combination, but one difficult to record. His wife and two neighbor children came with him to the Weaver home, where the recordings were made. They assisted him with some of the spirituals such as <SoundText audioUrl="./static/audio_files/afc1939001_02651b2.wav" text="I'm Lookin' for Dat Man Dat Don't Know Jesus"/>, and the children sang <SoundText audioUrl="./static/audio_files/afc1939001_02652a1.wav" text="Green Old Tree, Old Rocky Row"/> and <SoundText audioUrl="./static/audio_files/afc1939001_02652a2.wav" text="Little Sally Walker"/>.
     </p>
-<ImageAndCaption source="00336v.jpg" caption='Sam Ballard (Old Dad), New Iberia, Louisiana' link="http://www.loc.gov/pictures/collection/lomax/item/2007660064/"></ImageAndCaption> 
-
+    <p>
+      H.R. Weaver also arranged a special prayer-meeting service at the New Zion Baptist Church in Knight, Louisiana to record some of their favorite spirituals. It was a jet-black night when the Lomaxes arrived at the church house, Mr. Weaver's family accompanying them, and they were received in silence by the congregation, a group of about forty persons, gathered in a small building dimly lighted by a lantern and one kerosene lamp. With the help of flashlights, car lights and the strong arms of some African-American youths, the Loamxes set up the machinery, including two heavy batteries and a convertor. During a half hour's delay, due to machine trouble, the crowd waited patiently; when the combination of machinery gave forth a satisfactory purr, all heaved a highly audible sigh of relief including the Lomaxes. The outstanding song of the evening was Sylvester Johnson's <SoundText audioUrl="./static/audio_files/afc1939001_02659b1.wav" text="Samson"/> 
+    </p>
+    <p>
+      Professor N. J. Cross, principal of the segregated Merryville High School, introduced to John Lomax by H.R. Weaver, assembled his pupils in a large upstairs auditorium. Volunteer singers were mostly boys and girls twelve to fourteen years old. Recordings include <SoundText audioUrl="./static/audio_files/afc1939001_02663a2.wav" text="Ti-yi-ya-ya-ho"/> as well as <SoundText audioUrl="./static/audio_files/afc1939001_02665a2.wav" text="Old Ship of Zion"/> sung by Gentty Young Bennett, an African-American woman past middle age to whom John Lomax had promised a quarter if she would come to the schoolhouse to make a recording.
+    </p>
+    <p>
+      Sarah C. Whitman was a member of a WPA sewing group with headquarters in the same building as H.R. Weaver's office. She recorded the <SoundText audioUrl="./static/audio_files/afc1939001_02667a1.wav" text="Fox Hunting"/> song at her noon recess.
+    </p>
     <BarChart state="Louisiana"></BarChart>
     <Bloom :data="theData" state="Louisiana"></Bloom>
+    <hr />
+    <ImageAndCaption source="00422v.jpg" caption='African American convicts working with shovels, possibly the singers of "Rock Island Line" at Cummins State Farm, Gould, Arkansas, 1934' link="http://www.loc.gov/pictures/collection/lomax/item/2007660149/"></ImageAndCaption>
+    <h1>Arkansas</h1> 
+    <p>
+      Superintendent Reed of the Cummins State Farm was busy receiving new inmates, white men who crawled out of the “bus” under guard just as the Lomaxes drove up to his office on May 20, 1939. John Lomax’s conference with the office was only long enough to explain his mission, present his letter of introduction from the Governor of Texas, get permission to proceed and get necessary information about the location of camps and the names of some of the captains. Captain Acklin, who, it seems was in general charge of the Negro farm workers, offered the Lomaxes a bed for the night and breakfast.
+    </p> 
+    <p>
+      The Lomaxes first went to Camp #6, where John Lomax had previously found some songs. There they found Captain Allen in charge, who came riding up from his inspection of the fields and recognized John Lomax at once. Allen had formerly been in charge of a camp near Little Rock where John Lomax had recorded previously.
+    </p>
+    <p class="quotationBlock">
+     It was he whose wife complained that she was kept busy repairing the right armhole of his shirts, which tore loose when he flogged the boys in the field when they slackened work.<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0189.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span> 
+    </p>
+    <p>
+    After a bountiful supper the Lomaxes, the Allens and some guests adjourned to the barracks where African-American prisoners were incarcerated. By the aid of kerosene lamps and flash-lights the Lomaxes set up the machine. John Lomax explained to the prisoners, through the bars, the purpose of his trip and what kind of songs he wished to record. He asked for volunteers. After several rejections, a “big fellow” timidly offered <SoundText audioUrl="./static/audio_files/afc1939001_02670a1.wav" text="Mary Mack Dressed in Black"/>
+    </p>
+    <p class="quotationBlock">
+      This Mary Mack proved to be was entirely different from other Mary Macks, at least after “buttons up and down her back.”, and even there she had only “three or four” instead of 24. At any rate “Mary Mack” had opened the bars of the barracks for Willie Williams, and we saw that he was doing his best to think up other songs that might delay his recommitment to the barracks. “Yes, he knew other songs, but couldn't git 'em togather just then.” <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0190.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span> 
+    </p>
+    <p>
+      As Williams searched his memory, John Lomax appealed to the other prisoners “What have you boys heard him sing? Help him out here.” “Sing Jody Grand, Garmouth” one of the prisoners called. Willie “Garmouth” grinned, nodded his head and sang <SoundText audioUrl="./static/audio_files/afc1939001_02670b1.wav" text="Joe de Grinder"/> a mule-driving song which Garmouth used in the field. Williams told the Lomaxes that he was brought up on a farm, had a wife and one child, and was given three years and seven months for shooting a boy.
+    </p>
+    <p>
+      After the songs of Willie “Garmouth” Williams were played back with the announcement of his name, other prisoners crowded up to the bars to offer their songs. Blues were particularly popular, “sorrow songs”, as one of the prisoners called them. <SoundText audioUrl="./static/audio_files/afc1939001_02670a2.wav" text="Milk Cow Blues"/>, <SoundText audioUrl="./static/audio_files/afc1939001_02663a3.wav" text="Corn Field Blues"/>, <SoundText audioUrl="./static/audio_files/afc1939001_02672a1.wav" text="Po' Laz'us"/> and <SoundText audioUrl="./static/audio_files/afc1939001_02672a1.wav" text="Boll Weevil"/>. The Captain had allowed the Lomaxes stay past nine o'clock, but the kerosene lamps were burning low and the Lomaxes were packing up to go when a “big fellow”, one of the quartet who had sung a lined hymn, offered to sing the iconic <SoundText audioUrl="./static/audio_files/afc1939001_02668b1.wav" text="John Henry"/>
+    </p>
+    <p class="quotationBlock">
+      Just a week or so after we made these recordings a storm blew down the barracks of Camp #6. We read in a newspaper that two of the boys who tried to get away in the darkness were overtaken by the hounds and were shot when they refused to surrender. Others were captured. We hadn't the heart to enquire whether Arthur Bell and “Garmouth”, are among the dead or the missing, or are still singing their John Henry and shouting their “Git up, Red” and “Gee, Bill” in the fields.
+      <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0191.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span> 
+    </p>
+    <hr />
+    <ImageAndCaption source="00421v.jpg" caption='African American convicts working with shovels, possibly at Darrington State Farm, Texas, 1934, or Cummins State Farm, Gould, Arkansas, 1934' link="http://www.loc.gov/pictures/collection/lomax/item/2007660148/" />
+    <p>
+      The Lomaxes spent the night in the home of Captain Acklin, about four or five miles away from Camp #6. After breakfast the next morning, Sunday, they talked to Captain Miller who had charge of the African-American barracks of Camp #1 nearby. Trusties sat on guard with guns ready in case of a break. Other trusties helped get the men together. The convicts were very poorly dressed; proceedings had to wait until some of the men could get on more clothes when they saw Ruby Lomax, a woman, in the car. The Captain said that some of them had better clothes; “but”, he said, “Sunday is the day when the trusties in charge of clothing go around among the groups and pass out cleaner or better garments to those who appear to need them most. Some of the fellows try to look their worst. No, they don't have stripes or any other kind of uniform.”
+    </p>
+    <p class="quotationBlock">
+     Later Superintendent Reed boasted about the large balance that he had built up for the state prison system. We heard no complaint from the boys about food, and we made no comment to Supt. Reed, but we thought privately that some of that surplus might well be used for soap and for clothes to replace the rags that the boys were wearing that Sunday morning.<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0196.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span> 
+    </p>
+    <p>
+      After several experiments with shovels and picks in an effort to get the right sound effects, a group finally recorded <SoundText audioUrl="./static/audio_files/afc1939001_02671a1.wav" text="Rock Island Line"/> in the mess hall where the machine was set up. Laroy Martin, a cripple, volunteered to sing <SoundText audioUrl="./static/audio_files/afc1939001_02671a2.wav" text="Crawdad"/>, with a small group of assistants. When John Lomax asked for game songs or children's songs, Virgil Lamb offered <SoundText audioUrl="./static/audio_files/afc1939001_02666a3.wav" text="Long-tailed Rat"/>, amid great guffaws of his fellows. Then Willie Johnson tried to recall a version of the “Ram of Darby”, though he called his version <SoundText audioUrl="./static/audio_files/afc1939001_02671b2.wav" text="Didn't He Ramble"/> which he used to hear his grandfather sing. Willie, known as “Little Life” because of his sluggish movements, could not “get together” many of the stanzas.
+    </p>
+    <hr />
+    <p>
+      In the afternoon, finding Superintendent Reed at home, the Lomaxes received his permission to interview the African-American women who were housed in the rear of the superintendent's residence under the supervision of Mrs. Reed. The girls who were interested or curious gathered into a large room which served as a sewing room and a laundry. At first nobody knew anything. Then John Lomax told them about the girls of Goree Farm in Texas. One of the women, who “lived in Texas but got into trouble in Arkansas for something I didn' do”, knew Hattie Ellis and her singing. The Lomaxes felt that some of the songs offered came from the radio or from the phonograph, but in most cases the women had changed them and improvised them to suit their own fancy and to make them their own. Songs recorded include <SoundText audioUrl="./static/audio_files/afc1939001_02627b2.wav" text="Hush Little Baby"/> and <SoundText audioUrl="./static/audio_files/afc1939001_02668b2.wav" text="I Goin' Pack My Suitcase"/>
+    </p>
+    <hr />
+    <p class="quotationBlock">
+      We left the headquarters of the Arkansas state farm as soon as the women convicts had been called to their dormitory and we had told Supt. Reed goodbye. He gave us directions for finding a new camp, Number 9, out from Arkansas City. We bought some supper at the nearby town of Varner, but we could find no place to sleep. We followed the rough and winding highway to McGehee, Arkansas, where we found a comfortable hotel. Early next morning we started out for Camp #9. At Arkansas City we stopped for further directions. This formerly prosperous town is all but dead now. <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0207.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span> 
+    </p>
+    <p>
+      Newly made red-clay roads led the Lomaxes to Camp #9. Captain Burt Clayton invited them to dinner and extended the noon rest period so that the prisoners might make recordings for John Lomax. This camp was at that time only three months old. The Lomaxes report that the men here were better dressed than the men at Camp #1. They gathered under the large trees in the dormitory yard and sang and joked. One of the men busied himself making a list of nicknames in which this camp especially seemed to abound. At a penny per nickname he earned a considerable tip. The men were willing but no significant songs were contributed.
+    </p>
+    <p class="quotationBlock">
+      A partial list of nicknames current at Camp #9: Sawmill, Big Windy, Railhead, Longbones, Little Man, Black Rider, Helena, Cool Goose (fromcrap game), Hop-an'-bow (crippled), Scasehound (“dat's his nitname”), Tang (cross-eyed, “Look Easttryin' to see West), Step-in-de-mouth (Mule stepped in hsi mouth and made it “that way”), Scabow (scabow de cotton means get along wid it right fast”), Colorado Red, Salty Dog, Garmouth, Dad, Blue, Wild Mna, Chicken, Slack Britches, Cheatem, Rooster. “Mattie” is their “pet name for an automatic”<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0207.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span> 
+    </p>
     <BarChart state="Arkansas"></BarChart>
     <Bloom :data="theData" state="Arkansas"></Bloom>
+    <hr />
+    <ImageAndCaption source="7368996914.jpg" caption='From Parchman Penitentiary. Male prisoners and guard with dogs, circa 1930 (Mississippi Department of Archives and History)'/>
+    <h1>Mississippi</h1>
+    <p>
+      The Lomaxes spent the night of May 22 in Greenville, Mississippi, across the Mississippi River. It was a stormy night; much damage was done by the wind and rain, but the next morning they had clear weather for their drive to Parchman State Farms. John Lomax had made his first recording visit to Parchman in 1933. The Lomaxes could not see the Superintendent when they arrived, but his assistant gave permission for them to visit Camp #10. Rain had set in and the prisoners could not work. The Lomaxes set up the machine in the wide hall of the barracks, that separated the white dormitory from that of the African-Americans. Singers were not plentiful or enthusiastic. 
+    </p>
+    <p class="quotationBlock">
+      We discovered that one barrier was the idea that we were there to make money out of the boys without “divvying-up”. This they were told by one of the boys who had made some commercial records. After Mr. Lomax made it clear to them the prupose of the recording and the use to-which their songs would serve, they were more generous, and helpful.
+      <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0212.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span> 
+    </p>
+    <p>
+      In the evening the Lomaxes tried again with fair results. Recordings made include <SoundText audioUrl="./static/audio_files/afc1939001_02679a1.wav" text="Early in the Mornin'"/> and <SoundText audioUrl="./static/audio_files/afc1939001_02679a2.wav" text="Dollar Mamie'"/>. <SoundText audioUrl="./static/audio_files/afc1939001_02675b2.wav" text="Eaton Clan"/>, a feud ballad, was sung by Roger “Burndown” Garrett
+    </p>
+    <p class="quotationBlock">
+      “Burndown” gets his nickname from the charge on which he was convicted. According to his and Sergeant Connor's story, he was working for a white man who ordered him to lay kindling and spread oil around an outhouse which was insured for $250.00. Neighbors discovered the fire from the smoke. Burndown and his employer set to work to help put out the fire. Burndown was convicted of arson; his white employer's trial was postponed on an insanity plea. Burndown said he knew he oughtn't to do it, but he thought he had to obey his boss.<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0213.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span> 
+    </p>
+    <p>
+      The next day, Sunday, after lunch the Lomaxes visited Camp #1. Several of the prisoners there remembered John Lomax, among them Big Charlie Butler, the gateman. They were all more willing, but they had very few interesting songs of which the Lomaxes did not already have more interesting versions. Monday morning the Lomaxes visited the women’s camp, but the women were at their laundry work and they made no recordings. After bidding Parchman officials goodbye, they set out for Livingston, Alabama.
+    </p>
     <BarChart state="Mississippi"></BarChart>
     <Bloom :data="theData" state="Mississippi"></Bloom>
+    <hr />
+    <ImageAndCaption source="38814v.jpg" caption="Aunt Harriett McClintock at the microphone with John A. Lomax, Sr., Mrs. Ruby Pickens Tartt, and Aunt Harriett's 'great-grands' children in background, at crossroads near Sumterville, Alabama" link="http://www.loc.gov/pictures/collection/lomax/item/2015645818/" />
+    <h1>Alabama</h1>
+    <p>
+      This was the Lomaxes’ second visit to Livingston, Alabama whereupon their friend Mrs. Ruby Pickens Tartt became their chief assistant and guide. In the few days that they were working around Livingston she drove her car nearly two hundred miles, looking up singers, and bringing them to the microphone, from far and near, over hill, over dale, through mud and stream. Tartt had the confidence of the community including the African-Americans whom she never refused help.
+    </p>
+    <p>
+      Doc Reed and Vera Hall, cousins who had sung together for many years, were Tartt’s dependables and good singers of the old style spirituals, perfect in “seconding”- “following after” they called it,- and they knew many songs. Not having book-learning they stored in the back of their heads innumerable tunes and stanzas, and if they do not understand completely the text, they are ingenious in supplying substitutes either from other spirituals or from their own feelings of the moment. They, however, did not substitute jargon; their texts meant something, if not always what the original words meant. Few of the substantial number of recordings the both made include <SoundText audioUrl="./static/audio_files/afc1939001_03555b1.wav" text="Job, Job'"/>, <SoundText audioUrl="./static/audio_files/afc1939001_02687b1.wav" text="Climbin' up de Hill o' Mt. Zion'"/> and <SoundText audioUrl="./static/audio_files/afc1939001_02686b1.wav" text="Po' Sinner, Farewell'"/>
+    </p>
+    <p>
+      The objective for the Lomaxes in Alabama was Livingston, where they found their singers of spirituals still going strong and where their friend Mrs. Tartt, though just recovering from a siege of streptococci-throat, had rallied some new “songsters” with new songs or new versions. This time they recorded a gratifying number of play-party songs and lullabies. Though they could not reach the African-American church to which they had started, they found another closer in where they found the preacher holding forth on Moses. After about fifteen minutes he said, “I can't fool around with Moses all day, I must pass on to Jesus.” When he stopped at two-thirty the Lomaxes set up their machine and caught some “mournin” songs such as <SoundText audioUrl="./static/audio_files/afc1939001_02697b1.wav" text="Nobody's Fault But Mine"/>. Next day they recorded <SoundText audioUrl="./static/audio_files/afc1939001_02696a1.wav" text="Give Me a Gourd o' Cold Water"/> from Aunt Florida, who after singin' spirituals started on a “reel”, but, breaking off in the middle, began to explain how she could not go on in “sech sin” 
+    </p>
+    <p class="quotationBlock">
+      “I told de Lord that I wouldn't sin no more. Course de Lord he know I gwine sin some mo', I jes' couldn't hep sinning a little, but He know too I aint ‘bleeged to sin by singin’ no reels. See dem clouds? Dey's jes' a-gatherin' this minute to send fo'th de Lord's light'nin' an' strike me down. An' Miss Ruby (Mrs. Tartt) you done sin agin de Lord, too, for ‘suadin’ me into singin' dis reel”. In reality it was no more than a ring-game song. The machine was going and as a result we have a dandy introduction to a chapter on Negro secular songs.<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0220.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
+    </p>
+    <hr />
+    <ImageAndCaption source="38796v.jpg" caption='Vera Hall at the home of Mrs. Ruby Pickens Tartt, Livingston, Alabama' link="http://www.loc.gov/pictures/collection/lomax/item/2015645819/" />
+    
     <BarChart state="Alabama"></BarChart>
     <Bloom :data="theData" state="Alabama"></Bloom>
     <BarChart state="Florida"></BarChart>
