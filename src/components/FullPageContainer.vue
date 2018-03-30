@@ -5,7 +5,7 @@
       <div id="titleCard">
         <div id="headings">
           <h1>Southern Mosaic</h1>
-          <h2>By Aditya Jain</h2>
+          <h2><a href="https://twitter.com/whaleandpetunia">By Aditya Jain</a></h2>
         </div>
       </div>
     </div>
@@ -53,6 +53,15 @@ h1{
 h2{
   font-family: 'Alfa Slab One', cursive;
   font-size: 30px;
+  color: deeppink;
+}
+h2 a{
+  color: deeppink;
+}
+h2 a:hover{
+  color: #f47cbc;
+}
+h2 a:visited{
   color: deeppink;
 }
 @media (max-width : 800px) {

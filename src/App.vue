@@ -45,11 +45,6 @@
         In 1940, when the couple traversed the same path through the South, she took on the additional role of photographer. Many photographs from the 1940 recording expedition accompany this piece.
       </p>
     <hr />
-<!--
-  <ImageAndCaption source="key.png"></ImageAndCaption>
-    <ImageAndCaption source="00343r.jpg" caption='Stavin Chain playing guitar and singing the ballad "Batson" accompanied by a musician playing violin, Lafayette, La.' link="https://www.loc.gov/item/2007660400/"></ImageAndCaption>
-    
-    <ImageAndCaption source="38809r.jpg" caption='Stavin Chain playing guitar and singing the ballad "Batson" accompanied by a musician playing violin, Lafayette, La.' link="https://www.loc.gov/item/2007660400/"></ImageAndCaption> -->
     <MapContainer></MapContainer>
     <hr />
     <ImageAndCaption source="00319v.jpg" caption='Man and woman riding horses, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660046/"></ImageAndCaption>
@@ -424,8 +419,8 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <BarChart state="Alabama"></BarChart>
     <Bloom :data="theData" state="Alabama"></Bloom>
     <hr/>
-    <h1>Florida</h1>
     <ImageAndCaption source="00389v.jpg" caption="African American children playing outdoors, Eatonville, Florida" link="http://www.loc.gov/pictures/collection/lomax/item/2007660115/" />
+    <h1>Florida</h1>
     <p>
       On the first day of June, the Lomaxes drove up to Mrs. Griffin's door at about eleven o'clock in the morning, just as she was building a fire in her wood cook-stove to cook dinner. Mrs. Griffin was almost blind; she kept one of her grandchildren to help her, and she had a boarder, a workman who took his lunch with him. After they had talked with her a little while and she had sung three or four songs, inluding <SoundText audioUrl="./static/audio_files/afc1939001_02705b2.wav" text="The Cambric Shirt"/> a variation of which was made popular by Simon and Garfunkel. Mrs. Griffin invited the Lomaxes to dinner; there was no excusing themselves, and they stayed. The food was coarse and poorly prepared, but Mrs. Griffin's courteous hospitality made up for any deficiencies in the quality of the food. She had chickens, all of whom she called by name, and the Lomaxes recorded her <SoundText audioUrl="./static/audio_files/afc1939001_02698a3.wav" text="Calling Chickens"/>.
     </p>
@@ -442,8 +437,8 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <BarChart state="Florida"></BarChart>
     <Bloom :data="theData" state="Florida"></Bloom>
     <hr/>
-    <h1>South Carolina</h1>
     <ImageAndCaption source="00413v.jpg" caption="Farm wagon, driven by an African American man, Reed Camp, South Carolina" link="http://www.loc.gov/pictures/collection/lomax/item/2007660245/resource/" />
+    <h1>South Carolina</h1>
     <p class="quotationBlock">
       From Raiford we went up the coast highway through Brunswick, Savannah, Charles where
 we spent the night, though I think we should not have stopped, had we known about
@@ -504,6 +499,19 @@ Negroes themselves<span><a href="http://tile.loc.gov/image-services/jp2.py?data=
     <p class="quotationBlock">
       From February 8,1939 until June i4,1939, I made a ballad-collecting criss-cross trip of 6502 miles through Texas, Louisiana, Mississippi, Alabama, Florida, Georgia, South Carolina and Virginia on into Washington,D. C. During this three and a half months, with the assistance of Mrs. Ruby Terrill Lomax, I recorded on one hundred and forty-two discs the music of more than six hundred folk tunes. Some were new to us, though in many instances we re-recorded folk songs sung in a different manner,or slightly different musically from already known material. In visiting the homes, schools and churches of the Southern folk and recording their singing in their own locale, we carried out the theory of the Folk Song Archive of the Library of Congress, namely, that folk singers render their music more naturally in the easy sociability of their own people.<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_tr0001/0001.jp2&res=1" target="blank">1939 Southern Recording Trip Report</a></span>
     </p>
+    <hr />
+    <footer>
+      <h2>
+        This interactive was made by a <a class="footerh2Link" href="https://www.uscis.gov/tools/glossary/nonimmigrant">nonimmigrant</a>
+      </h2>
+      <h2>Thanks to</h2>
+      <a class="credits" href="https://labs.loc.gov/"><span>LC Labs</span></a>
+      <a class="credits" href="https://www.loc.gov/folklife/"><span>The American Folklife Center</span></a>
+      <span class="credits">Rachel I. Howard</span>
+      <span class="credits">Christa Maher</span>
+      <a class="credits" href="https://twitter.com/nirja_desai"><span>Nirja Desai</span></a>
+      <a class="credits" href="https://twitter.com/Tahero"><span>Tahir Hemphill</span></a>
+    </footer>
   </div>
 </template>
 
@@ -547,6 +555,8 @@ export default {
     getJSON(peopleFile, (resp) => {
       this.$store.commit('setPeopleData', resp)
     })
+    console.log('I, too by Langston Hughes')
+    console.log('I, too, sing America.\nI am the darker brother. \nThey send me to eat in the kitchen \nWhen company comes, \nBut I laugh, \nAnd eat well, \nAnd grow strong. \n\nTomorrow, \nI’ll be at the table \nWhen company comes. \nNobody’ll dare \nSay to me, \n“Eat in the kitchen,” \nThen. \n\nBesides, \nThey’ll see how beautiful I am \nAnd be ashamed— \n\nI, too, am America.')
   }
 }
 </script>
@@ -668,27 +678,55 @@ hr {
   text-align: center;
 }
 
-hr:before {
+hr:before{
     content: "\2022  \2022  \2022";
     font-size: 50px;
     color: deeppink;
 }
+
 #tw{
   width: 50%;
   margin-right: auto;
   margin-left: auto;
   font-family: 'Alfa Slab One', cursive;
 }
-#tw h2{
+
+h2{
   font-size: 30px;
   color: deeppink;
   margin-bottom: 5px;
 }
+
 #tw span{
   color: white;
   font-size: 18px;
   font-family: 'Georgia';
   line-height: 1.2;
+}
+
+footer{
+  margin-top: 100px;
+  padding-bottom: 100px;
+  color: white;
+  font-family: 'Alfa Slab One', cursive;
+}
+
+footer h2:not(:first-of-type){
+  margin-top: 40px;
+}
+
+.credits{
+  display: block;
+  color: white;
+  margin: 10px;
+}
+
+.footerh2Link{
+  color: deeppink;
+}
+
+.footerh2Link:hover{
+  color: #f47cbc;
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 750px) {
