@@ -55,6 +55,7 @@ caption{
 a{
   font-family: 'Georgia';
   display: block;
+  color: deeppink;
 }
 a:visited{
   color: white;

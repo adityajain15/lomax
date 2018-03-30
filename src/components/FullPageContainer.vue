@@ -70,6 +70,7 @@ h2{
   h1{
     font-size: 60px;
     line-height: 0.9;
+    margin-bottom: 20px;
   }
   h2{
     font-size: 30px;
@@ -82,8 +83,8 @@ h2{
     width: 100%;
     height: 50%;
     padding: 2%;
-    margin-top: 50px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 </style>

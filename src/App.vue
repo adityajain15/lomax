@@ -74,6 +74,12 @@
       On April 12, 1939, the Lomaxes recorded John Lowry Goree who was educated at Judson College; his great-grandfather, a trustee of that college and plantation owner, gave his children the plantation. Mr. Goree’s mother died when he was born; as a small child he had Scrofula and was sent to the plantation to be nursed by an old mammy, Aunt Harriet; he lived in a log cabin with her for two years. From her he learned the lullabies, such as <SoundText audioUrl="./static/audio_files/afc1939001_02592b1.wav" text="Who Curled Your Hair"></SoundText>, by which he was often sung to sleep. Furthermore he sang his own children to sleep by them.
     </p>
     <p>
+      One particular recording made by Goree, <SoundText audioUrl="./static/audio_files/afc1939001_02591a1.wav" text="Negro Prayer About 4-Cent Cotton"/>, stands out. It contains one of the few textual references to the Great Depression in the 1939 Southern Recording Trip. The recording obliquely or directly references practices such as tenant farming and sharecropping, the New Deal, the crash of 1929, as well as the Presidency of Franklin D. Roosevelt.
+    </p>
+    <p class="quotationBlock">
+      "Yon comes Bre'r Zeke; he ain' much on preachin', but he's 'bout de out-prayin'est Parson dat ever went to town on Satday … back in 1932, Bre'r Zeke walked out to de aidge o' de pulpit 'n' rolled his eyes up to de sky, 'n' stretched his arms straight out in frontta him, 'n' start prayin': … Now, Oh-o Marster, Thou seeth me in dese days o' 'versity; Oh-o Marster, Thou seeth me gwine upn' down de cotton fiel', tryin', Oh-o Marster, tryin' by de sweater my brow ter feed six chilluns wid some fo' cent cotton. Thou seeth me on a Sunday mornin', gwine down de Big Road, wid my elbows out, an' de botooms o' my foots reachin' de groun' thu de soles o' my shoes; Thou hath heared de Boss-man say dat de cotton us done riz won' 'pensate him fer de meat us done et. Now, Oh-o Marster, even as Thou knoweth all things dat be's possible, Thou knoweth also dat feedin' six chilluns wid some fo' cent cotton ain't one uv 'em … ' Folks, you know dat prayer hit got answered, yessir, hit sho' be's answered, fer 'twarnt long 'fo' de Good Lord tuck an' drapped dis here Mister Roosevelt right down in Bre'r Zeke's arms, an' said: "Gi' dat n***** ten cents fer his cotton!"<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0015.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
+    </p>
+    <p>
       The next day the Lomaxes recorded Ray Wood, a “T-man”, who had seen service in many parts of the U.S. possessions. He was
 brought up in Arkansas and had retained an affection for the homely rhymes and jingles of the backwoods. He recorded several “American Mother Goose jingles” such as <SoundText audioUrl="./static/audio_files/afc1939001_02594b3.wav" text="Granny, Will Your Dog Bite"></SoundText> and <SoundText audioUrl="./static/audio_files/afc1939001_02594a1.wav" text="Sugar Babe"></SoundText> 
     </p>
@@ -668,8 +674,14 @@ hr:before {
 }
 
 @media only screen and (min-device-width : 320px) and (max-device-width : 750px) {
+  #tw{
+    width: 85%;
+  }
   p{
     width: 85%;
+  }
+  h1{
+    font-size: 40px;
   }
 }
 
