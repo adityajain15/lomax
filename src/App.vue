@@ -746,11 +746,7 @@ footer h2:not(:first-of-type){
   margin: 10px;
 }
 
-.footerh2Link{
-  color: deeppink;
-}
-
-.footerh2Link:hover{
+.credits span:hover{
   color: #f47cbc;
 }
 
