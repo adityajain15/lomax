@@ -45,6 +45,8 @@
         In 1940, when the couple traversed the same path through the South, she took on the additional role of photographer. Many photographs from the 1940 recording expedition accompany this piece.
       </p>
     <hr />
+    <h2>Visualizing the journey</h2>
+    <p id="mapExplainer">John and Ruby Lomax travelled for 6,502 miles in their journey, across 10 different states in 3 months. We visualized a possible route they might have taken using the recorded dates of sound recordings and a 1939 map of Southern roads from <a href="https://www.loc.gov/maps/">the Library of Congress Maps Collection</a>.</p>
     <MapContainer></MapContainer>
     <hr />
     <ImageAndCaption source="00319v.jpg" caption='Man and woman riding horses, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660046/"></ImageAndCaption>
@@ -684,6 +686,29 @@ p span a:visited{
 p span a:hover{
   color: #f47cbc;
 }
+#mapExplainer{
+  color: white;
+  font-family: 'Georgia';
+  font-size: 18px;
+  line-height: 1.2;
+  width: 75%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  background: none;
+}
+#mapExplainer a{
+  color: deeppink;
+  font-family: 'Georgia';
+}
+#mapExplainer a:visited{
+  color: white;
+}
+#mapExplainer a:hover{
+  color: #f47cbc;
+}
 h1{
   font-family: 'Alfa Slab One', cursive;
   font-size: 80px;
@@ -759,6 +784,9 @@ footer h2:not(:first-of-type){
   }
   h1{
     font-size: 40px;
+  }
+  #mapExplainer{
+    width: 85%;
   }
 }
 
