@@ -1,6 +1,5 @@
 <template>
   <div class="bloomContainer">
-    <h2>{{this.state}}</h2>
     <svg :height="elementHeight" class="bloom" :id="state">
       <defs>
         <pattern id="circlePattern" width="4" height="4"
@@ -67,6 +66,7 @@
         <circle :cx="0" :cy="0" :r="radiusSize"></circle>
       </g>
     </svg>
+    <h2>{{this.state}}</h2>
   </div>
 </template>
 
@@ -169,14 +169,13 @@ export default {
     fill: url(#RadialGradient1);
   }
   .bloomContainer{
-    padding-top: 5px;
     position: relative;
     background: #141e30;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    border: 1px solid white;
+    margin-bottom: 20px;
+    margin-top: 20px;
   }
   h2{
+    margin-top: 5px;
     font-family: 'Alfa Slab One', cursive;
     font-size: 30px;
     color: deeppink;

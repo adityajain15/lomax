@@ -120,6 +120,8 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
       </p> 
     <hr />
     <BarChart state="Texas"></BarChart>
+    <ImageAndCaption source="key.png"></ImageAndCaption>
+    <Bloom :data="theData" state="Texas"></Bloom>
     <hr />
     <ImageAndCaption source="00276r.jpg" caption='Mexican girls, San Antonio, Texas' link="http://www.loc.gov/pictures/collection/lomax/item/2007660002/"></ImageAndCaption>
     <p>
@@ -268,9 +270,6 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <hr />
     <Tooltip></Tooltip>
     <StyleModal></StyleModal>
-    <ImageAndCaption source="key.png"></ImageAndCaption>
-    <Bloom :data="theData" state="Texas"></Bloom>
-    <hr />
     <ImageAndCaption source="00323v.jpg" caption='Baptist women, Alma Plantation, False River, Louisiana' link="http://www.loc.gov/pictures/collection/lomax/item/2007660091/"></ImageAndCaption> 
     <h1>Louisiana</h1>
     <p>
@@ -502,7 +501,7 @@ Negroes themselves<span><a href="http://tile.loc.gov/image-services/jp2.py?data=
     <hr />
     <footer>
       <h2>
-        This interactive was made by a <a class="footerh2Link" href="https://www.uscis.gov/tools/glossary/nonimmigrant">nonimmigrant</a>
+        Built with love, by a nonimmigrant, for a beautiful people
       </h2>
       <h2>Thanks to</h2>
       <a class="credits" href="https://labs.loc.gov/"><span>LC Labs</span></a>
@@ -673,7 +672,7 @@ h1{
   margin-bottom: 40px;
 }
 hr {
-  margin: 12px 0;
+  margin: 40px 0;
   border: 0;
   text-align: center;
 }
