@@ -530,6 +530,20 @@ a:hover{
   position: relative;
 }
 
+@media (min-device-width : 320px) and (max-device-width : 750px) {
+
+    #mapModal{
+  height: 90%;
+  top: 5%;
+    }
+    #mapModal button{
+  
+  width: 90%;
+  
+
+}
+}
+
 h2{
   color: deeppink;
   font-family: 'Alfa Slab One', cursive;

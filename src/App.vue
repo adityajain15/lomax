@@ -788,6 +788,7 @@ footer h2:not(:first-of-type){
   #mapExplainer{
     width: 85%;
   }
+  
 }
 
 </style>
