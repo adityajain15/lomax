@@ -97,19 +97,19 @@ h2 a:visited{
 </style>
 <style>
 .hexagonBackground{
-  animation: pulseBackground 1s infinite;
-  animation-direction: alternate;  
+  fill: deeppink;
 }
 .hexagonPatterns{
-  animation: pulse 1s infinite;
+  animation: pulse 2s infinite;
+  animation-timing-function: ease-in-out;
   animation-direction: alternate;
 }
 @keyframes pulse {
   0% {
-    fill: #4da6ff;
+    fill: #141e30;
   }
   100% {
-    fill: #155ed3;
+    fill: white;
   }
 }
 @keyframes pulseBackground {

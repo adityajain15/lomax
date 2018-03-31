@@ -5,7 +5,7 @@
     <hr />
     <div id="tw">
       <h2>Author’s Note</h2>
-      <span>The following interactives contain sound recordings and data that may be offensive to visitors. The collection information is presented in its original form from 1939-1940 with related historical context.</span>
+      <span>The following interactives contain sound recordings and data that may be offensive to visitors. The collection information is presented in its original form from 1939-1940 with related historical context. The text for this piece is derived from the field-notes, with minor inputs from the author of the interactives.</span>
     </div>
     <hr />
     <p>
