@@ -3,25 +3,25 @@
     <path :d="pathData"/>
     
     <template v-for="(personObject, person, personIndex) of peopleData">
-      <StamenFillament :personObject="personObject" :person="person" :index="index" :personIndex="personIndex" :angleSize="angleSize" :halfWidth="halfWidth" :numPeople="numPeople" :angleShift="angleShift" :petalCords="petalCords" :county="county" :state="state"></StamenFillament>
+      <StamenFillament :personObject="personObject" :person="person" :index="index" :personIndex="personIndex" :angleSize="angleSize" :halfWidth="halfWidth" :numPeople="numPeople" :angleShift="angleShift" :petalCords="petalCords" :county="county" :state="state" :isTexasMobile="isTexasMobile"></StamenFillament>
     </template>
 
     <template v-for="(songObject, songIndex) of this.obj">
-      <StyleFillament :songObject="songObject" :index="index" :songIndex="songIndex" :angleSize="angleSize" :halfWidth="halfWidth" :totalSongs="totalSongs" :angleShift="angleShift" :county="county" :state="state">
+      <StyleFillament :songObject="songObject" :index="index" :songIndex="songIndex" :angleSize="angleSize" :halfWidth="halfWidth" :totalSongs="totalSongs" :angleShift="angleShift" :county="county" :state="state" :isTexasMobile="isTexasMobile">
       </StyleFillament>
     </template>
 
     <template v-for="(songObject, songIndex) of this.obj">
-      <Style :songObject="songObject" :county="county" :state="state">
+      <Style :songObject="songObject" :county="county" :state="state" :isTexasMobile="isTexasMobile">
       </Style>
     </template>
 
     <template v-for="(personObject, person, personIndex) of peopleData">
-      <Stamen :person="person" :personObject="personObject" :county="county" :state="state">
+      <Stamen :person="person" :personObject="personObject" :county="county" :state="state" :isTexasMobile="isTexasMobile">
       </Stamen>
     </template>
 
-    <circle :cx="xPosition" :cy="yPosition" :r="8" :class="county" v-on:mouseenter="setPetalFilter(true, $event)" v-on:mouseleave="setPetalFilter(false, $event)"></circle>
+    <circle :cx="xPosition" :cy="yPosition" :r="radiusSize" :class="county" v-on:mouseenter="setPetalFilter(true, $event)" v-on:mouseleave="setPetalFilter(false, $event)"></circle>
   </g>
 </template>
 
@@ -40,7 +40,7 @@ export default {
     Stamen,
     Style
   },
-  props: ['obj', 'county', 'index', 'angleSize', 'halfWidth', 'angleShift', 'state'],
+  props: ['obj', 'county', 'index', 'angleSize', 'halfWidth', 'angleShift', 'state', 'isTexasMobile'],
   methods: {
     getPersonAttributes: function (personName) {
       return this.personAttributes.filter((d) => { return d.name === personName })[0]
@@ -87,15 +87,24 @@ export default {
       return {x: this.xPosition, y: this.yPosition}
     },
     radiusSize: function () {
-      return 9
+      if (this.isTexasMobile) {
+        return 5
+      }
+      return 8
     },
     xPosition: function () {
+      if (this.isTexasMobile) {
+        return this.halfWidth / 3.75 * Math.cos(this.angle)
+      }
       return this.halfWidth / 4 * Math.cos(this.angle)
     },
     angle: function () {
       return ((this.index + 0.5) * this.angleSize) + this.angleShift
     },
     yPosition: function () {
+      if (this.isTexasMobile) {
+        return -this.halfWidth / 3.75 * Math.sin(this.angle)
+      }
       return -this.halfWidth / 4 * Math.sin(this.angle)
     },
     numPeople: function () {

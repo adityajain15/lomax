@@ -7,7 +7,7 @@ import { store } from '../store'
 export default {
   name: 'StamenFillament',
   store: store,
-  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county', 'state'],
+  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county', 'state', 'isTexasMobile'],
   computed: {
     shouldRender: function () {
       let theFilter = this.$store.getters.getStyleFilter
@@ -34,12 +34,18 @@ export default {
       return -((this.arcRadius) - (1 / 3 * this.lineLength)) * Math.sin(this.angle) - 10
     },
     radiusSize: function () {
+      if (this.isTexasMobile) {
+        return 2
+      }
       return 4
     },
     arcSize: function () {
       return this.angleSize * (this.arcRadius)
     },
     arcRadius: function () {
+      if (this.isTexasMobile) {
+        return this.halfWidth / 2
+      }
       return this.halfWidth / 2.5
     },
     perLayer: function () {

@@ -186,7 +186,7 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
       Senora Isabella Salazar was introduced to the Lomaxes by Octavio Perez, a teacher at the Stephen F. Austin Grammar School in Kingsville. Perez himself was making a collection of Mexican play-party and children's songs, and told the Lomaxes that Mrs. Salazar was his “find”. Senora Salazar did not then speak English, but knew a wide variety of songs, most of the old ones learned from her nearly ninety year old mother.
     </p>
     <hr />
-    <ImageAndCaption source="ec70a38.jpg" caption='Elmo Newcomer, his son, and an unknown banjo player'></ImageAndCaption> 
+    <ImageAndCaption source="ec70a38.jpg" caption='Elmo Newcomer, his son, and an unknown banjo player (Source: Bandera County Courier)'></ImageAndCaption> 
     <p>
       On arrival at Bandera, Texas on May 3, 1939, John Lomax conferred with the editor of the Frontier Times and decided to interview a group of people that included Elmo Newcomer. Lomax notes that Newcomer had the “reputation of being the best dance caller in the county”. His <SoundText audioUrl="./static/audio_files/afc1939001_03802a1.wav" text="Rye Whiskey"/>, known in some parts as Drunken Hiccups, was famous in the “Hill Country” of Texas. Newcomer himself recognized John Lomax as the author of ‘Cowboy Songs and Other Frontier Ballads’ published in 1910.
     </p>
@@ -294,7 +294,7 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <ImageAndCaption source="00422v.jpg" caption='African American convicts working with shovels, possibly the singers of "Rock Island Line" at Cummins State Farm, Gould, Arkansas, 1934' link="http://www.loc.gov/pictures/collection/lomax/item/2007660149/"></ImageAndCaption>
     <h1>Arkansas</h1> 
     <p>
-      Superintendent Reed of the Cummins State Farm was busy receiving new inmates, white men who crawled out of the “bus” under guard just as the Lomaxes drove up to his office on May 20, 1939. John Lomax’s conference with the office was only long enough to explain his mission, present his letter of introduction from the Governor of Texas, get permission to proceed and get necessary information about the location of camps and the names of some of the captains. Captain Acklin, who, it seems was in general charge of the Negro farm workers, offered the Lomaxes a bed for the night and breakfast.
+      Superintendent Reed of the Cummins State Farm was busy receiving new inmates, white men who crawled out of the “bus” under guard just as the Lomaxes drove up to his office on May 20, 1939. John Lomax’s conference with the office was only long enough to explain his mission, present his letter of introduction from the Governor of Texas, get permission to proceed and information about the location of camps and the names of some of the captains. Captain Acklin, who was apparently in charge of the African-American farm workers, offered the Lomaxes a bed for the night and breakfast.
     </p> 
     <p>
       The Lomaxes first went to Camp #6, where John Lomax had previously found some songs. There they found Captain Allen in charge, who came riding up from his inspection of the fields and recognized John Lomax at once. Allen had formerly been in charge of a camp near Little Rock where John Lomax had recorded previously.
@@ -349,7 +349,7 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="Arkansas"></Bloom>
     <hr />
-    <ImageAndCaption source="7368996914.jpg" caption='From Parchman Penitentiary. Male prisoners and guard with dogs, circa 1930 (Mississippi Department of Archives and History)'/>
+    <ImageAndCaption source="7368996914.jpg" caption='From Parchman Penitentiary. Male prisoners and guard with dogs, circa 1930 (Source: Mississippi Department of Archives and History)'/>
     <h1>Mississippi</h1>
     <p>
       The Lomaxes spent the night of May 22 in Greenville, Mississippi, across the Mississippi River. It was a stormy night; much damage was done by the wind and rain, but the next morning they had clear weather for their drive to Parchman State Farms. John Lomax had made his first recording visit to Parchman in 1933. The Lomaxes could not see the Superintendent when they arrived, but his assistant gave permission for them to visit Camp #10. Rain had set in and the prisoners could not work. The Lomaxes set up the machine in the wide hall of the barracks, that separated the white dormitory from that of the African-Americans. Singers were not plentiful or enthusiastic. 
@@ -526,12 +526,12 @@ Negroes themselves<span><a href="http://tile.loc.gov/image-services/jp2.py?data=
         Built with love, by a nonimmigrant, for a beautiful people
       </h2>
       <h2>Thanks to</h2>
-      <a class="credits" href="https://labs.loc.gov/"><span>LC Labs</span></a>
+      <a class="credits" href="https://labs.loc.gov/people/"><span>LC Labs</span></a>
       <a class="credits" href="https://www.loc.gov/folklife/"><span>The American Folklife Center</span></a>
       <span class="credits">Rachel I. Howard</span>
       <span class="credits">Christa Maher</span>
-      <a class="credits" href="https://twitter.com/nirja_desai"><span>Nirja Desai</span></a>
-      <a class="credits" href="https://twitter.com/Tahero"><span>Tahir Hemphill</span></a>
+      <a class="credits" href="http://www.nirjadesai.com/about/"><span>Nirja Desai</span></a>
+      <a class="credits" href="https://tahirhemphill.com/about/"><span>Tahir Hemphill</span></a>
     </footer>
   </div>
 </template>

@@ -9,7 +9,7 @@ import colorMap from '../colorMap'
 export default {
   name: 'Style',
   store: store,
-  props: ['songObject', 'county', 'state'],
+  props: ['songObject', 'county', 'state', 'isTexasMobile'],
   methods: {
     displayModal: function () {
       this.$store.commit('setModal', {data: this.songObject, type: 'song'})
@@ -47,6 +47,9 @@ export default {
       }
     },
     radiusSize: function () {
+      if (this.isTexasMobile) {
+        return 1
+      }
       return 4
     },
     xPosition: function () {

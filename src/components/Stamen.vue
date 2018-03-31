@@ -8,7 +8,7 @@ import { store } from '../store'
 export default {
   name: 'Stamen',
   store: store,
-  props: ['person', 'personObject', 'county', 'state'],
+  props: ['person', 'personObject', 'county', 'state', 'isTexasMobile'],
   methods: {
     displayModal: function () {
       this.$store.commit('setModal', {data: this.personObject, name: this.person, county: this.county, state: this.state, type: 'person'})
@@ -28,6 +28,9 @@ export default {
   },
   computed: {
     radiusSize: function () {
+      if (this.isTexasMobile) {
+        return 2
+      }
       return 4
     },
     xPosition: function () {

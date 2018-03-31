@@ -45,22 +45,10 @@
           <stop offset="0%" stop-color="#fccae6"/>
           <stop offset="100%" stop-color="#ffffff"/>
         </radialGradient>
-        <radialGradient id="RadialGradient2">
-          <stop offset="0%" stop-color="#7fb4ff"/>
-          <stop offset="100%" stop-color="#ffffff"/>
-        </radialGradient>
-        <radialGradient id="RadialGradient3">
-          <stop offset="0%" stop-color="#ffaf69"/>
-          <stop offset="100%" stop-color="#ffffff"/>
-        </radialGradient>
-        <radialGradient id="RadialGradient4">
-          <stop offset="0%" stop-color="#fc6a6a"/>
-          <stop offset="100%" stop-color="#ffffff"/>
-        </radialGradient>
       </defs>
       <g :transform="baseTranslate">
         <template v-for="(obj,county,index) of countyData">
-          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :state="state">
+          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :state="state" :isTexasMobile="isTexasMobile">
           </Petal> 
         </template>
         <circle :cx="0" :cy="0" :r="radiusSize"></circle>
@@ -114,6 +102,13 @@ export default {
     halfWidth: function () {
       return this.elementWidth / 2
     },
+    isTexasMobile: function () {
+      // hack to fix Texas on mobile devices
+      if (this.elementWidth < 650 && this.state === 'Texas') {
+        return true
+      }
+      return false
+    },
     angleSize: function () {
       return Math.PI / Object.keys(this.countyData).length
     },
@@ -140,6 +135,9 @@ export default {
     },
     showLegend: function () {
       this.$store.commit('setDisplayLegend', true)
+    },
+    unfurl: function () {
+      this.unfurled = true
     }
   },
   watch: {

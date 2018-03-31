@@ -12,7 +12,7 @@ import { store } from '../store'
 export default {
   name: 'StyleFillament',
   store: store,
-  props: ['songObject', 'index', 'songIndex', 'angleSize', 'halfWidth', 'totalSongs', 'angleShift', 'county', 'state'],
+  props: ['songObject', 'index', 'songIndex', 'angleSize', 'halfWidth', 'totalSongs', 'angleShift', 'county', 'state', 'isTexasMobile'],
   methods: {
     calculateFilament: function (personX, personY) {
       let lineLength = Math.hypot((this.arcRadius * Math.cos(this.angle)) - personX, (-this.arcRadius * Math.sin(this.angle)) - personY)
@@ -51,12 +51,18 @@ export default {
       return shouldRenderObject
     },
     radiusSize: function () {
+      if (this.isTexasMobile) {
+        return 1
+      }
       return 4
     },
     arcSize: function () {
       return this.angleSize * this.arcRadius
     },
     arcRadius: function () {
+      if (this.isTexasMobile) {
+        return this.halfWidth / 1.1
+      }
       return this.halfWidth / 1.2
     },
     perLayer: function () {
