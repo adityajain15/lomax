@@ -120,6 +120,7 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
       </p> 
     <hr />
     <BarChart state="Texas"></BarChart>
+    <hr/>
     <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="Texas"></Bloom>
     <hr />
@@ -284,7 +285,10 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <p>
       Sarah C. Whitman was a member of a WPA sewing group with headquarters in the same building as H.R. Weaver's office. She recorded the <SoundText audioUrl="./static/audio_files/afc1939001_02667a1.wav" text="Fox Hunting"/> song at her noon recess.
     </p>
+    <hr />
     <BarChart state="Louisiana"></BarChart>
+    <hr/>
+    <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="Louisiana"></Bloom>
     <hr />
     <ImageAndCaption source="00422v.jpg" caption='African American convicts working with shovels, possibly the singers of "Rock Island Line" at Cummins State Farm, Gould, Arkansas, 1934' link="http://www.loc.gov/pictures/collection/lomax/item/2007660149/"></ImageAndCaption>
@@ -339,7 +343,10 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <p class="quotationBlock">
       A partial list of nicknames current at Camp #9: Sawmill, Big Windy, Railhead, Longbones, Little Man, Black Rider, Helena, Cool Goose (fromcrap game), Hop-an'-bow (crippled), Scasehound (“dat's his nitname”), Tang (cross-eyed, “Look Easttryin' to see West), Step-in-de-mouth (Mule stepped in hsi mouth and made it “that way”), Scabow (scabow de cotton means get along wid it right fast”), Colorado Red, Salty Dog, Garmouth, Dad, Blue, Wild Mna, Chicken, Slack Britches, Cheatem, Rooster. “Mattie” is their “pet name for an automatic”<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0207.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span> 
     </p>
+    <hr/>
     <BarChart state="Arkansas"></BarChart>
+    <hr/>
+    <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="Arkansas"></Bloom>
     <hr />
     <ImageAndCaption source="7368996914.jpg" caption='From Parchman Penitentiary. Male prisoners and guard with dogs, circa 1930 (Mississippi Department of Archives and History)'/>
@@ -360,7 +367,10 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <p>
       The next day, Sunday, after lunch the Lomaxes visited Camp #1. Several of the prisoners there remembered John Lomax, among them Big Charlie Butler, the gateman. They were all more willing, but they had very few interesting songs of which the Lomaxes did not already have more interesting versions. Monday morning the Lomaxes visited the women’s camp, but the women were at their laundry work and they made no recordings. After bidding Parchman officials goodbye, they set out for Livingston, Alabama.
     </p>
+    <hr />
     <BarChart state="Mississippi"></BarChart>
+    <hr/>
+    <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="Mississippi"></Bloom>
     <hr />
     <ImageAndCaption source="38796v.jpg" caption='Vera Hall at the home of Mrs. Ruby Pickens Tartt, Livingston, Alabama' link="http://www.loc.gov/pictures/collection/lomax/item/2015645819/" />
@@ -415,7 +425,10 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <p class="quotationBlock">
       Enoch is a strange person, the kind of person that we are tempted to call “a strange creature”, for he seems “other-worldly”, a wraith that appears suddenly out of darkness– we have never seen him in daytime in two visits- His sentences in conversation are condensed. “He come?”, when expanded means “Has Mr. Lomax arrived?” If the answer is “No”, Enoch turns away with a mere “Back again”. His laugh, too, is not of this earth. Enoch's clothing consist mostly of rags pinned together; he does not keep himself clean; he works only when he is hungry, and not then if he has some excuse to walk up the hill to Mra. Tartt's home about mealtime. He ought to be repulsive, but he isn't; rather, he stirs deeply the pools of tenderness in the heart.<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0255.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
     </p>
+    <hr/>
     <BarChart state="Alabama"></BarChart>
+    <hr/>
+    <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="Alabama"></Bloom>
     <hr/>
     <ImageAndCaption source="00389v.jpg" caption="African American children playing outdoors, Eatonville, Florida" link="http://www.loc.gov/pictures/collection/lomax/item/2007660115/" />
@@ -433,7 +446,10 @@ want that kind o' stuff. This is kindly what he's after”, and he started singi
     <p>
       The Lomaxes next stop was at the Florida State Penitentiary at Raiford. With the help of the recreational director and band leader John Lomax found some singers. They set up the machine in a room that had had been used for an exhibit of arts and crafts of convicts. They worked several hours with a quartet who sang, with guitar accompaniment for some of the songs. James Richardson who sang <SoundText audioUrl="./static/afc1939001_02706a2.wav" text="Home on the Range"/> said he had sung it for radio on some state official occassion. Next morning as they started out, Superintendent Chapman called Ruby Lomax back and said he did not want her to go into the men's dormitory; he did not want to take any chance of the men's trying a break with her as hostage. Ruby Lomax was allowed to visit the women's ward instead. The women had had church service early after which the Lomaxes set up their machine for everyone who wished to stay. A notable recording from this session includes <SoundText audioUrl="./static/afc1939001_03556a1.wav" text="Sometimes I Feel Like a Motherless Child"/>
     </p>
+    <hr/>
     <BarChart state="Florida"></BarChart>
+    <hr/>
+    <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="Florida"></Bloom>
     <hr/>
     <ImageAndCaption source="00413v.jpg" caption="Farm wagon, driven by an African American man, Reed Camp, South Carolina" link="http://www.loc.gov/pictures/collection/lomax/item/2007660245/resource/" />
@@ -473,7 +489,10 @@ to read when she received her first love-letter<span><a href="http://tile.loc.go
       By the time we had packed up ready to go, the rain was coming down in sheets. Mr. Robertson braved the storm to back the car as close to the door as possible; with the help of the deacons we loaded up and with the careful driving of Mr. Robertson we slid safely along the clay roads home. I couldn't help wondering what the “Sunday Best” of those faithful church members looked like after they had waded through the rain over the several miles that many had to travel. They are a very patient, fine-spirited people.
       <span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0291.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
     </p>
+    <hr/>
     <BarChart state="South Carolina"></BarChart>
+    <hr/>
+    <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="South Carolina"></Bloom>
     <hr/>
     <ImageAndCaption source="45523534.jpeg" caption="Program for the Singing Festival at Toccoa Falls, 1939" link="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0298.jp2&res=2" />
@@ -487,7 +506,10 @@ When the song was played back Mr. Lomax heard to his amazement an imitation of a
 Negro spiritual.' And on this trip he had just recorded hundreds of genuine spirituals from
 Negroes themselves<span><a href="http://tile.loc.gov/image-services/jp2.py?data=/service/afc/afc1939001/afc1939001_fn0001/0290.jp2&res=1" target="blank">1939 Southern Recording Trip Fieldnotes</a></span>
     </p>
+    <hr/>
     <BarChart state="Georgia"></BarChart>
+    <hr/>
+    <ImageAndCaption source="key.png"></ImageAndCaption>
     <Bloom :data="theData" state="Georgia"></Bloom>
     <hr />
     <ImageAndCaption source="01526v.jpg" caption="Capitol Hill, aerial view showing Library of Congress and annex, 1939" link="https://www.loc.gov/item/2012646221/" />
@@ -691,9 +713,14 @@ hr:before{
 }
 
 h2{
+  font-family: 'Alfa Slab One', cursive;
   font-size: 30px;
   color: deeppink;
   margin-bottom: 5px;
+}
+
+.barchart + .imageContainer{
+  margin-top: 60px;
 }
 
 #tw span{
@@ -704,8 +731,7 @@ h2{
 }
 
 footer{
-  margin-top: 100px;
-  padding-bottom: 100px;
+  margin: 100px 0;
   color: white;
   font-family: 'Alfa Slab One', cursive;
 }
