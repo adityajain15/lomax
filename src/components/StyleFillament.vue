@@ -1,7 +1,7 @@
 <template >
   <g>
     <template v-for="(person,personIndex) of songContributors">
-      <path v-if="shouldRender[person]" :d="allPaths[person]" />
+      <path :style="shouldRender[person]" :d="allPaths[person]" />
     </template>
   </g>
 </template>
@@ -37,12 +37,16 @@ export default {
       let shouldRenderObject = {}
       if (theFilter === {} || !(theFilter.state === this.state)) {
         for (let i = 0; i < this.songContributors.length; i++) {
-          shouldRenderObject[this.songContributors[i]] = true
+          shouldRenderObject[this.songContributors[i]] = {display: 'block'}
         }
         return shouldRenderObject
       }
       for (let i = 0; i < this.songContributors.length; i++) {
-        shouldRenderObject[this.songContributors[i]] = theFilter.person.includes(this.songContributors[i]) && theFilter.id.includes(this.songObject['Digital Id'])
+        if (theFilter.person.includes(this.songContributors[i]) && theFilter.id.includes(this.songObject['Digital Id'])) {
+          shouldRenderObject[this.songContributors[i]] = {display: 'block'}
+        } else {
+          shouldRenderObject[this.songContributors[i]] = {display: 'none'}
+        }
       }
       return shouldRenderObject
     },

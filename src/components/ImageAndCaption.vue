@@ -1,6 +1,9 @@
 <template>
   <div class="imageContainer">
-    <img class="lozad" :data-src="theImage"/>
+    <div class="lazyLoader">
+      <img class="lozad" :data-src="theImage"/>
+      <img class="minified" :src="minifiedImage"/>
+    </div>
     <caption v-if="this.caption.length!==0">{{this.caption}}</caption>
     <a v-if="this.link.length!==0" :href="this.link" target="blank"><span>From the Library of Congress</span></a>
   </div>
@@ -27,10 +30,13 @@ export default {
   computed: {
     theImage: function () {
       return require(`../../static/Images/${this.source}`)
+    },
+    minifiedImage: function () {
+      return require(`../../static/Resized_Images/${this.source}`)
     }
   },
   mounted: function () {
-    const observer = lozad(this.$el.children[0])
+    const observer = lozad(this.$el.children[0].children[0])
     observer.observe()
   }
 }
@@ -43,11 +49,24 @@ div{
   margin-left: auto;
   margin-right: auto;
 }
+.lazyLoader{
+  margin-bottom: 10px;
+  position: relative;
+  width: 100%;
+}
+.minified{
+  
+}
+.lozad{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+}
 img{
   width: 100%;
 }
 caption{
-  margin-top: 10px;
   display: inline-block;
   font-style: italic;
   font-family: 'Georgia';

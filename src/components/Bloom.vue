@@ -86,7 +86,7 @@ export default {
   data: function () {
     return {
       unfurled: false,
-      angleShift: Math.PI,
+      angleShift: 0,
       elementWidth: 500,
       elementHeight: 500
     }
@@ -94,15 +94,15 @@ export default {
   mounted: function () {
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
-    const unfurlWaypoint = new Waypoint({
+    /*const rand = new Waypoint({
       element: this.$el,
-      offset: this.elementHeight * 0.75,
+      offset: this.elementHeight * 0.50,
       handler: (direction) => {
         if (!this.unfurled && direction === 'down') {
           this.unfurled = true
         }
       }
-    })
+    })*/
   },
   computed: {
     baseTranslate: function () {

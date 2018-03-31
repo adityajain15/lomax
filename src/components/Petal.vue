@@ -1,5 +1,5 @@
 <template>
-  <g v-if="shouldRender">
+  <g :style="styleObject">
     <path :d="pathData"/>
     
     <template v-for="(personObject, person, personIndex) of peopleData">
@@ -62,6 +62,11 @@ export default {
       let theFilter = this.$store.getters.getStyleFilter
       if (theFilter === {} || !(theFilter.state === this.state)) { return true }
       return theFilter.county === this.county
+    },
+    styleObject: function () {
+      return {
+        display: this.shouldRender ? 'block' : 'none'
+      }
     },
     pathData: function () {
       return `M0 0 C ${this.firstControlPointX} ${this.firstControlPointY}, ${this.secondControlPointX} ${this.secondControlPointY}, ${this.xPosition} ${this.yPosition}`

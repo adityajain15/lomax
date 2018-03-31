@@ -13,11 +13,9 @@
 </template>
 
 <script>
-import { store } from '../store'
 import SouthernStatesSVG from '../assets/sm.svg'
 export default {
   name: 'FullPageContainer',
-  store: store,
   components: {
     SouthernStatesSVG
   }

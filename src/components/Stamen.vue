@@ -1,5 +1,5 @@
 <template>
-  <circle v-if="shouldRender" :style="styleObject" :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" v-on:mouseenter="setStamenFilter(true, $event)" v-on:mouseleave="setStamenFilter(false, $event)" v-on:click="displayModal()">
+  <circle :style="styleObject" :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" v-on:mouseenter="setStamenFilter(true, $event)" v-on:mouseleave="setStamenFilter(false, $event)" v-on:click="displayModal()">
   </circle>
 </template>
 
@@ -47,6 +47,7 @@ export default {
     styleObject: function () {
       let temp = {}
       const attributes = this.$store.getters.getPersonData(this.person, this.county)
+      temp['display'] = this.shouldRender ? 'block' : 'none'
       if (attributes.includes('Convict')) {
         if (attributes.includes('White')) {
           temp['fill'] = 'url(#horizontalLines8)'
