@@ -530,19 +530,17 @@ a:hover{
   position: relative;
 }
 
-@media (min-device-width : 320px) and (max-device-width : 750px) {
-
-    #mapModal{
-  height: 90%;
-  top: 5%;
-    }
-    #mapModal button{
-  
-  width: 90%;
-  
-
+@media only screen and (max-device-width: 750px) and (min-device-width: 320px){
+  #mapContainer #mapModal{
+    height: 60%;
+    top: 20%;
+  }
+  #mapContainer #mapModal button{
+    width: 90%;
+  }
 }
-}
+
+
 
 h2{
   color: deeppink;
