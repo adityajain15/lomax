@@ -31,8 +31,9 @@ export default {
   },
   methods: {
     onResize: function () {
-      this.chartWidth = this.$el.clientWidth - (2 * this.margin)
-      this.clientWidth = this.$el.clientWidth
+      // the following uses the parent element's width instead of its own. This is a hack, firefox seems to be misbehaving when I call for the element's own width. Chrome and Safari handles it fine
+      this.chartWidth = (this.$el.parentElement.clientWidth * 0.95) - (2 * this.margin)
+      this.clientWidth = (this.$el.parentElement.clientWidth * 0.95)
     },
     getColor: function (song) {
       for (let i = 0; i < colorMap.length; i++) {
@@ -100,13 +101,15 @@ export default {
     },
     radius: function () {
       let computeRadius = (this.chartWidth / this.domainMax) / 2
-      if (computeRadius > 6 || computeRadius < 0) { return 6 }
+      if (computeRadius > 6) { return 6 }
       return computeRadius
     }
   },
   mounted: function () {
-    window.addEventListener('resize', this.onResize)
-    this.onResize()
+    this.$nextTick(function () {
+      window.addEventListener('resize', this.onResize)
+      this.onResize()
+    })
   }
 }
 </script>
