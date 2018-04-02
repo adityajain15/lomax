@@ -1,7 +1,7 @@
 <template>
   <svg class="barchart" :height="SVGHeight" width="95%">
-    <text :x="clientWidth / 2" :y="margin" text-anchor="middle">Genre breakdown of songs from {{state}}</text>
-    <text :x="clientWidth / 2" :y="margin + textHeight" text-anchor="middle">Click circles for more information</text>
+    <text :x="chartWidth / 2" :y="margin" text-anchor="middle">Genre breakdown of songs from {{state}}</text>
+    <text :x="chartWidth / 2" :y="margin + textHeight" text-anchor="middle">Click circles for more information</text>
     <template v-for="(songCategory, songCategoryIndex) of sortedSegmentedSongs">
       <text class="barChartLabel" :state="state" :x="margin" :y="margin + (2 * textHeight) + (2 * textHeight * songCategoryIndex)">{{songCategory}}</text>
       <template v-for="(song, songIndex) of segmentedSongs[songCategory]">
