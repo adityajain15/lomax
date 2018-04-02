@@ -100,7 +100,7 @@ export default {
     },
     radius: function () {
       let computeRadius = (this.chartWidth / this.domainMax) / 2
-      if (computeRadius > 6) { return 6 }
+      if (computeRadius > 6 || computeRadius < 0) { return 6 }
       return computeRadius
     }
   },
