@@ -84,28 +84,21 @@ export default {
   mounted: function () {
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
-    const scroller = scrollama()
 
-    // setup the instance, pass callback functions
-    scroller
-      .setup({
-        step: `.${this.classString}`,
-        once: true,
-        offset: 0.75
-      })
-      .onStepEnter(() => {
-        this.unfurled = true
-      })
-
-    /*const rand = new Waypoint({
-      element: this.$el,
-      offset: this.elementHeight * 0.75,
-      handler: (direction) => {
-        if (!this.unfurled && direction === 'down') {
+    if (this.isMobile) {
+      this.angleShift = 0
+    } else {
+      const scroller = scrollama()
+      scroller
+        .setup({
+          step: `.${this.classString}`,
+          once: true,
+          offset: 0.75
+        })
+        .onStepEnter(() => {
           this.unfurled = true
-        }
-      }
-    })*/
+        })
+    }
   },
   computed: {
     baseTranslate: function () {
@@ -122,10 +115,10 @@ export default {
     },
     isTexasMobile: function () {
       // hack to fix Texas on mobile devices
-      if (this.elementWidth < 650 && this.state === 'Texas') {
-        return true
-      }
-      return false
+      return this.isMobile && this.state === 'Texas'
+    },
+    isMobile: function () {
+      return this.elementWidth < 650
     },
     angleSize: function () {
       return Math.PI / Object.keys(this.countyData).length
