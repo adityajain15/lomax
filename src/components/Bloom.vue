@@ -1,6 +1,6 @@
 <template>
-  <div class="bloomContainer">
-    <svg :height="elementHeight" class="bloom" :id="state">
+  <div class="bloomContainer" :class="classString">
+    <svg :height="elementHeight" :id="state">
       <defs>
         <pattern id="circlePattern" width="4" height="4"
             patternUnits="userSpaceOnUse">
@@ -62,7 +62,8 @@
 import { store } from '../store'
 import Petal from './Petal'
 import {TweenMax} from 'gsap'
-require('waypoints/lib/noframework.waypoints.js')
+import 'intersection-observer'
+import scrollama from 'scrollama'
 
 export default {
   name: 'Bloom',
@@ -74,7 +75,7 @@ export default {
   data: function () {
     return {
       unfurled: false,
-      angleShift: 0,
+      angleShift: Math.PI,
       elementWidth: 500,
       elementHeight: 500,
       filter: {}
@@ -83,9 +84,22 @@ export default {
   mounted: function () {
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
+    const scroller = scrollama()
+
+    // setup the instance, pass callback functions
+    scroller
+      .setup({
+        step: `.${this.classString}`,
+        once: true,
+        offset: 0.75
+      })
+      .onStepEnter(() => {
+        this.unfurled = true
+      })
+
     /*const rand = new Waypoint({
       element: this.$el,
-      offset: this.elementHeight * 0.50,
+      offset: this.elementHeight * 0.75,
       handler: (direction) => {
         if (!this.unfurled && direction === 'down') {
           this.unfurled = true
@@ -96,6 +110,9 @@ export default {
   computed: {
     baseTranslate: function () {
       return `translate(${this.elementWidth / 2},${this.elementHeight})`
+    },
+    classString: function () {
+      return `bloom-${this.state.replace(/\s/g, '')}`
     },
     radiusSize: function () {
       return this.halfWidth / 10
