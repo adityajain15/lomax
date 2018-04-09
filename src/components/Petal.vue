@@ -3,25 +3,25 @@
     <path :d="pathData"/>
     
     <template v-for="(personObject, person, personIndex) of peopleData">
-      <StamenFillament :personObject="personObject" :person="person" :index="index" :personIndex="personIndex" :angleSize="angleSize" :halfWidth="halfWidth" :numPeople="numPeople" :angleShift="angleShift" :petalCords="petalCords" :county="county" :state="state" :isTexasMobile="isTexasMobile"></StamenFillament>
+      <StamenFillament :personObject="personObject" :person="person" :index="index" :personIndex="personIndex" :angleSize="angleSize" :halfWidth="halfWidth" :numPeople="numPeople" :angleShift="angleShift" :petalCords="petalCords" :county="county" :state="state" :isTexasMobile="isTexasMobile" :filter="filter"></StamenFillament>
     </template>
 
     <template v-for="(songObject, songIndex) of this.obj">
-      <StyleFillament :songObject="songObject" :index="index" :songIndex="songIndex" :angleSize="angleSize" :halfWidth="halfWidth" :totalSongs="totalSongs" :angleShift="angleShift" :county="county" :state="state" :isTexasMobile="isTexasMobile">
+      <StyleFillament :songObject="songObject" :index="index" :songIndex="songIndex" :angleSize="angleSize" :halfWidth="halfWidth" :totalSongs="totalSongs" :angleShift="angleShift" :county="county" :state="state" :isTexasMobile="isTexasMobile" :filter="filter">
       </StyleFillament>
     </template>
 
     <template v-for="(songObject, songIndex) of this.obj">
-      <Style :songObject="songObject" :county="county" :state="state" :isTexasMobile="isTexasMobile">
+      <Style :songObject="songObject" :county="county" :state="state" :isTexasMobile="isTexasMobile" :filter="filter" v-on:filterChange="emitFilter" v-on:resetFilter="resetFilter">
       </Style>
     </template>
 
     <template v-for="(personObject, person, personIndex) of peopleData">
-      <Stamen :person="person" :personObject="personObject" :county="county" :state="state" :isTexasMobile="isTexasMobile">
+      <Stamen :person="person" :personObject="personObject" :county="county" :state="state" :isTexasMobile="isTexasMobile" :filter="filter" v-on:filterChange="emitFilter" v-on:resetFilter="resetFilter">
       </Stamen>
     </template>
 
-    <circle :cx="xPosition" :cy="yPosition" :r="radiusSize" :class="county" v-on:mouseenter="setPetalFilter(true, $event)" v-on:mouseleave="setPetalFilter(false, $event)"></circle>
+    <circle :cx="xPosition" :cy="yPosition" :r="radiusSize" :class="county" v-on:mouseenter="setPetalFilter($event)" v-on:mouseleave="resetFilter"></circle>
   </g>
 </template>
 
@@ -40,28 +40,31 @@ export default {
     Stamen,
     Style
   },
-  props: ['obj', 'county', 'index', 'angleSize', 'halfWidth', 'angleShift', 'state', 'isTexasMobile'],
+  props: ['obj', 'county', 'index', 'angleSize', 'halfWidth', 'angleShift', 'state', 'isTexasMobile', 'filter'],
   methods: {
     getPersonAttributes: function (personName) {
       return this.personAttributes.filter((d) => { return d.name === personName })[0]
     },
-    setPetalFilter: function (didEnter, event) {
-      if (didEnter) {
-        let allSongs = this.obj.map(d => { return d['Digital Id'] })
-        this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: Object.keys(this.peopleData), id: allSongs})
-        this.$store.commit('setDisplayTooltip', true)
-        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: `${this.county}`})
-      } else {
-        this.$store.commit('setStyleFilter', {})
-        this.$store.commit('setDisplayTooltip', false)
-      }
+    setPetalFilter: function (event) {
+      this.$store.commit('setDisplayTooltip', true)
+      this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: `${this.county}`})
+
+      let allSongs = this.obj.map(d => { return d['Digital Id'] })
+      let newFilter = {county: this.county, person: Object.keys(this.peopleData), id: allSongs}
+      this.emitFilter(newFilter)
+    },
+    resetFilter: function () {
+      this.$store.commit('setDisplayTooltip', false)
+      this.$emit('filterChange', {})
+    },
+    emitFilter: function (newFilter) {
+      this.$emit('filterChange', newFilter)
     }
   },
   computed: {
     shouldRender: function () {
-      let theFilter = this.$store.getters.getStyleFilter
-      if (theFilter === {} || !(theFilter.state === this.state)) { return true }
-      return theFilter.county === this.county
+      if (Object.keys(this.filter).length === 0) { return true }
+      return this.filter.county === this.county
     },
     styleObject: function () {
       return {

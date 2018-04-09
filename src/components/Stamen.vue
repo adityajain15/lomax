@@ -1,5 +1,5 @@
 <template>
-  <circle :style="styleObject" :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" v-on:mouseenter="setStamenFilter(true, $event)" v-on:mouseleave="setStamenFilter(false, $event)" v-on:click="displayModal()">
+  <circle :style="styleObject" :cx="xPosition" :cy="yPosition" :r="radiusSize" :performer="person" v-on:mouseenter="setStamenFilter($event)" v-on:mouseleave="$emit('resetFilter')" v-on:click="displayModal()">
   </circle>
 </template>
 
@@ -8,22 +8,19 @@ import { store } from '../store'
 export default {
   name: 'Stamen',
   store: store,
-  props: ['person', 'personObject', 'county', 'state', 'isTexasMobile'],
+  props: ['person', 'personObject', 'county', 'state', 'isTexasMobile', 'filter'],
   methods: {
     displayModal: function () {
       this.$store.commit('setModal', {data: this.personObject, name: this.person, county: this.county, state: this.state, type: 'person'})
       this.$store.commit('setDisplayModal', true)
       this.$store.commit('setDisplayTooltip', false)
     },
-    setStamenFilter: function (didEnter) {
-      if (didEnter) {
-        this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: [this.person], id: this.allSongs})
-        this.$store.commit('setDisplayTooltip', true)
-        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: `${this.person}. Click circle for more information`})
-      } else {
-        this.$store.commit('setStyleFilter', {})
-        this.$store.commit('setDisplayTooltip', false)
-      }
+    setStamenFilter: function (event) {
+      let newFilter = {county: this.county, person: [this.person], id: this.allSongs}
+      this.$emit('filterChange', newFilter)
+
+      this.$store.commit('setDisplayTooltip', true)
+      this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: `${this.person}. Click circle for more information`})
     }
   },
   computed: {
@@ -40,9 +37,8 @@ export default {
       return this.$store.getters.getStamenCordY({county: this.county, name: this.person})
     },
     shouldRender: function () {
-      let theFilter = this.$store.getters.getStyleFilter
-      if (theFilter === {} || !(theFilter.state === this.state)) { return true }
-      return theFilter.person.includes(this.person)
+      if (Object.keys(this.filter).length === 0) { return true }
+      return this.filter.person.includes(this.person)
     },
     allSongs: function () {
       return this.personObject.map((d) => { return d['Digital Id'] })
