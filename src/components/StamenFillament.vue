@@ -1,5 +1,5 @@
 <template>
-  <path v-if="shouldRender" :d="pathData"/>
+  <path :style="styleObject" :d="pathData"/>
 </template>
 
 <script>
@@ -7,16 +7,19 @@ import { store } from '../store'
 export default {
   name: 'StamenFillament',
   store: store,
-  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county', 'state', 'isTexasMobile'],
+  props: ['personObject', 'person', 'index', 'personIndex', 'angleSize', 'halfWidth', 'numPeople', 'angleShift', 'petalCords', 'county', 'state', 'isTexasMobile', 'filter'],
   computed: {
     shouldRender: function () {
-      let theFilter = this.$store.getters.getStyleFilter
-      if (theFilter === {}) { return true }
-      if (!(theFilter.state === this.state)) { return true }
-      return theFilter.person.includes(this.person)
+      if (Object.keys(this.filter).length === 0) { return true }
+      return this.filter.person.includes(this.person)
     },
     pathData: function () {
       return `M${this.petalCords.x} ${this.petalCords.y} C ${this.firstControlPointX} ${this.firstControlPointY}, ${this.secondControlPointX} ${this.secondControlPointY}, ${this.xPosition} ${this.yPosition}`
+    },
+    styleObject: function () {
+      return {
+        display: this.shouldRender ? 'block' : 'none'
+      }
     },
     lineLength: function () {
       return Math.hypot(((this.arcRadius) * Math.cos(this.angle)) - this.petalCords.x, (-(this.arcRadius) * Math.sin(this.angle)) - this.petalCords.y)

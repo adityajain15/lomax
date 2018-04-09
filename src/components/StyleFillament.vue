@@ -12,7 +12,7 @@ import { store } from '../store'
 export default {
   name: 'StyleFillament',
   store: store,
-  props: ['songObject', 'index', 'songIndex', 'angleSize', 'halfWidth', 'totalSongs', 'angleShift', 'county', 'state', 'isTexasMobile'],
+  props: ['songObject', 'index', 'songIndex', 'angleSize', 'halfWidth', 'totalSongs', 'angleShift', 'county', 'state', 'isTexasMobile', 'filter'],
   methods: {
     calculateFilament: function (personX, personY) {
       let lineLength = Math.hypot((this.arcRadius * Math.cos(this.angle)) - personX, (-this.arcRadius * Math.sin(this.angle)) - personY)
@@ -33,16 +33,15 @@ export default {
   },
   computed: {
     shouldRender: function () {
-      let theFilter = this.$store.getters.getStyleFilter
       let shouldRenderObject = {}
-      if (theFilter === {} || !(theFilter.state === this.state)) {
+      if (Object.keys(this.filter).length === 0) {
         for (let i = 0; i < this.songContributors.length; i++) {
           shouldRenderObject[this.songContributors[i]] = {display: 'block'}
         }
         return shouldRenderObject
       }
       for (let i = 0; i < this.songContributors.length; i++) {
-        if (theFilter.person.includes(this.songContributors[i]) && theFilter.id.includes(this.songObject['Digital Id'])) {
+        if (this.filter.person.includes(this.songContributors[i]) && this.filter.id.includes(this.songObject['Digital Id'])) {
           shouldRenderObject[this.songContributors[i]] = {display: 'block'}
         } else {
           shouldRenderObject[this.songContributors[i]] = {display: 'none'}

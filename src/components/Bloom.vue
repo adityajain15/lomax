@@ -48,7 +48,7 @@
       </defs>
       <g :transform="baseTranslate">
         <template v-for="(obj,county,index) of countyData">
-          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :state="state" :isTexasMobile="isTexasMobile">
+          <Petal :obj="obj" :county="county" :index="index" :angleSize="angleSize" :halfWidth="halfWidth" :angleShift="angleShift" :state="state" :isTexasMobile="isTexasMobile" :filter="filter" v-on:filterChange="filterChange">
           </Petal> 
         </template>
         <circle :cx="0" :cy="0" :r="radiusSize"></circle>
@@ -76,7 +76,8 @@ export default {
       unfurled: false,
       angleShift: 0,
       elementWidth: 500,
-      elementHeight: 500
+      elementHeight: 500,
+      filter: {}
     }
   },
   mounted: function () {
@@ -138,6 +139,9 @@ export default {
     },
     unfurl: function () {
       this.unfurled = true
+    },
+    filterChange: function (newFilter) {
+      this.filter = newFilter
     }
   },
   watch: {

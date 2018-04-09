@@ -1,5 +1,5 @@
 <template>
-  <circle :cx="xPosition" :cy="yPosition" :style="styleObject" :r="radiusSize" class="song" v-on:click="displayModal()" v-on:mouseenter="setStyleFilter(true, $event)" v-on:mouseleave="setStyleFilter(false, $event)"></circle>
+  <circle :cx="xPosition" :cy="yPosition" :style="styleObject" :r="radiusSize" class="song" v-on:click="displayModal()" v-on:mouseenter="setStyleFilter($event)" v-on:mouseleave="$emit('resetFilter')"></circle>
 </template>
 
 <script>
@@ -9,29 +9,25 @@ import colorMap from '../colorMap'
 export default {
   name: 'Style',
   store: store,
-  props: ['songObject', 'county', 'state', 'isTexasMobile'],
+  props: ['songObject', 'county', 'state', 'isTexasMobile', 'filter'],
   methods: {
     displayModal: function () {
       this.$store.commit('setModal', {data: this.songObject, type: 'song'})
       this.$store.commit('setDisplayModal', true)
       this.$store.commit('setDisplayTooltip', false)
     },
-    setStyleFilter: function (didEnter, event) {
-      if (didEnter) {
-        this.$store.commit('setDisplayTooltip', true)
-        this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: `${this.songObject.Title}. Click for more information`})
-        this.$store.commit('setStyleFilter', {state: this.state, county: this.county, person: this.songContributors, id: [this.songObject['Digital Id']]})
-      } else {
-        this.$store.commit('setDisplayTooltip', false)
-        this.$store.commit('setStyleFilter', {})
-      }
+    setStyleFilter: function (event) {
+      this.$store.commit('setDisplayTooltip', true)
+      this.$store.commit('setTooltip', {mouseX: event.clientX, mouseY: event.clientY, text: `${this.songObject.Title}. Click for more information`})
+
+      const newFilter = {county: this.county, person: this.songContributors, id: [this.songObject['Digital Id']]}
+      this.$emit('filterChange', newFilter)
     }
   },
   computed: {
     shouldRender: function () {
-      let theFilter = this.$store.getters.getStyleFilter
-      if (theFilter === {} || !(theFilter.state === this.state)) { return true }
-      return theFilter.id.includes(this.songObject['Digital Id'])
+      if (Object.keys(this.filter).length === 0) { return true }
+      return this.filter.id.includes(this.songObject['Digital Id'])
     },
     styleObject: function () {
       let theColor = 'white'
