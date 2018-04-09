@@ -9,13 +9,13 @@
     </div>
     <hr />
     <p>
-      John Avery Lomax, born Sept. 23, 1867, in Goodman, Miss., had been collecting songs since his childhood in Bosque County, Texas, jotting down lyrics to cowboy songs as he listened. Lomax later taught English at Texas A&M University, researched and collected cowboy songs and, with Professor Leonidas Payne of the University of Texas at Austin, co-founded the Texas Folklore Society, a branch of the American Folklore Society. 
+      John Avery Lomax, born Sept. 23, 1867 in Goodman, Mississippi, had been collecting songs since his childhood in Bosque County, Texas, jotting down lyrics to cowboy songs as he listened. Lomax later taught English at Texas A&M University, researched and collected cowboy songs and, with Professor Leonidas Payne of the University of Texas at Austin, co-founded the Texas Folklore Society, a branch of the American Folklore Society. 
     </p>
     <p>
-      The Texas Folklore Society's founding members shared with Lomax a sense that their state's rich folklore needed to be documented and preserved for the analysis of later scholars. Nascent technology such as the radio and the gramophone, it was feared, would end the age-old tradition of transmitting music and lore directly from one person to the next. With professional musicians' works being piped into homes across the country, the purity of traditional music, its particularities of region, religion and ethnicity, could be lost forever.
+      The Texas Folklore Society's founding members shared with Lomax a sense that their state's rich folklore needed to be documented and preserved for the analysis of later scholars. Nascent technology such as the radio and the gramophone, it was feared, would end the age-old tradition of transmitting music and lore directly from one person to the next. With professional musicians' works being piped into homes across the country, the purity of traditional music and its particularities of region, religion and ethnicity, could be lost forever.
     </p>
     <p>
-      Circumstances took John Lomax away from his beloved Texas in 1917, when he accepted a job as a banker in Chicago. When his wife, Bess Brown Lomax, died in 1931, a full-scale return to folklore studies, as a lecturer and folk song researcher, gradually revived the despondent John Lomax. The Macmillan publishing company accepted his proposal for an all-inclusive anthology of American ballads and folk songs, and in the summer of 1932 he traveled to Washington to do research in the Archive of American Folk Song at the Library of Congress.
+      Circumstances took John Lomax away from his beloved Texas in 1917, when he accepted a job as a banker in Chicago. When his wife, Bess Brown Lomax, died in 1931, a full-scale return to folklore studies, as a lecturer and folk song researcher, gradually revived the despondent John Lomax. The Macmillan publishing company accepted his proposal for an all-inclusive anthology of American ballads and folk songs, and in the summer of 1932 he traveled to Washington D.C. to do research in the Archive of American Folk Song at the Library of Congress.
     </p>
     <ImageAndCaption source="JL_Portrait.jpg" caption='John Avery Lomax (Alan Lomax Collection AFC 2004/004)'></ImageAndCaption>
     <p>
