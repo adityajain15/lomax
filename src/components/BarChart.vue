@@ -1,14 +1,17 @@
 <template>
-  <svg class="barchart" :height="SVGHeight" width="95%">
-    <text :x="chartWidth / 2" :y="margin" text-anchor="middle">Genre breakdown of songs from {{state}}</text>
-    <text :x="chartWidth / 2" :y="margin + textHeight" text-anchor="middle">Click circles for more information</text>
-    <template v-for="(songCategory, songCategoryIndex) of sortedSegmentedSongs">
-      <text class="barChartLabel" :state="state" :x="margin" :y="margin + (2 * textHeight) + (2 * textHeight * songCategoryIndex)">{{songCategory}}</text>
-      <template v-for="(song, songIndex) of segmentedSongs[songCategory]">
-        <circle :cx="margin + radius + (songIndex * (2 * radius))" :cy="margin + (3 * textHeight) + (2 * textHeight * songCategoryIndex) - radius" :r="radius" :fill="getColor(song)" v-on:mouseover="setTooltip(song, $event)" v-on:mouseleave="removeTooltip" v-on:click="displayModal(song)"></circle>
+  <div>
+    <span>Genre breakdown of songs from {{state}}</span>
+    <span>Click circles for more information</span>
+    <svg class="barchart" :height="SVGHeight">
+      
+      <template v-for="(songCategory, songCategoryIndex) of sortedSegmentedSongs">
+        <text class="barChartLabel" :state="state" :x="margin" :y="textHeight + (3 * textHeight * songCategoryIndex)">{{songCategory}}</text>
+        <template v-for="(song, songIndex) of segmentedSongs[songCategory]">
+          <circle :cx="margin + radius + (songIndex * (2 * radius))" :cy="(2 * textHeight) + (3 * textHeight * songCategoryIndex) - radius" :r="radius" :fill="getColor(song)" v-on:mouseover="setTooltip(song, $event)" v-on:mouseleave="removeTooltip" v-on:click="displayModal(song)"></circle>
+        </template>
       </template>
-    </template>
-  </svg>
+    </svg>
+  </div>
 </template>
 
 <script>
@@ -25,8 +28,7 @@ export default {
       'clientWidth': 500,
       'marginTop': 30,
       'margin': 20,
-      'padding': 10,
-      'textHeight': 22
+      'textHeight': 16
     }
   },
   methods: {
@@ -89,8 +91,7 @@ export default {
       return this.sortedSegmentedSongs.length
     },
     SVGHeight: function () {
-      // this math is possibly wrong
-      return ((this.numCategories) * 2 * this.textHeight) + (2 * this.margin) + (this.textHeight)
+      return ((this.numCategories) * 3 * this.textHeight) - this.textHeight
     },
     domainMax: function () {
       if (this.segmentedSongs.hasOwnProperty(this.sortedSegmentedSongs[this.sortedSegmentedSongs.length - 1])) {
@@ -115,22 +116,31 @@ export default {
 </script>
 
 <style scoped>
+div{
+  max-width: 1000px;
+  width: 95%;
+  border: 1px solid white;
+  padding: 10px 0px;
+  margin: auto;
+  font-family: 'Alfa Slab One', cursive;
+}
 svg{
   background: #141e30;
-  max-width: 1000px;
-  border: 1px solid white;
+  width: 100%;
 }
 circle:hover{
   cursor: pointer;
   stroke: white;
   stroke-width: 2px;
 }
-text{
-  font-family: 'Alfa Slab One', cursive;
-  fill: deeppink;
+span{
+  color: deeppink;
+  display: block;
+  line-height: 1.2;
 }
 
 .barChartLabel{
   fill: white;
+  font-size: 16px;
 }
 </style>
