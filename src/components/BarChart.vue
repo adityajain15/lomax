@@ -125,6 +125,7 @@ div{
   font-family: 'Alfa Slab One', cursive;
 }
 svg{
+  margin-top: 10px;
   background: #141e30;
   width: 100%;
 }
